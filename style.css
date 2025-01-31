@@ -34,7 +34,7 @@ section {
   transition: transform 0.3s ease-in-out;
 }
 
-/* En-tête */
+/* --- HEADER FIXE --- */
 header {
   position: fixed;
   top: 0;
@@ -42,56 +42,68 @@ header {
   width: 100%;
   background-color: #151515;
   color: #fff;
-  padding: 20px 0;
-  z-index: 999;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease-in-out;
+  padding: 15px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
+/* --- TITRE --- */
 header h1 {
   font-family: 'Oswald', sans-serif;
   text-align: center;
-  max-width: 80%; 
-  margin: 0 auto;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #007bff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin: 0;
 }
 
+/* --- MENU NAV --- */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* --- MENU UL --- */
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
-  margin-top: 15px;
+  gap: 20px;
+  padding: 0;
+  margin: 15px 0 0;
 }
 
 nav li {
-  margin: 0 20px;
+  margin: 0;
 }
 
+/* --- LIENS DU MENU --- */
 nav a {
   font-family: 'Quicksand', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #e0e0e0;
   text-decoration: none;
   font-weight: bold;
   position: relative;
-  padding-bottom: 2px;
-  transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+  padding-bottom: 5px;
+  transition: color 0.3s ease-in-out;
 }
 
+/* --- SOULIGNEMENT ANIMÉ --- */
 nav a::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
   bottom: 0;
-  height: 2px;
   width: 0;
+  height: 2px;
   background-color: #007bff;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
 nav a:hover {
@@ -100,31 +112,77 @@ nav a:hover {
 
 nav a:hover::after {
   width: 100%;
+  left: 0;
 }
 
-/* Effet de changement de couleur de l'en-tête lors du défilement */
-body {
-  position: relative;
-}
-
-.scroll-down {
+/* --- MOBILE MENU BURGER --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  right: 20px;
+  top: 15px;
 }
 
+.menu-toggle div {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  /* Réduction de l'espacement du header */
+  header {
+    padding: 10px 0;
+  }
+
+  /* Ajustement du titre */
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Activation du menu burger */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Masquer le menu par défaut */
+  nav ul {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #222;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: none;
+  }
+
+  /* Afficher le menu quand actif */
+  nav ul.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+}
+
+/* --- SCROLL HEADER CHANGE --- */
 body.scrolled header {
   background-color: #222;
 }
 
-body.scrolled .scroll-down {
-  opacity: 1;
-}
 
 /* Section À propos avec animations */
 /* Section "À propos de moi" */
