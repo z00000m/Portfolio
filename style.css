@@ -1,0 +1,876 @@
+/* Importer les polices */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
+
+
+/* Style général */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+body {
+  background: radial-gradient(circle, #0d0d0d 30%, #121212 100%);
+  color: #e0e0e0;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Sections en plein écran */
+section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle, #0d0d0d 30%, #121212 100%);
+  border-bottom: 1px solid #333;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* En-tête */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #151515;
+  color: #fff;
+  padding: 20px 0;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease-in-out;
+}
+
+header h1 {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  max-width: 80%; 
+  margin: 0 auto;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #007bff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+nav a {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #007bff;
+  transition: width 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Effet de changement de couleur de l'en-tête lors du défilement */
+body {
+  position: relative;
+}
+
+.scroll-down {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.scrolled header {
+  background-color: #222;
+}
+
+body.scrolled .scroll-down {
+  opacity: 1;
+}
+
+/* Section À propos avec animations */
+/* Section "À propos de moi" */
+/* Section "À propos de moi" */
+#about {
+  background-color: #121212;
+  color: #f5f5f5;
+  padding: 80px 20px;
+  text-align: center;
+  overflow: hidden; /* Cache les débordements des animations */
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Titre principal */
+#about h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.8rem; /* Augmenté la taille du titre */
+  text-align: justify;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Augmenté l'espacement */
+  position: relative;
+  display: inline-block; /* Assure que la ligne bleue s'adapte au titre */
+  animation: fade-in-title 1s ease-out forwards; /* Animation pour le titre */
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.8); /* Effet de flou bleu autour du texte */
+}
+
+/* Animation pour le titre */
+@keyframes fade-in-title {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Effet de surbrillance bleue sous le titre */
+#about h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 2px;
+  animation: line-appear 1s ease-in-out;
+}
+
+/* Animation pour l'apparition de la ligne */
+@keyframes line-appear {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+/* Conteneur du contenu "À propos de moi" */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer tout le contenu dans le flexbox */
+  justify-content: center;
+  gap: 30px; /* Réduit l'écart entre photo et texte */
+  max-width: 1100px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in-content 1.2s ease-out forwards 0.5s;
+  text-align: center;
+}
+
+/* Animation de l'apparition du contenu */
+@keyframes fade-in-content {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Photo de profil */
+.about-photo {
+  max-width: 300px;
+  border-radius: 50%;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: zoom-in 1.5s ease-out forwards 0.8s;
+  opacity: 0;
+  object-fit: cover;
+}
+
+/* Animation zoom de la photo */
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Effet de survol de la photo */
+.about-photo:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Texte d'introduction */
+.about-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 700px;
+  animation: slide-up 1.2s ease-out forwards 1s;
+  opacity: 0;
+  color: #fff;
+  margin-bottom: 30px; /* Ajouté un espace après le texte */
+}
+
+/* Animation glissante pour le texte */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apparition progressive du texte */
+.about-text p {
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* Mobile et Tablette */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-photo {
+    max-width: 200px; /* Réduit la taille de la photo sur mobile */
+  }
+
+  .about-text {
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #about h2 {
+    font-size: 2.5rem; /* Réduit la taille du titre pour les petits écrans */
+  }
+
+  .about-photo {
+    max-width: 180px; /* Réduit encore plus la taille de la photo sur mobile */
+  }
+}
+
+
+
+/* Section Projets */
+#projects {
+  text-align: center;
+  background: radial-gradient(circle, #0d0d0d 30%, #121212 100%);
+  padding: 60px 20px;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Titre principal */
+.title-container {
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.title-container h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+}
+
+/* Ajouter une ligne bleue sous chaque titre */
+.title-container h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 2px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Grille des projets */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur grand écran */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* Projet professionnel prend toute la largeur */
+.professional-project {
+  grid-column: span 4; /* Occupe toute la largeur sur grand écran */
+}
+
+/* Style des cartes de projet */
+.project-card {
+  background-color: #0d0d0d;
+  border-radius: 15px;
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  min-height: 375px; /* Hauteur minimale pour uniformiser la taille des cartes */
+  width: 100%; /* Prendre toute la largeur disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Effet de zoom au survol */
+.project-card:hover {
+  transform: scale(1.05); /* Zoom sur la carte */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Ombre plus marquée */
+  background-color: #222;
+}
+
+/* Bouton Itch.io */
+.itchio-button {
+  display: inline-block;
+  background-color: #0d0d0d;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  margin-top: 15px;
+}
+
+.itchio-button:hover {
+  background-color: #007bff;
+  transform: scale(1.05);
+}
+
+/* 📱 Responsive Design */
+
+/* Adaptation pour tablettes */
+@media (max-width: 1024px) {
+  .project-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+  }
+
+  .professional-project {
+      grid-column: span 2; /* Projet pro prend toute la largeur */
+  }
+}
+
+/* Adaptation pour mobiles */
+@media (max-width: 600px) {
+  .project-grid {
+      grid-template-columns: repeat(1, 1fr); /* 1 seule colonne sur mobile */
+  }
+
+  .professional-project {
+      grid-column: span 1; /* Prend toute la largeur */
+  }
+}
+
+/* Section Compétences */
+#skills {
+  text-align: center;
+  padding: 80px 20px;
+  background: radial-gradient(circle, #0d0d0d 30%, #121212 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 2px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  position: relative;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 50px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.skills-card {
+  background: linear-gradient(135deg, #181818, #222);
+  color: white;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 10%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.skills-card:hover::before {
+  opacity: none;
+}
+
+.skills-card:hover {
+  transform: translateY(-8px);
+}
+
+.skills-card h3 {
+  font-size: 1.7rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 12px 0;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+li:hover {
+  color: #007bff;
+}
+
+meter {
+  width: 190px;
+  height: 18px;
+  border-radius: 10px;
+  border: none;
+}
+
+meter::-webkit-meter-bar {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+}
+
+meter::-webkit-meter-value {
+  background: linear-gradient(90deg, #007bff, #0044aa);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+}
+
+.skills-image {
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.skills-image:hover {
+  transform: scale(1.15);
+}
+
+.left-image, .right-image {
+  max-width: 250px;
+  border-radius: 50%;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 1s ease-out;
+}
+
+.left-image:hover, .right-image:hover {
+  transform: scale(1.08);
+}
+
+@media (max-width: 1024px) {
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .left-image, .right-image {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skill-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .left-image, .right-image {
+    max-width: 150px;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+
+/* Section Contact */
+#contact {
+  background: radial-gradient(circle, #0d0d0d 30%, #121212 100%);
+  padding: 80px 20px;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+#contact.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#contact h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+}
+
+/* Animation ligne sous le titre */
+#contact h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 2px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: auto;
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease-out;
+}
+
+/* Style des champs du formulaire */
+form label {
+  font-size: 1.6rem;
+  color: #e0e0e0;
+  margin-top: 15px;
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #e0e0e0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+  border-color: #4fa3f7;
+  outline: none;
+  box-shadow: 0 0 10px rgba(79, 163, 247, 0.5);
+  transform: scale(1.02);
+}
+
+form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #181818;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 15px 35px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+form button:hover {
+  background-color: #007bff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+form button:active {
+  transform: translateY(0);
+  animation: buttonPress 0.2s linear;
+}
+
+/* Animation du bouton */
+@keyframes buttonPress {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Ajout d'une icône d'envoi */
+form button::after {
+  content: "📩";
+  font-size: 20px;
+  margin-left: 10px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+form button:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Adaptabilité mobile */
+@media (max-width: 600px) {
+  form {
+      padding: 20px;
+  }
+  form input, form textarea {
+      font-size: 0.9rem;
+  }
+  form button {
+      padding: 12px 25px;
+      font-size: 16px;
+  }
+}
+
+
+/* Animation fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Lorsque l'élément devient visible */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Effet de défilement parallax */
+.scroll-effect {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-container {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  .about-photo {
+      margin-bottom: 20px;
+  }
+  .skill-header h3 {
+      font-size: 1.5rem;
+  }
+  .progress-bar {
+      height: 15px;
+  }
+}
+
+#animated-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  height: 100px; /* Ajuste selon ton besoin */
+}
+
+#animated-title span {
+  opacity: 0;
+  transform: translateY(10px);
+  display: inline-block;
+  animation: fadeInUp 0.05s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  to {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+}
+
+/* Conteneur des étoiles */
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Les étoiles ne doivent pas interférer avec les interactions de l'utilisateur */
+  z-index: -1; /* Assurez-vous que les étoiles sont derrière le contenu principal */
+}
+
+/* Style de l'étoile */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.8;
+  animation: starExplosion 1.5s infinite; /* Explosion en boucle */
+}
+
+/* Animation des étoiles (explosion) */
+@keyframes starExplosion {
+  0% {
+      transform: scale(1); /* Étoile commence normale */
+      opacity: 0.8;
+  }
+  50% {
+      transform: scale(2); /* Explosion de l'étoile */
+      opacity: 0.5;
+  }
+  100% {
+      transform: scale(1); /* Retour à la taille normale */
+      opacity: 0.8;
+  }
+}
+
