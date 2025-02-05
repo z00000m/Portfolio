@@ -674,8 +674,8 @@ li:hover {
 
 /* BARRES DE NIVEAU */
 meter {
-  width: 220px;
-  height: 18px;
+  width: 225px;
+  height: 20px;
   border-radius: 10px;
   border: none;
 }
@@ -1049,11 +1049,11 @@ form button:hover::after {
 
 /* 🌍 Positionnement amélioré */
 .planet-left {
-  left: 15%; /* Éloigne un peu du bord */
+  left: 10%; /* Éloigne un peu du bord */
 }
 
 .planet-right {
-  right: 15%; /* Éloigne un peu du bord */
+  right: 10%; /* Éloigne un peu du bord */
 }
 
 /* 🌍 Planètes plus grosses */
@@ -1107,15 +1107,7 @@ form button:hover::after {
               0 0 30px rgba(0, 0, 255, 0.5);
 }
 
-/* 🌍 Animation de rotation plus réaliste */
-@keyframes rotate-horizontal {
-  from {
-      transform: rotateY(0deg) rotateZ(0deg);
-  }
-  to {
-      transform: rotateY(360deg) rotateZ(15deg); /* Ajout d'une légère inclinaison */
-  }
-}
+
 
 /* 🌠 Animation d'orbite pour ajouter du mouvement */
 @keyframes orbit {
@@ -1137,8 +1129,8 @@ form button:hover::after {
       filter: brightness(1);
   }
   40% {
-      transform: scale(1.08); /* Expansion plus douce */
-      filter: brightness(1.3); /* Légère intensification */
+      transform: scale(1.05); /* Expansion plus douce */
+      filter: brightness(1.25); /* Légère intensification */
   }
   100% {
       transform: scale(1);
@@ -1167,20 +1159,21 @@ form button:hover::after {
 /* 🌍 Animation de flottement pour un effet plus vivant */
 @keyframes float {
   0% {
-      transform: translateY(-5px);
+      transform: translateY(-15px);
+      transform: rotate(-15deg);
   }
   50% {
-      transform: translateY(5px);
+      transform: translateY(15px);
   }
   100% {
-      transform: translateY(-5px);
+      transform: translateY(-15px);
+      transform: rotate(-15deg);
   }
 }
 /* 🌍 Appliquer le flottement aux planètes */
 .planet-container {
   animation: orbit 10s linear infinite alternate, float 4s ease-in-out infinite;
 }
-
 
 /* ✨ Ajout d'un effet de texture et de profondeur aux anneaux */
 .planet-container .ring::before {
