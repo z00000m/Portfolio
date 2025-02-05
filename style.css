@@ -1,3 +1,1044 @@
+/* Importer les polices */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
+
+
+/* Style général */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+body {
+  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
+  color: #e0e0e0;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Sections en plein écran */
+section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
+  border-bottom: 1px solid white;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* --- HEADER FIXE --- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #151515;
+  color: #fff;
+  padding: 15px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* --- TITRE --- */
+header h1 {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* --- MENU NAV --- */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* --- MENU UL --- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 15px 0 0;
+}
+
+nav li {
+  margin: 0;
+}
+
+/* --- LIENS DU MENU --- */
+nav a {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* --- SOULIGNEMENT ANIMÉ --- */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* --- MOBILE MENU BURGER --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+.menu-toggle div {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  /* Réduction de l'espacement du header */
+  header {
+    padding: 10px 0;
+  }
+
+  /* Ajustement du titre */
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Activation du menu burger */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Masquer le menu par défaut */
+  nav ul {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #222;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: none;
+  }
+
+  /* Afficher le menu quand actif */
+  nav ul.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+}
+
+/* --- SCROLL HEADER CHANGE --- */
+body.scrolled header {
+  background-color: #222;
+}
+
+/* SECTION À PROPOS */
+#about {
+  background-color: #121212;
+  color: #f5f5f5;
+  padding: 80px 20px;
+  text-align: center;
+  overflow: hidden; /* Cache les débordements des animations */
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Titre principal */
+#about h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.8rem; /* Augmenté la taille du titre */
+  text-align: justify;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Augmenté l'espacement */
+  position: relative;
+  display: inline-block; /* Assure que la ligne bleue s'adapte au titre */
+  animation: fade-in-title 1s ease-out forwards; /* Animation pour le titre */
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.8); /* Effet de flou bleu autour du texte */
+}
+
+/* Animation pour le titre */
+@keyframes fade-in-title {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Effet de surbrillance bleue sous le titre */
+#about h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 2px;
+  animation: line-appear 1s ease-in-out;
+}
+
+/* Animation pour l'apparition de la ligne */
+@keyframes line-appear {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+/* Conteneur du contenu "À propos de moi" */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer tout le contenu dans le flexbox */
+  justify-content: center;
+  gap: 30px; /* Réduit l'écart entre photo et texte */
+  max-width: 1100px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in-content 1.2s ease-out forwards 0.5s;
+  text-align: center;
+}
+
+/* Animation de l'apparition du contenu */
+@keyframes fade-in-content {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Photo de profil */
+.about-photo {
+  max-width: 300px;
+  border-radius: 50%;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: zoom-in 1.5s ease-out forwards 0.8s;
+  opacity: 0;
+  object-fit: cover;
+}
+
+/* Animation zoom de la photo */
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Effet de survol de la photo */
+.about-photo:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Texte d'introduction */
+.about-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 700px;
+  animation: slide-up 1.2s ease-out forwards 1s;
+  opacity: 0;
+  color: #fff;
+  margin-bottom: 30px; /* Ajouté un espace après le texte */
+}
+
+/* Animation glissante pour le texte */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apparition progressive du texte */
+.about-text p {
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* Mobile et Tablette */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-photo {
+    max-width: 200px; /* Réduit la taille de la photo sur mobile */
+  }
+
+  .about-text {
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #about h2 {
+    font-size: 2.5rem; /* Réduit la taille du titre pour les petits écrans */
+  }
+
+  .about-photo {
+    max-width: 180px; /* Réduit encore plus la taille de la photo sur mobile */
+  }
+}
+
+/* Section Projets */
+#projects {
+  text-align: center;
+  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
+  padding: 80px 30px; /* Plus d'espace */
+  color: #fff;
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+}
+
+/* Titre principal */
+.title-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.title-container h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #007bff;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 12px rgba(0, 123, 255, 0.8);
+}
+
+/* Ligne bleue sous le titre */
+.title-container h2::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 3px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Grille des projets */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: stretch; /* Toutes les cartes ont la même hauteur */
+  position: relative; /* S'assurer qu'ils passent bien au-dessus du fond */
+  z-index: 2; /* Plus élevé que le fond animé */
+}
+
+/* Projet professionnel occupe toute la largeur */
+.professional-project {
+  grid-column: span 4;
+}
+
+/* Cartes de projet */
+.project-card {
+  background: #0d0d0d;
+  border-radius: 15px;
+  padding: 35px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  color: #fff;
+  border: 2px solid #fff;
+  text-align: center;
+  height: 100%; /* Toutes les cartes ont la même hauteur */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+  position: relative;
+  z-index: 2;
+}
+
+/* Effet d'apparition */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Effet glow bleu au survol */
+.project-card:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
+  box-shadow: 0 0 18px rgba(0, 123, 255, 0.8);
+}
+
+/* Titres des projets */
+.project-card h3 {
+  font-size: 1.6rem;
+  color: #007bff;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+  transition: color 0.3s ease;
+}
+
+/* Icônes dynamiques */
+.project-card i {
+  font-size: 2.2rem;
+  color: #007bff;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-card:hover i {
+  color: #00ccff;
+  transform: scale(1.2);
+}
+
+/* Conteneur du bouton */
+.project-card .button-container {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Boutons uniformisés */
+.itchio-button {
+  display: inline-block;
+  background-color: #0d0d0d;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 18px 40px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, border 0.3s ease-in-out;
+  margin-top: 20px;
+  min-width: 180px; /* Tous les boutons ont la même largeur */
+  text-align: center;
+}
+
+/* Bouton projet pro plus grand */
+.professional-project .itchio-button {
+  font-size: 20px;
+  padding: 20px 50px;
+  min-width: 220px;
+}
+
+/* Effet hover sur bouton */
+.itchio-button:hover {
+  background-color: #007bff;
+  border-color: white;
+  transform: scale(1.03);
+}
+
+/* 📱 Responsive Design */
+
+/* Adaptation pour tablettes */
+@media (max-width: 1024px) {
+  .project-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .professional-project {
+      grid-column: span 2;
+  }
+
+  .title-container h2 {
+      font-size: 2.8rem;
+  }
+}
+
+/* Adaptation pour mobiles */
+@media (max-width: 600px) {
+  .project-grid {
+      grid-template-columns: repeat(1, 1fr);
+  }
+
+  .professional-project {
+      grid-column: span 1;
+  }
+
+  .title-container h2 {
+      font-size: 2.5rem;
+  }
+
+  .project-card {
+      padding: 30px;
+  }
+
+  .itchio-button {
+      padding: 16px 35px;
+      font-size: 17px;
+  }
+
+  .professional-project .itchio-button {
+      font-size: 18px;
+      padding: 18px 45px;
+      min-width: 200px;
+  }
+}
+
+/* Section Compétences */
+#skills {
+  text-align: center;
+  padding: 100px 20px; /* Plus d’espace */
+  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* TITRE */
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem; /* Légèrement agrandi */
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+  position: relative;
+}
+
+/* Ligne sous le titre */
+.title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: #007bff;
+  margin: 15px auto;
+  border-radius: 2px;
+  animation: line-appear 1s ease-in-out;
+}
+
+/* Conteneur des compétences */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+}
+
+/* Grille des cartes */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* CARTES DES COMPÉTENCES */
+.skills-card {
+  background: linear-gradient(135deg, #0d0d0d, #0d0d0d);
+  color: white;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+}
+
+/* Effet lumineux au survol */
+.skills-card:hover {
+  transform: translateY(-8px);
+  border-color: #007bff;
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
+}
+
+/* Animation subtile au repos */
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); }
+  100% { box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); }
+}
+
+.skills-card {
+  animation: glow 2s infinite alternate;
+}
+
+/* TITRE DES CARTES */
+.skills-card h3 {
+  font-size: 1.8rem;
+  color: #007bff;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* LISTE DES COMPÉTENCES */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 12px 0;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+/* Effet au survol */
+li:hover {
+  color: #007bff;
+}
+
+/* BARRES DE NIVEAU */
+meter {
+  width: 225px;
+  height: 20px;
+  border-radius: 10px;
+  border: none;
+}
+
+meter::-webkit-meter-bar {
+  background-color: #0d0d0d;
+  border-radius: 10px;
+}
+
+meter::-webkit-meter-value {
+  background: linear-gradient(90deg, #007bff, #0044aa);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+}
+
+/* RESPONSIVITÉ */
+@media (max-width: 1024px) {
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .skill-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+
+/* Section Contact */
+#contact {
+  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
+  padding: 100px 30px; /* Plus d’espace pour aérer */
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+#contact.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#contact h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 1px;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 0 0 12px rgba(0, 123, 255, 0.8);
+  z-index: 2; /* Plus élevé que le fond animé */
+}
+
+/* Ligne animée sous le titre */
+#contact h2::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 3px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animation de la ligne */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: auto;
+  background-color: #181818;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1s ease-out;
+  position: relative; /* S'assurer qu'ils passent bien au-dessus du fond */
+  z-index: 2; /* Plus élevé que le fond animé */
+}
+
+/* Style des labels */
+form label {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  margin-top: 20px;
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+  position: relative; /* S'assurer qu'ils passent bien au-dessus du fond */
+  z-index: 2; /* Plus élevé que le fond animé */
+}
+
+/* Champs du formulaire */
+form input, form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-color: #252525;
+  color: #e0e0e0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Focus sur les champs */
+form input:focus, form textarea:focus {
+  border-color: #4fa3f7;
+  outline: none;
+  box-shadow: 0 0 12px rgba(79, 163, 247, 0.5);
+  transform: scale(1.02);
+}
+
+/* Bouton d’envoi */
+form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d0d0d;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 18px 40px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  letter-spacing: 1px;
+  z-index: 2; /* Plus élevé que le fond animé */
+}
+
+/* Effet de survol sur le bouton */
+form button:hover {
+  background-color: #007bff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+/* Effet de clic */
+form button:active {
+  transform: translateY(0);
+  animation: buttonPress 0.2s linear;
+}
+
+/* Animation du bouton */
+@keyframes buttonPress {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Ajout d'une icône animée */
+form button::after {
+  content: "📩";
+  font-size: 22px;
+  margin-left: 12px;
+  opacity: 0;
+  transform: translateX(-15px);
+  transition: all 0.3s ease;
+}
+
+form button:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 📱 Responsive Design */
+
+/* Adaptation pour tablettes */
+@media (max-width: 1024px) {
+  #contact h2 {
+      font-size: 2.8rem;
+  }
+}
+
+/* Adaptation pour mobiles */
+@media (max-width: 600px) {
+  form {
+      padding: 25px;
+  }
+  form input, form textarea {
+      font-size: 1rem;
+  }
+  form button {
+      padding: 16px 35px;
+      font-size: 17px;
+  }
+}
+
+/* Animation fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Lorsque l'élément devient visible */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Effet de défilement parallax */
+.scroll-effect {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-container {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  .about-photo {
+      margin-bottom: 20px;
+  }
+  .skill-header h3 {
+      font-size: 1.5rem;
+  }
+  .progress-bar {
+      height: 15px;
+  }
+}
+
+#animated-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  height: 100px; /* Ajuste selon ton besoin */
+}
+
+#animated-title span {
+  opacity: 0;
+  transform: translateY(10px);
+  display: inline-block;
+  animation: fadeInUp 0.05s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  to {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+}
+
+/* Effet néon pour le titre */
+.neon-effect {
+  font-family: 'Oswald', sans-serif;
+  color: #fff;
+  text-shadow: 
+      0 0 5px #fff, 
+      0 0 10px #fff, 
+      0 0 15px #007bff, 
+      0 0 20px #007bff, 
+      0 0 25px #007bff, 
+      0 0 30px #007bff, 
+      0 0 35px #007bff;
+  animation: neon-blink 1.5s infinite alternate;
+}
+
+@keyframes neon-blink {
+  0% {
+      text-shadow: 
+      0 0 5px #fff, 
+      0 0 10px #fff, 
+      0 0 15px #007bff, 
+      0 0 20px #007bff, 
+      0 0 25px #007bff, 
+      0 0 30px #007bff, 
+      0 0 35px #007bff;
+  }
+  100% {
+      text-shadow: 
+          0 0 5px #fff, 
+          0 0 10px #fff, 
+          0 0 15px #007bff, 
+          0 0 20px #007bff, 
+          0 0 25px #007bff, 
+          0 0 30px #007bff, 
+          0 0 35px #007bff;
+  }
+}
+/* Appliquer le canvas en arrière-plan dans chaque section */
+/* Le conteneur du fond animé dans la section "Projets" */
+.background-container {
+  position: absolute; /* Cela va permettre de positionner le canvas derrière le contenu */
+  top: 0;
+  left: 0;
+  width: 100%; /* Il occupe toute la largeur de la section */
+  height: 100%; /* Il occupe toute la hauteur de la section */
+  z-index: 1; /* Placer le canvas derrière le contenu */
+  pointer-events: none; /* Le canvas ne doit pas interférer avec les interactions sur les autres éléments */
+}
+#particles-bg-projects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Assure-toi qu'il est sous les autres éléments */
+}
+
+#particles-bg, #particles-bg-skills, #particles-bg-contact {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Le canvas ne doit pas bloquer les interactions avec le contenu */
+  z-index: 1; /* Place le canvas derrière le contenu */
+}
+
 /* 🌍 Taille plus grande et espacement amélioré */
 .planet-container {
   position: absolute;
