@@ -231,7 +231,7 @@ body.scrolled header {
 /* Titre principal */
 #about h2 {
   font-family: 'Oswald', sans-serif;
-  font-size: 2.8rem; /* Augmenté la taille du titre */
+  font-size: 2.6rem; /* Augmenté la taille du titre */
   text-align: justify;
   margin-bottom: 30px;
   font-weight: 700;
@@ -241,7 +241,21 @@ body.scrolled header {
   position: relative;
   display: inline-block; /* Assure que la ligne bleue s'adapte au titre */
   animation: fade-in-title 1s ease-out forwards; /* Animation pour le titre */
+  animation: complexEffect 3s ease-in-out infinite alternate; /* Effet combiné */
   text-shadow: 0 0 10px rgba(0, 123, 255, 0.8); /* Effet de flou bleu autour du texte */
+}
+
+/* Effet de surbrillance bleue sous le titre */
+#about h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 2px;
+  animation: line-appear 1s ease-in-out;
+  animation: lineEffect 3s ease-in-out infinite alternate; /* Animation de la ligne */
 }
 
 /* Animation pour le titre */
@@ -256,16 +270,34 @@ body.scrolled header {
   }
 }
 
-/* Effet de surbrillance bleue sous le titre */
-#about h2::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 5px;
-  background: #007bff;
-  margin: 12px auto;
-  border-radius: 2px;
-  animation: line-appear 1s ease-in-out;
+@keyframes complexEffect {
+  0% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    color: #007bff;
+  }
+  50% {
+    transform: scale(1.2) rotate(3deg);
+    text-shadow: 0 0 20px rgba(0, 204, 255, 1);
+    color: #00ccff;
+  }
+  100% {
+    transform: scale(1.1) rotate(-3deg);
+    text-shadow: 0 0 15px rgba(0, 123, 255, 0.9);
+    color: #007bff;
+  }
+}
+/* Animation de la ligne sous le titre */
+@keyframes lineEffect {
+  0% {
+    background: #007bff; /* Bleu initial */
+  }
+  50% {
+    background: #00ccff; /* Bleu clair */
+  }
+  100% {
+    background: #007bff; /* Retour au bleu initial */
+  }
 }
 
 /* Animation pour l'apparition de la ligne */
@@ -415,15 +447,13 @@ body.scrolled header {
 
 .title-container h2 {
   font-family: 'Oswald', sans-serif;
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: bold;
-  color: #007bff;
+  color: #00b0ff; /* Bleu néon lumineux */
   letter-spacing: 2px;
-  position: relative;
-  z-index: 2;
-  text-shadow: 0 0 12px rgba(0, 123, 255, 0.8);
+  animation: colorShift 8s infinite alternate; /* Animation fluide */
+  animation: complexEffect 3s ease-in-out infinite alternate; /* Effet combiné */
 }
-
 /* Ligne bleue sous le titre */
 .title-container h2::after {
   content: '';
@@ -434,6 +464,7 @@ body.scrolled header {
   margin: 12px auto;
   border-radius: 3px;
   animation: fadeIn 1s ease-in-out;
+  animation: lineEffect 3s ease-in-out infinite alternate; /* Animation de la ligne */
 }
 
 /* Grille des projets */
@@ -476,6 +507,36 @@ body.scrolled header {
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes complexEffect {
+  0% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    color: #007bff;
+  }
+  50% {
+    transform: scale(1.2) rotate(3deg);
+    text-shadow: 0 0 20px rgba(0, 204, 255, 1);
+    color: #00ccff;
+  }
+  100% {
+    transform: scale(1.1) rotate(-3deg);
+    text-shadow: 0 0 15px rgba(0, 123, 255, 0.9);
+    color: #007bff;
+  }
+}
+/* Animation de la ligne sous le titre */
+@keyframes lineEffect {
+  0% {
+    background: #007bff; /* Bleu initial */
+  }
+  50% {
+    background: #00ccff; /* Bleu clair */
+  }
+  100% {
+    background: #007bff; /* Retour au bleu initial */
+  }
 }
 
 /* Effet glow bleu au survol */
@@ -592,27 +653,47 @@ body.scrolled header {
 }
 
 /* Section Compétences */
-#skills {
-  text-align: center;
-  padding: 100px 20px; /* Plus d’espace */
-  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Quicksand', sans-serif;
-}
-
-/* TITRE */
+#skills 
 .title {
   font-family: 'Oswald', sans-serif;
-  font-size: 3rem; /* Légèrement agrandi */
+  font-size: 2.6rem;
   font-weight: bold;
-  color: #007bff;
+  color: #00b0ff; /* Bleu néon lumineux */
   margin-bottom: 50px;
   letter-spacing: 2px;
-  text-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+  text-shadow: 0 0 15px rgba(0, 176, 255, 0.8);
   position: relative;
+  animation: complexEffect 3s ease-in-out infinite alternate; /* Effet combiné */
+}
+
+@keyframes complexEffect {
+  0% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    color: #007bff;
+  }
+  50% {
+    transform: scale(1.2) rotate(3deg);
+    text-shadow: 0 0 20px rgba(0, 204, 255, 1);
+    color: #00ccff;
+  }
+  100% {
+    transform: scale(1.1) rotate(-3deg);
+    text-shadow: 0 0 15px rgba(0, 123, 255, 0.9);
+    color: #007bff;
+  }
+}
+/* Animation de la ligne sous le titre */
+@keyframes lineEffect {
+  0% {
+    background: #007bff; /* Bleu initial */
+  }
+  50% {
+    background: #00ccff; /* Bleu clair */
+  }
+  100% {
+    background: #007bff; /* Retour au bleu initial */
+  }
 }
 
 /* Ligne sous le titre */
@@ -625,6 +706,7 @@ body.scrolled header {
   margin: 15px auto;
   border-radius: 2px;
   animation: line-appear 1s ease-in-out;
+  animation: lineEffect 3s ease-in-out infinite alternate; /* Animation de la ligne */
 }
 
 /* Conteneur des compétences */
@@ -742,7 +824,6 @@ meter::-webkit-meter-value {
   }
 }
 
-
 /* Section Contact */
 #contact {
   background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
@@ -761,7 +842,7 @@ meter::-webkit-meter-value {
 
 #contact h2 {
   font-family: 'Oswald', sans-serif;
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: bold;
   color: #007bff;
   margin-bottom: 1px;
@@ -769,6 +850,7 @@ meter::-webkit-meter-value {
   position: relative;
   text-shadow: 0 0 12px rgba(0, 123, 255, 0.8);
   z-index: 2; /* Plus élevé que le fond animé */
+  animation: complexEffect 3s ease-in-out infinite alternate; /* Effet combiné */
 }
 
 /* Ligne animée sous le titre */
@@ -780,7 +862,7 @@ meter::-webkit-meter-value {
   background: #007bff;
   margin: 12px auto;
   border-radius: 3px;
-  animation: fadeIn 1s ease-in-out;
+  animation: lineEffect 3s ease-in-out infinite alternate; /* Animation de la ligne */
 }
 
 /* Animation de la ligne */
@@ -794,6 +876,38 @@ meter::-webkit-meter-value {
     transform: scaleX(1);
   }
 }
+
+@keyframes complexEffect {
+  0% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    color: #007bff;
+  }
+  50% {
+    transform: scale(1.2) rotate(3deg);
+    text-shadow: 0 0 20px rgba(0, 204, 255, 1);
+    color: #00ccff;
+  }
+  100% {
+    transform: scale(1.1) rotate(-3deg);
+    text-shadow: 0 0 15px rgba(0, 123, 255, 0.9);
+    color: #007bff;
+  }
+}
+
+/* Animation de la ligne sous le titre */
+@keyframes lineEffect {
+  0% {
+    background: #007bff; /* Bleu initial */
+  }
+  50% {
+    background: #00ccff; /* Bleu clair */
+  }
+  100% {
+    background: #007bff; /* Retour au bleu initial */
+  }
+}
+
 
 /* Formulaire */
 form {
