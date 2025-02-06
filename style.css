@@ -162,19 +162,33 @@ nav a:hover::after {
     padding: 20px 0;
     opacity: 0;
     transform: translateY(-20px);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    display: none;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    display: flex; /* Change de "none" à "flex" pour éviter les sauts */
+    visibility: hidden;
   }
 
   /* Afficher le menu quand actif */
   nav ul.active {
-    display: flex;
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;
   }
 
   nav li {
     margin: 10px 0;
+  }
+
+  /* --- ANIMATION DU MENU BURGER EN CROIX --- */
+  .menu-toggle.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
   }
 }
 
@@ -182,6 +196,27 @@ nav a:hover::after {
 body.scrolled header {
   background-color: #222;
 }
+
+/* --- RÉDUCTION DU HEADER POUR PETITS ÉCRANS --- */
+@media (max-width: 480px) {
+  header {
+    padding: 8px 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .menu-toggle {
+    right: 10px;
+    top: 10px;
+  }
+
+  nav ul {
+    top: 50px;
+  }
+}
+
 
 /* SECTION À PROPOS */
 #about {
