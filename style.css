@@ -430,7 +430,7 @@ body.scrolled header {
 /* Section Projets */
 #projects {
   text-align: center;
-  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
+  background: linear-gradient(135deg, #0a0a0a);
   padding: 80px 30px; /* Plus d'espace */
   color: #fff;
   position: relative;
@@ -484,12 +484,12 @@ body.scrolled header {
   grid-column: span 4;
 }
 
-/* Cartes de projet */
+/* 🏆 Cartes de projet améliorées */
 .project-card {
-  background: #0d0d0d;
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a); /* Dégradé Noir & Gris */
   border-radius: 15px;
   padding: 35px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, background 0.4s ease-in-out;
   color: #fff;
   border: 2px solid #fff;
   text-align: center;
@@ -501,6 +501,7 @@ body.scrolled header {
   animation: fadeInUp 1s ease-in-out forwards;
   position: relative;
   z-index: 2;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
 }
 
 /* Effet d'apparition */
@@ -546,9 +547,9 @@ body.scrolled header {
   box-shadow: 0 0 18px rgba(0, 123, 255, 0.8);
 }
 
-/* Titres des projets */
+/* 🏷️ Titres des projets */
 .project-card h3 {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: #007bff;
   text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
   transition: color 0.3s ease;
@@ -556,7 +557,7 @@ body.scrolled header {
 
 /* Icônes dynamiques */
 .project-card i {
-  font-size: 2.2rem;
+  font-size: 1.2rem;
   color: #007bff;
   margin-bottom: 12px;
   transition: transform 0.3s ease, color 0.3s ease;
@@ -575,34 +576,48 @@ body.scrolled header {
   align-items: center;
 }
 
-/* Boutons uniformisés */
+/* 📌 Bouton stylisé */
 .itchio-button {
   display: inline-block;
-  background-color: #0d0d0d;
-  border: 2px solid #fff;
-  color: #fff;
-  padding: 18px 40px;
+  background: linear-gradient(135deg, #000000, #1a1a1a); /* Dégradé Noir & Blanc */
+  border: none;
+  color: white;
+  padding: 16px 40px;
   font-size: 18px;
   text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, border 0.3s ease-in-out;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
   margin-top: 20px;
-  min-width: 180px; /* Tous les boutons ont la même largeur */
   text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 10px white(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet de brillance */
+.itchio-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-45deg);
+  transition: all 0.5s;
+}
+
+.itchio-button:hover {
+  background: linear-gradient(45deg, #007bff, #00ccff); 
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.7);
 }
 
 /* Bouton projet pro plus grand */
 .professional-project .itchio-button {
   font-size: 20px;
   padding: 20px 50px;
-  min-width: 220px;
-}
-
-/* Effet hover sur bouton */
-.itchio-button:hover {
-  background-color: #007bff;
-  border-color: white;
-  transform: scale(1.03);
 }
 
 /* 📱 Responsive Design */
@@ -652,73 +667,65 @@ body.scrolled header {
   }
 }
 
-/* Section Compétences */
-#skills 
+/* 🎯 SECTION COMPÉTENCES */
+#skills {
+  background: linear-gradient(135deg, #0a0a0a);
+  color: #f5f5f5;
+  padding: 100px 30px;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  position: relative;
+}
+
+/* 🌟 TITRE PRINCIPAL - Effet Néon */
 .title {
   font-family: 'Oswald', sans-serif;
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: bold;
-  color: #00b0ff; /* Bleu néon lumineux */
+  color: #00bfff;
+  text-transform: uppercase;
   margin-bottom: 50px;
-  letter-spacing: 2px;
-  text-shadow: 0 0 15px rgba(0, 176, 255, 0.8);
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
   position: relative;
-  animation: complexEffect 3s ease-in-out infinite alternate; /* Effet combiné */
+  animation: glowingText 2s infinite alternate ease-in-out;
 }
 
-@keyframes complexEffect {
-  0% {
-    transform: scale(1) rotate(0deg);
-    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
-    color: #007bff;
-  }
-  50% {
-    transform: scale(1.2) rotate(3deg);
-    text-shadow: 0 0 20px rgba(0, 204, 255, 1);
-    color: #00ccff;
-  }
-  100% {
-    transform: scale(1.1) rotate(-3deg);
-    text-shadow: 0 0 15px rgba(0, 123, 255, 0.9);
-    color: #007bff;
-  }
-}
-/* Animation de la ligne sous le titre */
-@keyframes lineEffect {
-  0% {
-    background: #007bff; /* Bleu initial */
-  }
-  50% {
-    background: #00ccff; /* Bleu clair */
-  }
-  100% {
-    background: #007bff; /* Retour au bleu initial */
-  }
+/* ✨ Effet Néon animé */
+@keyframes glowingText {
+  0% { color: #00bfff; text-shadow: 0 0 15px rgba(0, 191, 255, 0.8); }
+  50% { color: #00e5ff; text-shadow: 0 0 25px rgba(0, 229, 255, 1); }
+  100% { color: #00bfff; text-shadow: 0 0 15px rgba(0, 191, 255, 0.8); }
 }
 
-/* Ligne sous le titre */
+/* 💡 Ligne dynamique sous le titre */
 .title::after {
   content: '';
   display: block;
   width: 100px;
   height: 5px;
-  background: #007bff;
+  background: linear-gradient(90deg, #007bff, #00ccff);
   margin: 15px auto;
   border-radius: 2px;
-  animation: line-appear 1s ease-in-out;
-  animation: lineEffect 3s ease-in-out infinite alternate; /* Animation de la ligne */
+  animation: linePulse 1.5s infinite alternate;
 }
 
-/* Conteneur des compétences */
+@keyframes linePulse {
+  0% { width: 50px; background: #007bff; }
+  100% { width: 100px; background: #00ccff; }
+}
+
+/* 🎭 CONTENEUR DES COMPÉTENCES */
 .skills-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
   max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Grille des cartes */
+/* 📌 Grille des cartes */
 .skill-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -727,9 +734,9 @@ body.scrolled header {
   max-width: 1100px;
 }
 
-/* CARTES DES COMPÉTENCES */
+/* 🔥 CARTES DE COMPÉTENCES - Nouveau Design */
 .skills-card {
-  background: linear-gradient(135deg, #0d0d0d, #0d0d0d);
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(20, 20, 20, 0.9));
   color: white;
   border-radius: 15px;
   padding: 30px;
@@ -739,35 +746,41 @@ body.scrolled header {
   position: relative;
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+  background-size: 300% 300%;
 }
 
-/* Effet lumineux au survol */
+/* 🌟 Effet au survol */
 .skills-card:hover {
   transform: translateY(-8px);
-  border-color: #007bff;
-  box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
+  border-color: #00ccff;
+  box-shadow: 0 0 25px rgba(0, 204, 255, 0.7);
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #00ccff);
+  animation: glowingBorder 1.5s infinite alternate;
 }
 
-/* Animation subtile au repos */
-@keyframes glow {
-  0% { box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); }
-  100% { box-shadow: 0 0 20px rgba(0, 123, 255, 0.5); }
+/* ⚡ Animation lumière autour des cartes */
+@keyframes glowingBorder {
+  0% { box-shadow: 0 0 15px rgba(0, 204, 255, 0.4); }
+  100% { box-shadow: 0 0 30px rgba(0, 204, 255, 0.8); }
 }
 
-.skills-card {
-  animation: glow 2s infinite alternate;
+/* 🎬 Animation de l'apparition */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* TITRE DES CARTES */
+/* 🎯 TITRE DES CARTES */
 .skills-card h3 {
   font-size: 1.8rem;
-  color: #007bff;
+  color: #00ccff;
   margin-bottom: 20px;
   font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 204, 255, 0.7);
 }
 
-/* LISTE DES COMPÉTENCES */
+/* 📜 LISTE DES COMPÉTENCES */
 ul {
   list-style-type: none;
   padding: 0;
@@ -784,31 +797,34 @@ li {
   transition: color 0.3s ease;
 }
 
-/* Effet au survol */
+/* 🌟 Effet au survol */
 li:hover {
-  color: #007bff;
+  color: #00ccff;
+  text-shadow: 0 0 10px rgba(0, 204, 255, 0.7);
 }
 
-/* BARRES DE NIVEAU */
+/* 📊 BARRES DE NIVEAU - Nouveau Design */
 meter {
-  width: 225px;
-  height: 20px;
-  border-radius: 10px;
+  width: 230px;
+  height: 22px;
+  border-radius: 12px;
   border: none;
+  background: rgba(10, 10, 10, 0.8);
 }
 
+/* 🎨 Style des barres de progression */
 meter::-webkit-meter-bar {
-  background-color: #0d0d0d;
-  border-radius: 10px;
+  background-color: rgba(20, 20, 20, 0.9);
+  border-radius: 12px;
 }
 
 meter::-webkit-meter-value {
-  background: linear-gradient(90deg, #007bff, #0044aa);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+  background: linear-gradient(90deg, #007bff, #00ccff);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.8);
 }
 
-/* RESPONSIVITÉ */
+/* 📱 RESPONSIVITÉ */
 @media (max-width: 1024px) {
   .skill-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -823,6 +839,7 @@ meter::-webkit-meter-value {
     font-size: 2.5rem;
   }
 }
+
 
 /* Section Contact */
 #contact {
@@ -1193,147 +1210,121 @@ form button:hover::after {
   z-index: 1; /* Place le canvas derrière le contenu */
 }
 
-/* 🌍 Taille plus grande et espacement amélioré */
+/* 🌍 Positionnement et animation des planètes */
 .planet-container {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  animation: orbit 10s linear infinite alternate;
+  animation: orbit 10s linear infinite alternate, float 6s ease-in-out infinite;
 }
 
 /* 🌍 Positionnement amélioré */
 .planet-left {
-  left: 10%; /* Éloigne un peu du bord */
+  left: 10%;
 }
 
 .planet-right {
-  right: 10%; /* Éloigne un peu du bord */
+  right: 10%;
 }
 
-/* 🌍 Planètes plus grosses */
+/* 🌍 Planètes avec un effet de profondeur */
 .planet {
-  width: 180px; /* Taille augmentée */
-  height: 180px;
+  width: 220px; /* Taille augmentée pour plus d'impact */
+  height: 220px;
   border-radius: 50%;
   position: relative;
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 70px rgba(255, 255, 255, 0.6);
+  animation: pulse 3s ease-in-out infinite;
+  overflow: hidden;
 }
 
-
-/* Ajout d'un effet de glow autour des planètes */
+/* ✨ Effet de glow dynamique */
 .planet::after {
   content: "";
   position: absolute;
-  width: 140px;
-  height: 140px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
   border-radius: 50%;
-  top: -10px;
-  left: -10px;
+  top: -15px;
+  left: -15px;
   z-index: -1;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
-/* 🌕 Lune */
+/* 🌕 Lune ultra-réaliste */
 .moon {
-  background: radial-gradient(circle at 30% 30%, #bbb, #777);
-  box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.5), 
-              0 0 25px rgba(255, 255, 255, 0.3);
+  background: radial-gradient(circle at 30% 30%, #e3e3e3, #b0b0b0, #6a6a6a);
+  box-shadow: inset -30px -30px 50px rgba(0, 0, 0, 0.6),
+              0 0 40px rgba(255, 255, 255, 0.4);
+  filter: contrast(1.2);
 }
 
-/* ☀️ Soleil */
+/* ☀️ Soleil avec un glow solaire intense */
 .sun {
-  background: radial-gradient(circle at 30% 30%, #FFD700, #FF4500);
-  box-shadow: 0 0 50px rgba(255, 204, 0, 0.8); /* Glow intense */
+  background: radial-gradient(circle at 50% 50%, #ffec8b, #ff9900, #ff4500);
+  box-shadow: 0 0 150px rgba(255, 223, 0, 1),
+              0 0 200px rgba(255, 140, 0, 0.8),
+              0 0 300px rgba(255, 69, 0, 0.5);
+  filter: brightness(1.3);
 }
 
-/* 🔴 Mars */
+/* 🔴 Mars avec un relief martien plus profond */
 .mars {
-  background: radial-gradient(circle at 30% 30%, #D2691E, #8B0000);
-  box-shadow: inset -15px -15px 25px rgba(0, 0, 0, 0.5), 
-              0 0 30px rgba(255, 0, 0, 0.4);
+  background: radial-gradient(circle at 35% 35%, #ff764d, #c1440e, #7a1c0c);
+  box-shadow: inset -35px -35px 60px rgba(0, 0, 0, 0.7),
+              0 0 60px rgba(255, 102, 0, 0.6);
+  filter: contrast(1.2);
 }
 
-/* 🔵 Neptune */
+/* 🔵 Neptune avec un effet aquatique plus intense */
 .neptune {
-  background: radial-gradient(circle at 30% 30%, #4169E1, #00008B);
-  box-shadow: inset -15px -15px 25px rgba(0, 0, 0, 0.5), 
-              0 0 30px rgba(0, 0, 255, 0.5);
+  background: radial-gradient(circle at 50% 50%, #5eb6ff, #1f56b3, #001a4d);
+  box-shadow: inset -40px -40px 70px rgba(0, 0, 0, 0.9),
+              0 0 100px rgba(0, 153, 255, 0.8);
+  filter: saturate(1.3);
 }
 
-/* 🌠 Animation d'orbite pour ajouter du mouvement */
-@keyframes orbit {
-  0% {
-      transform: translateY(-50%) translateX(0px);
-  }
-  50% {
-      transform: translateY(-45%) translateX(10px);
-  }
-  100% {
-      transform: translateY(-50%) translateX(0px);
-  }
-}
-
-/* 🌍 Animation de pulsation améliorée */
-@keyframes pulse {
-  0% {
-      transform: scale(1);
-      filter: brightness(1);
-  }
-  40% {
-      transform: scale(1.05); /* Expansion plus douce */
-      filter: brightness(1.25); /* Légère intensification */
-  }
-  100% {
-      transform: scale(1);
-      filter: brightness(1);
-  }
-}
-
-/* 🌍 Application de la pulsation sur toutes les planètes */
-.planet {
-  animation: rotate-horizontal 6s linear infinite, pulse 2s ease-in-out infinite; 
-}
-
-/* 🪐 Anneaux autour des planètes */
+/* 🪐 Anneaux stylisés */
 .planet-container .ring {
   position: absolute;
-  width: 250px; /* Plus large que la planète */
-  height: 80px;
-  background: radial-gradient(ellipse at center, rgba(255, 215, 0, 0.6), rgba(139, 69, 19, 0.2));
+  width: 320px; /* Plus grand que la planète */
+  height: 100px;
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotateX(85deg);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+  opacity: 0.9;
 }
 
-/* 🌍 Animation de flottement pour un effet plus vivant */
-@keyframes float {
-  0% {
-      transform: translateY(-15px);
-      transform: rotate(-15deg);
-  }
-  50% {
-      transform: translateY(15px);
-  }
-  100% {
-      transform: translateY(-15px);
-      transform: rotate(-15deg);
-  }
-}
-/* 🌍 Appliquer le flottement aux planètes */
-.planet-container {
-  animation: orbit 10s linear infinite alternate, float 4s ease-in-out infinite;
+/* 🌕 Anneaux lunaires */
+.moon .ring {
+  background: radial-gradient(ellipse at center, rgba(200, 200, 200, 0.6), rgba(120, 120, 120, 0.3));
 }
 
-/* ✨ Ajout d'un effet de texture et de profondeur aux anneaux */
+/* ☀️ Anneaux du soleil */
+.sun .ring {
+  background: radial-gradient(ellipse at center, rgba(255, 223, 0, 0.8), rgba(255, 100, 0, 0.4));
+}
+
+/* 🔴 Anneaux de Mars */
+.mars .ring {
+  background: radial-gradient(ellipse at center, rgba(255, 69, 0, 0.6), rgba(139, 35, 0, 0.3));
+}
+
+/* 🔵 Anneaux de Neptune */
+.neptune .ring {
+  background: radial-gradient(ellipse at center, rgba(0, 153, 255, 0.7), rgba(0, 0, 102, 0.4));
+}
+
+/* 🌠 Texture et profondeur aux anneaux */
 .planet-container .ring::before {
   content: "";
   position: absolute;
-  width: 270px;
-  height: 90px;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.3), transparent);
+  width: 340px;
+  height: 110px;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.4), transparent);
   border-radius: 50%;
   transform: rotate(10deg);
 }
@@ -1341,12 +1332,30 @@ form button:hover::after {
 .planet-container .ring::after {
   content: "";
   position: absolute;
-  width: 230px;
-  height: 70px;
+  width: 300px;
+  height: 90px;
   background: radial-gradient(ellipse at center, rgba(100, 60, 20, 0.6), transparent);
   border-radius: 50%;
   transform: rotate(-10deg);
 }
+
+/* 🌠 Animations améliorées */
+
+/* Flottement plus naturel */
+@keyframes float {
+  0% { transform: translateY(-12px); }
+  50% { transform: translateY(12px); }
+  100% { transform: translateY(-12px); }
+}
+
+/* Pulsation plus dynamique */
+@keyframes pulse {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.07); filter: brightness(1.3); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+
 
 /* 📱 Adaptation mobile */
 @media (max-width: 768px) {
