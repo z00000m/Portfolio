@@ -501,7 +501,8 @@ body.scrolled header {
   animation: fadeInUp 1s ease-in-out forwards;
   position: relative;
   z-index: 2;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent; /* Bordure initiale transparente */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.2); /* Ombre externe pour effet de profondeur */
 }
 
 /* Effet d'apparition */
@@ -773,8 +774,8 @@ body.scrolled header {
   padding: 50px;
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent; /* Bordure initiale transparente */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.2); /* Ombre externe pour effet de profondeur */
   width: 100%;
   max-width: 520px;
   opacity: 0;
@@ -821,7 +822,7 @@ body.scrolled header {
   overflow: hidden;
   height: 20px;
   width: 100%;
-  box-shadow: 0 0 15px rgba(0, 204, 255, 0.6); /* Plus de shadow pour un effet de profondeur */
+  box-shadow: 0 0 20px rgba(0, 204, 255, 0.8); /* Plus de shadow pour un effet de profondeur */
   margin-bottom: 15px; /* Espacement entre les barres */
 }
 
