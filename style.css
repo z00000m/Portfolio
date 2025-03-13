@@ -1,0 +1,1523 @@
+/* Importer les polices */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
+
+/* Style général */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
+  color: #e0e0e0;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Sections en plein écran */
+section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
+  border-bottom: 1px solid white;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* --- HEADER FIXE --- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #151515;
+  color: #fff;
+  padding: 15px 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* --- TITRE --- */
+header h1 {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* --- MENU NAV --- */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* --- MENU UL --- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 15px 0 0;
+}
+
+nav li {
+  margin: 0;
+}
+
+/* --- LIENS DU MENU --- */
+nav a {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* --- SOULIGNEMENT ANIMÉ --- */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* --- MOBILE MENU BURGER --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+.menu-toggle div {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  /* Réduction de l'espacement du header */
+  header {
+    padding: 10px 0;
+  }
+
+  /* Ajustement du titre */
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Activation du menu burger */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Masquer le menu par défaut */
+  nav ul {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #222;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    display: flex; /* Change de "none" à "flex" pour éviter les sauts */
+    visibility: hidden;
+  }
+
+  /* Afficher le menu quand actif */
+  nav ul.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  nav li {
+    margin: 10px 0;
+  }
+
+  /* --- ANIMATION DU MENU BURGER EN CROIX --- */
+  .menu-toggle.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+/* --- SCROLL HEADER CHANGE --- */
+body.scrolled header {
+  background-color: #222;
+}
+
+/* --- RÉDUCTION DU HEADER POUR PETITS ÉCRANS --- */
+@media (max-width: 480px) {
+  header {
+    padding: 8px 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .menu-toggle {
+    right: 10px;
+    top: 10px;
+  }
+
+  nav ul {
+    top: 50px;
+  }
+}
+
+/* SECTION À PROPOS */
+#about {
+  background: linear-gradient(135deg, #0a0a0a, #0a0a0a);
+  color: #f5f5f5;
+  padding: 80px 20px;
+  text-align: center;
+  overflow: hidden; /* Cache les débordements des animations */
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Titre principal */
+#about h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem; /* Augmenté la taille du titre */
+  text-align: justify;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 5px; /* Augmenté l'espacement */
+  position: relative;
+  display: inline-block; /* Assure que la ligne bleue s'adapte au titre */
+  animation: fade-in-title 1s ease-out forwards; /* Animation pour le titre */
+  animation: complexEffect 3s ease-in-out infinite alternate; /* Effet combiné */
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.8); /* Effet de flou bleu autour du texte */
+}
+
+/* Effet de surbrillance bleue sous le titre */
+#about h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 2px;
+  animation: line-appear 1s ease-in-out;
+  animation: lineEffect 3s ease-in-out infinite alternate; /* Animation de la ligne */
+}
+
+/* Animation pour le titre */
+@keyframes fade-in-title {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes complexEffect {
+  0% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    color: #007bff;
+  }
+  50% {
+    transform: scale(1.2) rotate(3deg);
+    text-shadow: 0 0 20px rgba(0, 204, 255, 1);
+    color: #00ccff;
+  }
+  100% {
+    transform: scale(1.1) rotate(-3deg);
+    text-shadow: 0 0 15px rgba(0, 123, 255, 0.9);
+    color: #007bff;
+  }
+}
+/* Animation de la ligne sous le titre */
+@keyframes lineEffect {
+  0% {
+    background: #007bff; /* Bleu initial */
+  }
+  50% {
+    background: #00ccff; /* Bleu clair */
+  }
+  100% {
+    background: #007bff; /* Retour au bleu initial */
+  }
+}
+
+/* Animation pour l'apparition de la ligne */
+@keyframes line-appear {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+/* Conteneur du contenu "À propos de moi" */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer tout le contenu dans le flexbox */
+  justify-content: center;
+  gap: 30px; /* Réduit l'écart entre photo et texte */
+  max-width: 1100px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in-content 1.2s ease-out forwards 0.5s;
+  text-align: center;
+}
+
+/* Animation de l'apparition du contenu */
+@keyframes fade-in-content {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Photo de profil */
+.about-photo {
+  max-width: 300px;
+  border-radius: 50%;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: zoom-in 1.5s ease-out forwards 0.8s;
+  opacity: 0;
+  object-fit: cover;
+}
+
+/* Animation zoom de la photo */
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Effet de survol de la photo */
+.about-photo:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Texte d'introduction */
+.about-text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 700px;
+  animation: slide-up 1.2s ease-out forwards 1s;
+  opacity: 0;
+  color: #fff;
+  margin-bottom: 30px; /* Ajouté un espace après le texte */
+}
+
+/* Animation glissante pour le texte */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apparition progressive du texte */
+.about-text p {
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* Mobile et Tablette */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-photo {
+    max-width: 200px; /* Réduit la taille de la photo sur mobile */
+  }
+
+  .about-text {
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #about h2 {
+    font-size: 2.5rem; /* Réduit la taille du titre pour les petits écrans */
+  }
+
+  .about-photo {
+    max-width: 180px; /* Réduit encore plus la taille de la photo sur mobile */
+  }
+}
+
+/* Section Projets */
+#projects {
+  text-align: center;
+  background: linear-gradient(135deg, #0a0a0a, #0a0a0a);
+  padding: 80px 30px; /* Plus d'espace */
+  color: #fff;
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+}
+
+/* Titre principal */
+.title-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.title-container h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #00b0ff; /* Bleu néon lumineux */
+  letter-spacing: 5px;
+  animation: colorShift 8s infinite alternate; /* Animation fluide */
+  animation: complexEffect 3s ease-in-out infinite alternate; /* Effet combiné */
+}
+/* Ligne bleue sous le titre */
+.title-container h2::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 3px;
+  animation: fadeIn 1s ease-in-out;
+  animation: lineEffect 3s ease-in-out infinite alternate; /* Animation de la ligne */
+}
+
+/* Grille des projets */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: stretch; /* Toutes les cartes ont la même hauteur */
+  position: relative; /* S'assurer qu'ils passent bien au-dessus du fond */
+  z-index: 2; /* Plus élevé que le fond animé */
+}
+
+/* Projet professionnel occupe toute la largeur */
+.professional-project {
+  grid-column: span 4;
+}
+
+/* 🏆 Cartes de projet améliorées */
+.project-card {
+  background: linear-gradient(135deg, #0a0a0a, #0a0a0a); 
+  border-radius: 15px;
+  padding: 35px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, background 0.4s ease-in-out;
+  color: #fff;
+  border: 2px solid #fff;
+  text-align: center;
+  height: 100%; /* Toutes les cartes ont la même hauteur */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+  position: relative;
+  z-index: 2;
+  border: 2px solid transparent; /* Bordure initiale transparente */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.2); /* Ombre externe pour effet de profondeur */
+}
+
+/* Effet d'apparition */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes complexEffect {
+  0% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    color: #007bff;
+  }
+  50% {
+    transform: scale(1.2) rotate(3deg);
+    text-shadow: 0 0 20px rgba(0, 204, 255, 1);
+    color: #00ccff;
+  }
+  100% {
+    transform: scale(1.1) rotate(-3deg);
+    text-shadow: 0 0 15px rgba(0, 123, 255, 0.9);
+    color: #007bff;
+  }
+}
+/* Animation de la ligne sous le titre */
+@keyframes lineEffect {
+  0% {
+    background: #007bff; /* Bleu initial */
+  }
+  50% {
+    background: #00ccff; /* Bleu clair */
+  }
+  100% {
+    background: #007bff; /* Retour au bleu initial */
+  }
+}
+
+/* Effet glow bleu au survol */
+.project-card:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
+  box-shadow: 0 0 18px rgba(0, 123, 255, 0.8);
+}
+
+/* 🏷️ Titres des projets */
+.project-card h3 {
+  font-size: 1.2rem;
+  color: #007bff;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+
+/* Icônes dynamiques */
+.project-card i {
+  font-size: 1.2rem;
+  color: #007bff;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-card:hover i {
+  color: #00ccff;
+  transform: scale(1.2);
+}
+
+/* Conteneur du bouton */
+.project-card .button-container {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 📌 Bouton stylisé */
+.itchio-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #000000, #1a1a1a); /* Dégradé Noir & Blanc */
+  border: none;
+  color: white;
+  padding: 16px 40px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 10px white(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet de brillance */
+.itchio-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-45deg);
+  transition: all 0.5s;
+}
+
+.itchio-button:hover {
+  background: linear-gradient(45deg, #007bff, #00ccff); 
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.7);
+}
+
+/* Bouton projet pro plus grand */
+.professional-project .itchio-button {
+  font-size: 20px;
+  padding: 20px 50px;
+}
+
+/* 📱 Responsive Design */
+
+/* Adaptation pour tablettes */
+@media (max-width: 1024px) {
+  .project-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .professional-project {
+      grid-column: span 2;
+  }
+
+  .title-container h2 {
+      font-size: 2.8rem;
+  }
+}
+
+/* Adaptation pour mobiles */
+@media (max-width: 600px) {
+  .project-grid {
+      grid-template-columns: repeat(1, 1fr);
+  }
+
+  .professional-project {
+      grid-column: span 1;
+  }
+
+  .title-container h2 {
+      font-size: 2.5rem;
+  }
+
+  .project-card {
+      padding: 30px;
+  }
+
+  .itchio-button {
+      padding: 16px 35px;
+      font-size: 17px;
+  }
+
+  .professional-project .itchio-button {
+      font-size: 18px;
+      padding: 18px 45px;
+      min-width: 200px;
+  }
+}
+
+/* 🌌 Section compétences */
+#skills {
+  background: linear-gradient(135deg, #0a0a0a, #0a0a0a);
+  color: #f5f5f5;
+  padding: 80px 60px; /* Ajusté pour plus d'espace */
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh; /* Garantir la pleine hauteur */
+}
+
+/* 🌟 Titre principal avec ligne animée */
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem; /* Taille réduite */
+  font-weight: bold;
+  color: #00ccff;
+  text-transform: uppercase;
+  margin-bottom: 30px; /* Moins d'espace sous le titre */
+  letter-spacing: 5px;
+  text-shadow: 0 0 20px rgba(0, 204, 255, 0.8);
+  animation: neonGlow 2s infinite alternate ease-in-out; /* Animation du glow */
+  position: relative; /* Pour la ligne animée */
+  animation: colorShift 8s infinite alternate; /* Animation fluide */
+  animation: complexEffect 3s ease-in-out infinite alternate; /* Effet combiné */
+}
+
+/* Ligne animée sous le titre */
+.title::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 3px;
+  animation: lineEffect 3s ease-in-out infinite alternate;
+}
+
+@keyframes complexEffect {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    color: #007bff;
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 204, 255, 1);
+    color: #00ccff;
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(0, 123, 255, 0.9);
+    color: #007bff;
+  }
+}
+
+/* Animation de la ligne sous le titre */
+@keyframes lineEffect {
+  0% {
+    background: #007bff; /* Bleu initial */
+  }
+  50% {
+    background: #00ccff; /* Bleu clair */
+  }
+  100% {
+    background: #007bff; /* Retour au bleu initial */
+  }
+}
+
+/* 📌 Conteneur des compétences */
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* 🎭 Bloc de compétences */
+.skills-block {
+  flex: 1;
+  min-width: 48%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 🏷️ Titres des projets dans la section Compétences */
+.skills-card h3 {
+  font-size: 1.2rem;
+  color: #007bff; /* Changer en bleu foncé comme dans la section Projets */
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.8); /* Ajout d'une ombre pour l'effet glow */
+  transition: color 0.3s ease; /* Transition fluide pour le changement de couleur */
+}
+
+
+/* 🏆 Cartes de compétences */
+.skills-card {
+  background: linear-gradient(135deg, #0a0a0a, #0a0a0a);
+  color: white;
+  border-radius: 15px;
+  padding: 50px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 2px solid transparent; /* Bordure initiale transparente */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.2); /* Ombre externe pour effet de profondeur */
+  width: 100%;
+  max-width: 520px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+  position: relative;
+  z-index: 2;
+}
+
+/* Effet glow bleu au survol */
+.skills-card:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
+  box-shadow: 0 0 18px rgba(0, 123, 255, 0.8);
+}
+
+/* 🔢 Liste des compétences */
+.skills-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* 🔢 Style des compétences */
+.skills-card li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+/* 💡 Nom de la compétence */
+.skills-card li span:first-child {
+  font-size: 1.4rem;
+  color: white;
+  margin-bottom: 5px;
+}
+
+/* 📊 Conteneur de la barre */
+.skill-bar {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  height: 20px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 204, 255, 0.8); /* Plus de shadow pour un effet de profondeur */
+  margin-bottom: 15px; /* Espacement entre les barres */
+}
+
+/* 🌟 Animation de la barre */
+.skill-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #00ccff, #007bff);
+  border-radius: 12px;
+  width: 0%; /* Départ à 0 */
+  transition: width 2s ease-out; /* Transition plus douce à la fin */
+}
+
+/* 🎯 Style du pourcentage (placé en dehors de la barre) */
+.percent-text {
+  position: absolute;
+  top: 35%; /* Centré verticalement par rapport à la barre */
+  left: 100%; /* Par défaut, placé juste après la barre */
+  transform: translateY(-50%) translateX(15px); /* Décalage à droite de 15px */
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  opacity: 0;
+  transform-origin: right; /* Origine de la transformation pour l'agrandissement */
+  transition: opacity 0.5s ease-out, left 0.5s ease-out, transform 0.3s ease-out; /* Ajout de l'animation de zoom */
+}
+
+/* 🔥 Rendre visible une fois animé */
+.skill-bar span[style*="width"] ~ .percent-text {
+  opacity: 1;
+  transform: translateY(-50%) translateX(20px) scale(1.1); /* Légèrement plus grand et mieux positionné */
+  left: calc(100% + -75px); /* Décalage plus subtil après la barre */
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .skills-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+  }
+
+  .skills-block {
+      min-width: 100%;
+      justify-content: center;
+  }
+}
+
+/* Section Contact */
+#contact {
+  background: linear-gradient(135deg, #0a0a0a, #0a0a0a);
+  padding: 120px 30px;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+#contact.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#contact h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 1px;
+  letter-spacing: 5px;
+  position: relative;
+  text-shadow: 0 0 12px rgba(0, 123, 255, 0.8);
+  z-index: 2;
+  animation: complexEffect 3s ease-in-out infinite alternate;
+}
+
+#contact h2::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 5px;
+  background: #007bff;
+  margin: 12px auto;
+  border-radius: 3px;
+  animation: lineEffect 3s ease-in-out infinite alternate;
+}
+
+/* Animation du formulaire */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: auto;
+  padding: 40px;
+  border-radius: 15px;
+  background-color: #181818; /* Fond noir */
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  border: 2px solid transparent; /* Bordure initiale transparente */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.2); /* Ombre externe pour effet de profondeur */
+  animation: fadeIn 1s ease-out;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease; /* Transition douce */
+}
+
+/* Effet de survol du formulaire (contours bleus) */
+form:hover {
+  border-color: #007bff; /* Contours bleus au survol */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 123, 255, 0.5); /* Lueur bleue autour du formulaire au survol */
+  transform: scale(1.03); /* Légère agrandissement pour dynamiser l'interaction */
+}
+
+/* Animation de la bordure bleue au survol */
+form:focus-within {
+  border-color: #007bff; /* Contours bleus lorsque l'un des champs est focus */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 123, 255, 0.5); /* Lueur bleue au focus */
+}
+
+/* Ombre interne subtile */
+form {
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.7); /* Ombre interne légère */
+}
+
+/* Style des champs de saisie */
+form input, form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 2px solid #252525; /* Bordure gris foncé initiale */
+  background-color: #252525; /* Fond légèrement plus clair pour les champs */
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Effet de survol des champs */
+form input:hover, form textarea:hover {
+  border-color: #007bff; /* Bordure bleue au survol */
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.6); /* Lueur bleue autour du champ */
+  background-color: #333;
+}
+
+/* Focus sur les champs */
+form input:focus, form textarea:focus {
+  border-color: #007bff; /* Bordure bleue au focus */
+  outline: none;
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.8); /* Lueur bleue au focus */
+}
+
+/* Bouton d’envoi */
+form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d0d0d;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 18px 40px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  letter-spacing: 1px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Effet de survol sur le bouton */
+form button:hover {
+  background-color: #007bff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+/* Effet de clic */
+form button:active {
+  transform: translateY(0);
+  animation: buttonPress 0.2s linear;
+}
+
+/* Animation du bouton */
+@keyframes buttonPress {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Labels */
+form label {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  margin-top: 20px;
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+form label.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Champs du formulaire */
+form input, form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-color: #252525;
+  color: #e0e0e0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Focus sur les champs */
+form input:focus, form textarea:focus {
+  border-color: #4fa3f7;
+  outline: none;
+  box-shadow: 0 0 12px rgba(79, 163, 247, 0.5);
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #252525, #2a2a2a);
+}
+
+/* Champs visibles */
+form input.visible, form textarea.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bouton d’envoi */
+form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d0d0d;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 18px 40px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  letter-spacing: 1px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+form button.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Effet de survol sur le bouton */
+form button:hover {
+  background-color: #007bff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+/* Effet de clic */
+form button:active {
+  transform: translateY(0);
+  animation: buttonPress 0.2s linear;
+}
+
+/* Animation du bouton */
+@keyframes buttonPress {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Icône animée dans le bouton */
+form button::after {
+  content: "📩";
+  font-size: 22px;
+  margin-left: 12px;
+  opacity: 0;
+  transform: translateX(-15px);
+  transition: all 0.3s ease;
+}
+
+form button:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 📱 Responsive Design */
+
+/* Adaptation pour tablettes */
+@media (max-width: 1024px) {
+  #contact h2 {
+      font-size: 2.8rem;
+  }
+}
+
+/* Adaptation pour mobiles */
+@media (max-width: 600px) {
+  form {
+      padding: 25px;
+  }
+  form input, form textarea {
+      font-size: 1rem;
+  }
+  form button {
+      padding: 16px 35px;
+      font-size: 17px;
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 400px) {
+  #contact h2 {
+      font-size: 2.2rem;
+  }
+  form label {
+      font-size: 1.2rem;
+  }
+  form input, form textarea {
+      padding: 10px;
+      font-size: 0.9rem;
+  }
+  form button {
+      padding: 14px 30px;
+      font-size: 16px;
+  }
+}
+
+/* Animation fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Lorsque l'élément devient visible */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Effet de défilement parallax */
+.scroll-effect {
+  position: relative;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-container {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  .about-photo {
+      margin-bottom: 20px;
+  }
+  .skill-header h3 {
+      font-size: 1.5rem;
+  }
+  .progress-bar {
+      height: 15px;
+  }
+}
+
+#animated-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  text-align: center;
+  height: 100px; /* Ajuste selon ton besoin */
+}
+
+#animated-title span {
+  opacity: 0;
+  transform: translateY(10px);
+  display: inline-block;
+  animation: fadeInUp 0.05s forwards;
+}
+
+/* Effet néon pour le titre */
+.neon-effect {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px; /* Espacement moderne */
+  color: #fff;
+  text-shadow: 
+      0 0 15px #007bff, 
+      0 0 20px #007bff;
+  animation: neon-blink 1.5s infinite alternate;
+}
+
+@keyframes neon-blink {
+  0% {
+    text-shadow: 
+      0 0 5px rgba(0, 123, 255, 0.7),
+      0 0 10px rgba(0, 123, 255, 0.6),
+      0 0 15px rgba(0, 123, 255, 0.5);
+  }
+  100% {
+    text-shadow: 
+      0 0 5px rgba(0, 123, 255, 0.7),
+      0 0 10px rgba(0, 123, 255, 0.6),
+      0 0 15px rgba(0, 123, 255, 0.5);
+  }
+}
+
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  to {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+}
+
+/* Appliquer le canvas en arrière-plan dans chaque section */
+/* Le conteneur du fond animé dans la section "Projets" */
+.background-container {
+  position: absolute; /* Cela va permettre de positionner le canvas derrière le contenu */
+  top: 0;
+  left: 0;
+  width: 100%; /* Il occupe toute la largeur de la section */
+  height: 100%; /* Il occupe toute la hauteur de la section */
+  z-index: 1; /* Placer le canvas derrière le contenu */
+  pointer-events: none; /* Le canvas ne doit pas interférer avec les interactions sur les autres éléments */
+}
+#particles-bg-projects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Assure-toi qu'il est sous les autres éléments */
+}
+
+#particles-bg, #particles-bg-skills, #particles-bg-contact {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Le canvas ne doit pas bloquer les interactions avec le contenu */
+  z-index: 1; /* Place le canvas derrière le contenu */
+}
+
+/* 🌍 Positionnement et animation des planètes */
+.planet-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: orbit 10s linear infinite alternate, float 6s ease-in-out infinite;
+}
+
+/* 🌍 Positionnement amélioré */
+.planet-left {
+  left: 10%;
+}
+
+.planet-right {
+  right: 10%;
+}
+
+/* 🌍 Planètes avec un effet de profondeur */
+.planet {
+  width: 220px; /* Taille augmentée pour plus d'impact */
+  height: 220px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 70px rgba(255, 255, 255, 0.6);
+  animation: pulse 3s ease-in-out infinite;
+  overflow: hidden;
+}
+
+/* ✨ Effet de glow dynamique */
+.planet::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 50%;
+  top: -15px;
+  left: -15px;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+/* 🌕 Lune ultra-réaliste */
+.moon {
+  background: radial-gradient(circle at 30% 30%, #e3e3e3, #b0b0b0, #6a6a6a);
+  box-shadow: inset -30px -30px 50px rgba(0, 0, 0, 0.6),
+              0 0 40px rgba(255, 255, 255, 0.4);
+  filter: contrast(1.2);
+}
+
+/* ☀️ Soleil avec un glow solaire intense */
+.sun {
+  background: radial-gradient(circle at 50% 50%, #ffec8b, #ff9900, #ff4500);
+  box-shadow: 0 0 150px rgba(255, 223, 0, 1),
+              0 0 200px rgba(255, 140, 0, 0.8),
+              0 0 300px rgba(255, 69, 0, 0.5);
+  filter: brightness(1.3);
+}
+
+/* 🔴 Mars avec un relief martien plus profond */
+.mars {
+  background: radial-gradient(circle at 35% 35%, #ff764d, #c1440e, #7a1c0c);
+  box-shadow: inset -35px -35px 60px rgba(0, 0, 0, 0.7),
+              0 0 60px rgba(255, 102, 0, 0.6);
+  filter: contrast(1.2);
+}
+
+/* 🔵 Neptune avec un effet aquatique plus intense */
+.neptune {
+  background: radial-gradient(circle at 50% 50%, #5eb6ff, #1f56b3, #001a4d);
+  box-shadow: inset -40px -40px 70px rgba(0, 0, 0, 0.9),
+              0 0 100px rgba(0, 153, 255, 0.8);
+  filter: saturate(1.3);
+}
+
+/* 🪐 Anneaux stylisés */
+.planet-container .ring {
+  position: absolute;
+  width: 320px; /* Plus grand que la planète */
+  height: 100px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(85deg);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+  opacity: 0.9;
+}
+
+/* 🌕 Anneaux lunaires */
+.moon .ring {
+  background: radial-gradient(ellipse at center, rgba(200, 200, 200, 0.6), rgba(120, 120, 120, 0.3));
+}
+
+/* ☀️ Anneaux du soleil */
+.sun .ring {
+  background: radial-gradient(ellipse at center, rgba(255, 223, 0, 0.8), rgba(255, 100, 0, 0.4));
+}
+
+/* 🔴 Anneaux de Mars */
+.mars .ring {
+  background: radial-gradient(ellipse at center, rgba(255, 69, 0, 0.6), rgba(139, 35, 0, 0.3));
+}
+
+/* 🔵 Anneaux de Neptune */
+.neptune .ring {
+  background: radial-gradient(ellipse at center, rgba(0, 153, 255, 0.7), rgba(0, 0, 102, 0.4));
+}
+
+/* 🌠 Texture et profondeur aux anneaux */
+.planet-container .ring::before {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 110px;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.4), transparent);
+  border-radius: 50%;
+  transform: rotate(10deg);
+}
+
+.planet-container .ring::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 90px;
+  background: radial-gradient(ellipse at center, rgba(100, 60, 20, 0.6), transparent);
+  border-radius: 50%;
+  transform: rotate(-10deg);
+}
+
+/* 🌠 Animations améliorées */
+
+/* Flottement plus naturel */
+@keyframes float {
+  0% { transform: translateY(-12px); }
+  50% { transform: translateY(12px); }
+  100% { transform: translateY(-12px); }
+}
+
+/* Pulsation plus dynamique */
+@keyframes pulse {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.07); filter: brightness(1.3); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* 📱 Adaptation mobile */
+@media (max-width: 768px) {
+  .planet {
+    width: 100px;  /* Taille réduite pour mobile */
+    height: 100px;
+  }
+
+  .planet-container .ring {
+    width: 180px;  /* Anneaux réduits aussi */
+    height: 50px;
+  }
+
+  .planet-left {
+    left: 5%; /* Rapproche légèrement pour éviter les débordements */
+  }
+
+  .planet-right {
+    right: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .planet-left {
+    left: 10%;
+  }
+
+  .planet-right {
+    right: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .planet {
+    animation: rotate-horizontal 8s linear infinite, pulse 3s ease-in-out infinite;
+  }
+
+  .planet-container .ring {
+    animation: ring-rotation 12s linear infinite;
+  }
+}
+
+@media (max-width: 768px) {
+  .planet::after {
+    width: 120px;
+    height: 120px;
+    opacity: 0.7;
+  }
+}
