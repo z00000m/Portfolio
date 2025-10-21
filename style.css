@@ -247,74 +247,119 @@ body.scrolled header { background-color: #222; }
   animation: neon-blink 1.5s infinite alternate;
 }
 
-/* =========================================
-   6) SECTION À PROPOS
-   ========================================= */
+/* === SECTION À PROPOS === */
 #about {
-  background: linear-gradient(135deg, #0a0a0a, #0a0a0a);
+  background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
   color: #f5f5f5;
-  padding: 80px 20px;
+  padding: 180px 20px 120px; /* plus d'espace en haut pour respirer */
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Contenu (photo + texte) */
+/* Effet subtil de lueur autour du titre */
+#about h2 {
+  font-size: 2.8rem;
+  color: #0084ff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(0,132,255,0.8), 0 0 30px rgba(0,132,255,0.5);
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* Ligne décorative sous le titre */
+#about h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00bfff, transparent);
+  margin: 15px auto 0;
+  border-radius: 10px;
+}
+
+/* Contenu principal (photo + texte) */
 .about-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
-  max-width: 1100px;
+  gap: 40px;
+  max-width: 1000px;
   margin: 0 auto;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fade-in-content 1.2s ease-out forwards 0.5s;
+  transform: translateY(30px);
+  animation: fade-in-content 1.5s ease-out forwards 0.5s;
 }
 
+/* === PHOTO DE PROFIL === */
 .about-photo {
-  max-width: 300px;
+  max-width: 280px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: zoom-in 1.5s ease-out forwards 0.8s;
+  border: 3px solid rgba(0,132,255,0.6);
+  box-shadow: 0 0 25px rgba(0,132,255,0.4),
+              0 0 60px rgba(0,132,255,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: zoom-in 1.8s ease-out forwards 0.8s;
   opacity: 0;
 }
 
 .about-photo:hover {
-  transform: scale(1.1);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(0,132,255,0.6),
+              0 0 80px rgba(0,132,255,0.3);
 }
 
+/* === TEXTE DE PRÉSENTATION === */
 .about-text {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  max-width: 700px;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  max-width: 750px;
+  text-align: justify;
   animation: slide-up 1.2s ease-out forwards 1s;
   opacity: 0;
-  color: #fff;
-  margin-bottom: 30px;
+
+  /* 🎨 Nouveau style du bloc */
+  color: #e5e5e5;
+  background: rgba(10, 15, 25, 0.5);
+  padding: 35px 40px;
+  border-radius: 22px;
+
+  /* 🔵 Bordure lumineuse + halo */
+  border: 1.5px solid rgba(0, 150, 255, 0.3);
+  box-shadow:
+    0 0 15px rgba(0, 150, 255, 0.3),
+    inset 0 0 25px rgba(0, 150, 255, 0.1),
+    0 0 60px rgba(0, 0, 0, 0.8);
+
+  /* 💨 Effet verre flouté */
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
+
+  transition: all 0.4s ease-in-out;
 }
 
+/* 🖱️ Effet au survol */
+.about-text:hover {
+  transform: scale(1.02);
+  border-color: rgba(0, 170, 255, 0.5);
+  box-shadow:
+    0 0 25px rgba(0, 170, 255, 0.4),
+    inset 0 0 35px rgba(0, 170, 255, 0.15);
+}
+
+/* Espacement des paragraphes */
 .about-text p {
-  margin-bottom: 20px;
-  color: #ddd;
-}
-
-/* Responsive À propos */
-@media (max-width: 768px) {
-  .about-photo { max-width: 200px; }
-  .about-text { max-width: 100%; }
-}
-@media (max-width: 480px) {
-  #about h2 { font-size: 2.5rem; }
-  .about-photo { max-width: 180px; }
+  margin-bottom: 18px;
+  color: #d8d8d8;
 }
 
 /* =========================================
    7) SECTION PROJETS
    ========================================= */
 #projects {
-  background: linear-gradient(135deg, #0a0a0a, #0a0a0a);
+  background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
   color: #fff;
   padding: 80px 30px;
   position: relative;
@@ -475,7 +520,7 @@ body.scrolled header { background-color: #222; }
    8) SECTION COMPÉTENCES
    ========================================= */
 #skills {
-  background: linear-gradient(135deg, #0a0a0a, #0a0a0a);
+  background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
   color: #f5f5f5;
   padding: 80px 60px;
   text-align: center;
@@ -603,7 +648,7 @@ body.scrolled header { background-color: #222; }
    ============================================================ */
 
 #contact {
-  background: linear-gradient(135deg, #0a0a0a, #0a0a0a);
+ background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
   padding: 120px 30px;
   color: #fff;
   text-align: center;
@@ -618,128 +663,280 @@ body.scrolled header { background-color: #222; }
   transform: translateY(0);
 }
 
-/* ---- FORMULAIRE ---- */
+/* === SECTION CONTACT === */
+#contact {
+  background: linear-gradient(135deg, #050505, #0a0a0a);
+  padding: 120px 20px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+#contact h2 {
+  font-size: 2.8rem;
+  color: #00bfff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 25px rgba(0,191,255,0.8);
+  margin-bottom: 60px;
+}
+
+#contact h2::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00bfff, transparent);
+  margin: 15px auto 0;
+  border-radius: 10px;
+}
+
+/* === FORMULAIRE (refonte complète) === */
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 600px;
+  max-width: 480px;
   width: 100%;
-  margin: 60px auto 0;
-  padding: 50px 45px;
-  border-radius: 25px;
-  background: radial-gradient(circle at top left, #121212, #0a0a0a);
-  border: 2px solid rgba(255, 255, 255, 0.05);
+  margin: 0 auto;
+  padding: 70px 40px; /* ↑↑ plus de hauteur intérieure */
+  min-height: 580px; /* ← assure un rendu plus vertical */
+  border-radius: 30px;
+  background: radial-gradient(circle at top, rgba(10,10,10,0.9), rgba(5,5,5,0.95));
+  border: 1px solid rgba(0,140,255,0.3);
   box-shadow:
-    0 0 30px rgba(0, 123, 255, 0.15),
-    0 10px 35px rgba(0, 0, 0, 0.8),
-    inset 0 0 25px rgba(0, 0, 0, 0.6);
-  position: relative;
-  z-index: 2;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    0 0 30px rgba(0,140,255,0.25),
+    inset 0 0 25px rgba(0,140,255,0.08);
+  animation: formGlow 4s ease-in-out infinite alternate;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
 }
 
-form:hover,
-form:focus-within {
-  border-color: rgba(0, 123, 255, 0.6);
-  box-shadow:
-    0 0 35px rgba(0, 123, 255, 0.3),
-    0 10px 40px rgba(0, 0, 0, 0.8),
-    inset 0 0 30px rgba(0, 123, 255, 0.2);
+form:hover {
   transform: scale(1.02);
 }
 
-/* ---- CHAMPS ---- */
-form label {
-  font-size: 1.3rem;
-  color: #e0e0e0;
-  margin-top: 20px;
-  width: 100%;
-  font-weight: bold;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s, transform 0.8s;
-}
-form label.visible {
-  opacity: 1;
-  transform: translateY(0);
+form:hover {
+  transform: scale(1.02);
 }
 
+/* ✨ Animation douce du contour néon */
+@keyframes formGlow {
+  0% {
+    box-shadow:
+      0 0 15px rgba(0,140,255,0.2),
+      inset 0 0 15px rgba(0,140,255,0.05);
+  }
+  100% {
+    box-shadow:
+      0 0 30px rgba(0,140,255,0.6),
+      inset 0 0 20px rgba(0,140,255,0.15);
+  }
+}
+
+/* === LABELS === */
+form label {
+  font-size: 1rem;
+  color: #d0d0d0;
+  margin-top: 15px;
+  align-self: flex-start;
+  text-shadow: 0 0 5px rgba(0,191,255,0.3);
+}
+
+/* === INPUTS & TEXTAREA === */
 form input,
 form textarea {
   width: 100%;
-  padding: 14px;
-  margin-top: 8px;
+  padding: 12px 14px;
+  margin-top: 6px;
   border-radius: 12px;
-  border: 2px solid #252525;
-  background-color: #1b1b1b;
+  border: 1px solid rgba(0,191,255,0.2);
+  background-color: rgba(15,15,15,0.8);
   color: #fff;
   font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, background 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-}
-form input.visible,
-form textarea.visible {
-  opacity: 1;
-  transform: translateY(0);
+  transition: all 0.3s ease;
+  resize: vertical; /* Permet uniquement d’étirer verticalement */
+  max-height: 200px; /* Limite la hauteur maximum */
+  min-height: 100px; /* Hauteur de base agréable */
+  box-shadow:
+    inset 0 0 10px rgba(0,0,0,0.4),
+    0 0 10px rgba(0,191,255,0.05);
 }
 
 form input:hover,
 form textarea:hover {
-  border-color: #007bff;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
-  background-color: #2b2b2b;
+  border-color: #0090ff;
+  box-shadow:
+    0 0 10px rgba(0,191,255,0.3),
+    inset 0 0 5px rgba(0,191,255,0.1);
 }
 
 form input:focus,
 form textarea:focus {
-  border-color: #4fa3f7;
+  border-color: #00bfff;
+  box-shadow:
+    0 0 20px rgba(0,191,255,0.6),
+    inset 0 0 10px rgba(0,191,255,0.2);
   outline: none;
-  box-shadow: 0 0 12px rgba(79, 163, 247, 0.5);
-  transform: scale(1.02);
-  background: linear-gradient(135deg, #252525, #2a2a2a);
+  background: rgba(20,20,20,0.9);
 }
 
-/* ---- BOUTON ---- */
+/* === BOUTON ENVOYER === */
 form button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #0d0d0d;
-  border: 2px solid #fff;
+  display: inline-block;
+  background: radial-gradient(circle at top, #111 0%, #000 100%);
   color: #fff;
-  padding: 18px 40px;
-  font-size: 18px;
-  border-radius: 10px;
+  border: 2px solid rgba(0, 140, 255, 0.5);
+  border-radius: 40px;
+  padding: 16px 42px;
+  margin-top: 40px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.6px;
   cursor: pointer;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-top: 35px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s, transform 0.8s, background-color 0.3s, box-shadow 0.3s;
+  transition: all 0.35s ease;
+  box-shadow:
+    0 0 10px rgba(0, 140, 255, 0.15),
+    inset 0 0 8px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
 }
-form button.visible {
-  opacity: 1;
-  transform: translateY(0);
+
+/* 💫 effet de lumière glissante */
+form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(0, 150, 255, 0.25), transparent);
+  transition: all 0.6s ease;
 }
-form button:hover {
-  background-color: #007bff;
-  transform: translateY(-3px);
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
-}
+form button:hover::before { left: 120%; }
+
+/* icône d’envoi */
 form button::after {
   content: "📩";
-  font-size: 22px;
-  margin-left: 12px;
+  font-size: 1.3rem;
+  margin-left: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0;
-  transform: translateX(-15px);
-  transition: opacity 0.3s, transform 0.3s;
+  transform: translateX(-8px);
 }
 form button:hover::after {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* survol : halo */
+form button:hover {
+  border-color: #00a6ff;
+  box-shadow:
+    0 0 20px rgba(0, 170, 255, 0.6),
+    0 0 35px rgba(0, 170, 255, 0.3),
+    inset 0 0 10px rgba(0, 170, 255, 0.2);
+  transform: translateY(-3px);
+}
+form button:active {
+  transform: translateY(0);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  form {
+    padding: 30px 25px;
+  }
+  form button {
+    width: 100%;
+  }
+}
+
+/* === BOUTON ENVOYER === */
+form button {
+  display: inline-block;
+  background: radial-gradient(circle at top, #111 0%, #000 100%);
+  color: #fff;
+  border: 2px solid rgba(0, 140, 255, 0.5);
+  border-radius: 40px; /* forme capsule */
+  padding: 16px 42px;
+  margin-top: 22px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow:
+    0 0 10px rgba(0, 140, 255, 0.15),
+    inset 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+/* 💫 effet de reflet léger (bande lumineuse qui glisse) */
+form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0, 150, 255, 0.25),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+form button:hover::before {
+  left: 120%;
+}
+
+/* ✨ icône d’envoi animée */
+form button::after {
+  content: "📩";
+  font-size: 1.3rem;
+  margin-left: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+form button:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 🩵 survol : halo et surbrillance */
+form button:hover {
+  border-color: #00a6ff;
+  box-shadow:
+    0 0 20px rgba(0, 170, 255, 0.6),
+    0 0 35px rgba(0, 170, 255, 0.3),
+    inset 0 0 10px rgba(0, 170, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* clic = petit rebond */
+form button:active {
+  transform: translateY(0);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  form {
+    padding: 25px 20px;
+  }
+  form button {
+    width: 100%;
+  }
 }
 
 /* ---- LIGNE DE SÉPARATION ENTRE COMPÉTENCES ET CONTACT ---- */
@@ -752,27 +949,6 @@ form button:hover::after {
   position: relative;
   z-index: 1;
   animation: glowLine 4s ease-in-out infinite alternate;
-}
-
-@keyframes glowLine {
-  0% { box-shadow: 0 0 10px rgba(255,255,255,0.3); }
-  100% { box-shadow: 0 0 25px rgba(255,255,255,0.8); }
-}
-
-/* ---- RESPONSIVE ---- */
-@media (max-width: 1024px) {
-  #contact h2 { font-size: 2.8rem; }
-}
-@media (max-width: 600px) {
-  form { padding: 30px; }
-  form input, form textarea { font-size: 1rem; }
-  form button { padding: 16px 35px; font-size: 17px; }
-}
-@media (max-width: 400px) {
-  #contact h2 { font-size: 2.2rem; }
-  form label { font-size: 1.1rem; }
-  form input, form textarea { padding: 10px; font-size: 0.9rem; }
-  form button { padding: 14px 30px; font-size: 16px; }
 }
 
 
