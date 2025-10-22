@@ -103,124 +103,92 @@
 </section>
 
 <!-- Section Compétences -->
-<section id="skills" class="fade-in scroll-effect">
+<section id="skills">
+  <!-- 🎆 Fond de particules -->
   <div class="background-container">
-      <canvas id="particles-bg-skills"></canvas>
+    <canvas id="particles-bg-skills"></canvas>
   </div>
-  
+
   <h2 class="title">Mes Compétences</h2>
 
-  <div class="skills-container">
-      
-      <!-- Bloc Logiciels -->
-      <div class="skills-block left">
-          <div class="skills-card fade-in">
-            <h3 id="animated-title" class="neon-effect">Logiciels</h3>
-              <ul>
-                  <li>
-                      <span>GitHub</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="50%"></span>
-                          <span class="percent-text">50%</span>
-                      </div>
-                  </li>
-                  <li>
-                      <span>Visual Studio Code</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="50%"></span>
-                          <span class="percent-text">40%</span>
-                      </div>
-                  </li>
-                  <li>
-                      <span>Unreal Engine</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="40%"></span>
-                          <span class="percent-text">40%</span>
-                      </div>
-                  </li>
-                  <li>
-                      <span>Unity</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="10%"></span>
-                          <span class="percent-text">10%</span>
-                      </div>
-                  </li>
-                  <li>
-                      <span>Blender</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="5%"></span>
-                          <span class="percent-text">5%</span>
-                      </div>
-                  </li>
-              </ul>
-          </div>
+  <div class="skills-columns">
+    <!-- Bloc Logiciels -->
+    <div class="skills-section">
+      <h3>Logiciels</h3>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <img src="github.png" alt="GitHub">
+          <h4>GitHub</h4>
+          <span class="level advanced">Avancé</span>
+        </div>
+        <div class="skill-card">
+          <img src="vscode.png" alt="VS Code">
+          <h4>Visual Studio Code</h4>
+          <span class="level intermediate">Intermédiaire</span>
+        </div>
+        <div class="skill-card">
+          <img src="unreal.png" alt="Unreal Engine">
+          <h4>Unreal Engine</h4>
+          <span class="level intermediate">Intermédiaire</span>
+        </div>
+        <div class="skill-card">
+          <img src="unity.png" alt="Unity">
+          <h4>Unity</h4>
+          <span class="level beginner">Débutant</span>
+        </div>
+        <div class="skill-card">
+          <img src="blender.png" alt="Blender">
+          <h4>Blender</h4>
+          <span class="level beginner">Débutant</span>
+        </div>
       </div>
+    </div>
 
-      <!-- Bloc Codage -->
-      <div class="skills-block right">
-          <div class="skills-card fade-in">
-            <h3 id="animated-title" class="neon-effect">Codages</h3>
-              <ul>
-                  <li>
-                      <span>CSS</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="50%"></span>
-                          <span class="percent-text">50%</span>
-                      </div>
-                  </li>
-                  <li>
-                      <span>C</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="50%"></span>
-                          <span class="percent-text">50%</span>
-                      </div>
-                  </li>
-                  <li>
-                      <span>C++</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="50%"></span>
-                          <span class="percent-text">50%</span>
-                      </div>
-                  </li>
-                  <li>
-                      <span>HTML</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="50%"></span>
-                          <span class="percent-text">50%</span>
-                      </div>
-                  </li>
-                  <li>
-                      <span>Blueprint</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="50%"></span>
-                          <span class="percent-text">50%</span>
-                      </div>
-                  </li>
-                  <li>
-                      <span>JavaScript</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="5%"></span>
-                          <span class="percent-text">5%</span>
-                      </div>
-                  </li>
-                  <li>
-                      <span>C#</span>
-                      <div class="skill-bar">
-                          <span style="width: 0;" data-percent="5%"></span>
-                          <span class="percent-text">5%</span>
-                      </div>
-                  </li>
-              </ul>
-          </div>
+    <!-- Bloc Codages -->
+    <div class="skills-section">
+      <h3>Codages</h3>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <img src="css.png" alt="CSS">
+          <h4>CSS</h4>
+          <span class="level advanced">Avancé</span>
+        </div>
+        <div class="skill-card">
+          <img src="html.png" alt="HTML">
+          <h4>HTML</h4>
+          <span class="level advanced">Avancé</span>
+        </div>
+        <div class="skill-card">
+          <img src="c.png" alt="C">
+          <h4>C</h4>
+          <span class="level intermediate">Intérmédiaire</span>
+        </div>
+        <div class="skill-card">
+          <img src="cpp.png" alt="C++">
+          <h4>C++</h4>
+          <span class="level intermediate">Intermédiaire</span>
+        </div>
+        <div class="skill-card">
+          <img src="js.png" alt="JavaScript">
+          <h4>JavaScript</h4>
+          <span class="level beginner">Débutant</span>
+        </div>
+        <div class="skill-card">
+          <img src="csharp.png" alt="C#">
+          <h4>C#</h4>
+          <span class="level beginner">Débutant</span>
+        </div>
       </div>
+    </div>
   </div>
-   <!-- Petite planète LUNE -->
-   <div class="planet-container planet-left">
-    <div class="planet moon"></div>
-    <div class="ring"></div> 
-</div>
 </section>
-<div class="section-divider"></div>
+
+  <!-- Petite planète décorative -->
+  <div class="planet-container planet-left">
+    <div class="planet moon"></div>
+    <div class="ring"></div>
+  </div>
+</section>
    <!-- Section Contact -->
 <section id="contact" class="fade-in">
     <div class="background-container">
