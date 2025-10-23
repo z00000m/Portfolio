@@ -1,397 +1,364 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Gabriel Fremaux</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- En-tête -->
-    <header>
-      <h1 id="animated-title" class="neon-effect">Portfolio de Gabriel Fremaux</h1>
-      <nav>
-          <ul>
-              <li><a href="#about">À propos</a></li>
-              <li><a href="#projects">Projets</a></li>
-              <li><a href="#skills">Compétences</a></li>
-              <li><a href="#contact">Contact</a></li>
-          </ul>
-      </nav>
-    </header>
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Gabriel Fremaux</title>
 
-    <!-- Section À propos -->
-    <section id="about" class="fade-in scroll-effect parallax-container">
-        <div class="background-container">
-            <canvas id="particles-bg"></canvas>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Polices -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1 id="animated-title" class="neon-effect">Portfolio de Gabriel Fremaux</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SECTION À PROPOS -->
+  <section id="about" class="fade-in scroll-effect parallax-container">
+    <div class="background-container">
+      <canvas id="particles-bg"></canvas>
+    </div>
+
+    <div class="about-content">
+      <h2 style="color: #007BFF;">À propos de moi</h2>
+
+      <div class="about-inner">
+        <img src="photo.png" alt="Ma photo" class="about-photo">
+        <div class="about-text">
+          <p>
+            Titulaire d’une formation en développement informatique et fort d’une première expérience sur Unreal Engine,
+            je suis passionné par la création de jeux vidéo et la conception d’univers. J’aime donner vie à mes idées en combinant
+            créativité et expertise technique. Curieux et toujours en quête d’apprentissage, ce qui me motive avant tout,
+            c’est de donner vie à des mondes où les joueurs peuvent s’évader, relever des défis et se laisser porter par des histoires
+            inoubliables. Je considère chaque projet comme une opportunité de repousser mes limites et de laisser une empreinte dans
+            l’univers fascinant du jeu vidéo.
+          </p>
         </div>
-        <div class="about-content">
-        <h2 style="color: #007BFF;">À propos de moi</h2>
-        <div class="about-content">
-            <img src="photo.png" alt="Ma photo" class="about-photo">
-            <div class="about-text">
-                <p>Titulaire d’une formation en développement informatique et fort d’une première expérience sur Unreal Engine, je suis passionné par la création de jeux vidéo et la conception d’univers. J’aime donner vie à mes idées en combinant créativité et expertise technique. Curieux et toujours en quête d’apprentissage, ce qui me motive avant tout, c’est de donner vie à des mondes où les joueurs peuvent s’évader, relever des défis et se laisser porter par des histoires inoubliables. Je considère chaque projet comme une opportunité de repousser mes limites et de laisser une empreinte dans l’univers fascinant du jeu vidéo.</p>
-            </div>
-        </div>
-        </div>
-      <!-- Planète décorative -->
-  <div class="planet-container planet-left">
-    <div class="planet mars"></div>
-    <div class="ring"></div> 
-</div>
-    </section> 
-    
-   <!-- Section Projets de Jeux Vidéo -->
-<section id="projects" class="page-content">
-  <div class="background-container">
-    <canvas id="particles-bg-projects"></canvas>
-  </div>
-  <div class="title-container">
+      </div>
+    </div>
+
+    <!-- Planète décorative -->
+    <div class="planet-container planet-left">
+      <div class="planet mars"></div>
+      <div class="ring"></div>
+    </div>
+  </section>
+
+  <!-- SECTION PROJETS -->
+  <section id="projects" class="page-content">
+    <div class="background-container">
+      <canvas id="particles-bg-projects"></canvas>
+    </div>
+
+    <div class="title-container">
       <h2>Mes Projets de Jeux Vidéo</h2>
-  </div>
-  <div class="project-grid">
+    </div>
+
+    <div class="project-grid">
       <!-- Projet 1 -->
       <div class="project-card fade-in">
-        <h3 id="animated-title" class="neon-effect">Wraithvale</h3>
-          <p>Vous incarnez un mercenaire de retour au village… mais tout a changé, et une présence qui vous observe.
-            Explorez, trouvez les huit clés, lisez les notes laissées derrière, et découvrez la vérité. Mais attention : les esprits vengeurs rôdent.</p>
-          <a href="https://z000m.itch.io/night-catch" class="itchio-button">Téléchargez sur Itch.io</a>
+        <h3 class="neon-effect">Wraithvale</h3>
+        <p>
+          Vous incarnez un mercenaire de retour au village… mais tout a changé, et une présence vous observe.
+          Explorez, trouvez les huit clés, lisez les notes laissées derrière, et découvrez la vérité.
+          Mais attention : les esprits vengeurs rôdent.
+        </p>
+        <a href="https://z000m.itch.io/night-catch" class="itchio-button">Téléchargez sur Itch.io</a>
       </div>
 
       <!-- Projet 2 -->
       <div class="project-card fade-in">
-        <h3 id="animated-title" class="neon-effect">Infected</h3>
-          <p>Un jeu rapide où le joueur doit survivre à 3 vagues de zombies, avec un système de caisses de munitions qui apparaissent aléatoirement sur la carte.</p>
-          <a href="https://z000m.itch.io/zombiegame" class="itchio-button">Téléchargez sur Itch.io</a>
+        <h3 class="neon-effect">Infected</h3>
+        <p>
+          Un jeu rapide où le joueur doit survivre à 3 vagues de zombies, avec un système de caisses de munitions
+          qui apparaissent aléatoirement sur la carte à chaque vagues.
+        </p>
+        <a href="https://z000m.itch.io/zombiegame" class="itchio-button">Téléchargez sur Itch.io</a>
       </div>
 
       <!-- Projet 3 -->
       <div class="project-card fade-in">
-        <h3 id="animated-title" class="neon-effect">Grux Dungeon</h3>
-          <p>Un mini-jeu Souls-like où le joueur doit explorer un donjon et vaincre le boss. Profitez d’un système de soin et d'un verrouillage de cible.</p>
-          <a href="https://z000m.itch.io/minisoulsgame" class="itchio-button">Téléchargez sur Itch.io</a>
+        <h3 class="neon-effect">Grux Dungeon</h3>
+        <p>
+          Un mini-jeu Souls-like où le joueur doit explorer un donjon et vaincre le boss.
+          Profitez d’un système de soin, de roulade et d’un verrouillage de cible!
+        </p>
+        <a href="https://z000m.itch.io/minisoulsgame" class="itchio-button">Téléchargez sur Itch.io</a>
       </div>
 
       <!-- Projet 4 -->
       <div class="project-card fade-in">
-        <h3 id="animated-title" class="neon-effect">Coins Rush</h3>
-          <p>Un jeu où le joueur doit récupérer 10 pièces gardées par des villageois tout en évitant d’endommager votre armure.</p>
-          <a href="https://z000m.itch.io/coins-rush" class="itchio-button">Téléchargez sur Itch.io</a>
+        <h3 class="neon-effect">Coins Rush</h3>
+        <p>
+          Un jeu où le joueur doit récupérer 10 pièces gardées par des villageois tout en évitant d’endommager son armure.
+        </p>
+        <a href="https://z000m.itch.io/coins-rush" class="itchio-button">Téléchargez sur Itch.io</a>
       </div>
 
       <!-- Projet Professionnel -->
-      <div class="project-card professional-project">
-        <h3 id="animated-title" class="neon-effect">Projet Profesionnel</h3>
-        <h3 id="animated-title" class="neon-effect">Nocturne: Whisper of Shadows</h3>
-        <p>Je développe actuellement mes idées pour un projet de jeu narratif et d’exploration centré sur un métamorphe amnésique perdu dans un monde sombre et corrompu, où la lumière de la lune joue un rôle clé. L’objectif du jeu est d’explorer cet univers mystérieux, de reconstruire la mémoire du protagoniste et de comprendre son lien avec les événements qui ont façonné ce monde.
-           J’ai déjà réflechi à plusieurs aspects du jeu, notamment : </p>
-          <p> Des environnements riches et variés, chacun avec sa propre identité et ses mécaniques de gameplay uniques.</p>
-          <p>Un système de transformation dynamique, influençant à la fois le gameplay et la narration.</p>
-          <p>Une progression basée sur la découverte, où chaque révélation pousse le joueur à reconsidérer ses choix.</p>
-          <a href="https://www.canva.com/design/DAGd343CzZY/zEXzSVklZpsm_C2H8HAogg/edit?utm_content=DAGd343CzZY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="itchio-button">Moodboard de mes idées</a>
-    </div>
-</div>
-  <!-- Petite planète NEPTUNE -->
-  <div class="planet-container planet-right">
-    <div class="planet neptune"></div>
-    <div class="ring"></div> 
-</div>
-</section>
-
-<!-- Section Compétences -->
-<section id="skills">
-  <!-- 🎆 Fond de particules -->
-  <div class="background-container">
-    <canvas id="particles-bg-skills"></canvas>
-  </div>
-
-  <h2 class="title">Mes Compétences</h2>
-
-  <div class="skills-columns">
-    <!-- Bloc Logiciels -->
-    <div class="skills-section">
-      <h3>Logiciels</h3>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <img src="github.png" alt="GitHub">
-          <h4>GitHub</h4>
-          <span class="level advanced">Avancé</span>
-        </div>
-        <div class="skill-card">
-          <img src="vscode.png" alt="VS Code">
-          <h4>Visual Studio Code</h4>
-          <span class="level intermediate">Intermédiaire</span>
-        </div>
-        <div class="skill-card">
-          <img src="unreal.png" alt="Unreal Engine">
-          <h4>Unreal Engine</h4>
-          <span class="level intermediate">Intermédiaire</span>
-        </div>
-        <div class="skill-card">
-          <img src="unity.png" alt="Unity">
-          <h4>Unity</h4>
-          <span class="level beginner">Débutant</span>
-        </div>
-        <div class="skill-card">
-          <img src="blender.png" alt="Blender">
-          <h4>Blender</h4>
-          <span class="level beginner">Débutant</span>
-        </div>
+      <div class="project-card professional-project fade-in">
+        <h3 class="neon-effect">Projet Personnel</h3>
+        <h3 class="neon-effect">Nocturne: Whisper of Shadows</h3>
+        <p>
+          Je développe actuellement mes idées pour un projet de jeu narratif et d’exploration centré sur un métamorphe amnésique
+          perdu dans un monde sombre et corrompu, où la lumière de la lune joue un rôle clé. L’objectif du jeu est d’explorer cet univers
+          mystérieux, de reconstruire la mémoire du protagoniste et de comprendre son lien avec les événements qui ont façonné ce monde. J'ai déjà réfléchi à plusieurs aspects du jeu notamment :
+        </p>
+        <p>Des environnements riches et variés, chacun avec sa propre identité et ses mécaniques de gameplay uniques.</p>
+        <p>Un système de transformation dynamique, influençant à la fois le gameplay et la narration.</p>
+        <p>Une progression basée sur la découverte, où chaque révélation pousse le joueur à reconsidérer ses choix.</p>
+        <a href="https://www.canva.com/design/DAGd343CzZY/zEXzSVklZpsm_C2H8HAogg/edit?utm_content=DAGd343CzZY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="itchio-button">Moodboard de mes idées</a>
       </div>
     </div>
 
-    <!-- Bloc Codages -->
-    <div class="skills-section">
-      <h3>Codages</h3>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <img src="css.png" alt="CSS">
-          <h4>CSS</h4>
-          <span class="level advanced">Avancé</span>
-        </div>
-        <div class="skill-card">
-          <img src="html.png" alt="HTML">
-          <h4>HTML</h4>
-          <span class="level advanced">Avancé</span>
-        </div>
-        <div class="skill-card">
-          <img src="c.png" alt="C">
-          <h4>C</h4>
-          <span class="level intermediate">Intérmédiaire</span>
-        </div>
-        <div class="skill-card">
-          <img src="cpp.png" alt="C++">
-          <h4>C++</h4>
-          <span class="level intermediate">Intermédiaire</span>
-        </div>
-        <div class="skill-card">
-          <img src="js.png" alt="JavaScript">
-          <h4>JavaScript</h4>
-          <span class="level beginner">Débutant</span>
-        </div>
-        <div class="skill-card">
-          <img src="csharp.png" alt="C#">
-          <h4>C#</h4>
-          <span class="level beginner">Débutant</span>
-        </div>
-      </div>
+    <!-- Petite planète NEPTUNE -->
+    <div class="planet-container planet-right">
+      <div class="planet neptune"></div>
+      <div class="ring"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- Petite planète décorative -->
-  <div class="planet-container planet-left">
-    <div class="planet moon"></div>
-    <div class="ring"></div>
-  </div>
-</section>
-   <!-- Section Contact -->
-<section id="contact" class="fade-in">
+  <!-- SECTION COMPÉTENCES -->
+  <section id="skills">
     <div class="background-container">
-        <canvas id="particles-bg-contact"></canvas>
+      <canvas id="particles-bg-skills"></canvas>
+    </div>
+
+    <h2 class="title">Mes Compétences</h2>
+
+    <div class="skills-columns">
+      <!-- Bloc Logiciels -->
+      <div class="skills-section">
+        <h3>Logiciels</h3>
+        <div class="skills-grid">
+          <div class="skill-card"><img src="icons/github.png" alt="GitHub"><h4>GitHub</h4><span class="level advanced">Avancé</span></div>
+          <div class="skill-card"><img src="icons/vscode.png" alt="VS Code"><h4>Visual Studio Code</h4><span class="level intermediate">Intermédiaire</span></div>
+          <div class="skill-card"><img src="icons/unreal.png" alt="Unreal Engine"><h4>Unreal Engine</h4><span class="level intermediate">Intermédiaire</span></div>
+          <div class="skill-card"><img src="icons/unity.png" alt="Unity"><h4>Unity</h4><span class="level beginner">Débutant</span></div>
+          <div class="skill-card"><img src="icons/blender.png" alt="Blender"><h4>Blender</h4><span class="level beginner">Débutant</span></div>
+        </div>
       </div>
-  <h2>Contactez-moi</h2>
-  <form action="https://formspree.io/f/xdkakvpe" method="POST">
-    <label for="name">Nom :</label>
-    <input type="text" id="name" name="name" required placeholder="Entrez votre nom">
-    <label for="email">Email :</label>
-    <input type="email" id="email" name="email" required placeholder="Entrez votre email">
-    <label for="message">Message :</label>
-    <textarea id="message" name="message" required placeholder="Entrez votre message"></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
+
+      <!-- Bloc Codages -->
+      <div class="skills-section">
+        <h3>Codages</h3>
+        <div class="skills-grid">
+          <div class="skill-card"><img src="icons/css.png" alt="CSS"><h4>CSS</h4><span class="level advanced">Avancé</span></div>
+          <div class="skill-card"><img src="icons/html.png" alt="HTML"><h4>HTML</h4><span class="level advanced">Avancé</span></div>
+          <div class="skill-card"><img src="icons/c.png" alt="C"><h4>C</h4><span class="level intermediate">Intermédiaire</span></div>
+          <div class="skill-card"><img src="icons/cpp.png" alt="C++"><h4>C++</h4><span class="level intermediate">Intermédiaire</span></div>
+          <div class="skill-card"><img src="icons/js.png" alt="JavaScript"><h4>JavaScript</h4><span class="level beginner">Débutant</span></div>
+          <div class="skill-card"><img src="icons/csharp.png" alt="C#"><h4>C#</h4><span class="level beginner">Débutant</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Petite planète décorative -->
+    <div class="planet-container planet-left">
+      <div class="planet moon"></div>
+      <div class="ring"></div>
+    </div>
+  </section>
+
+  <!-- SECTION CONTACT -->
+  <section id="contact" class="fade-in">
+    <div class="background-container">
+      <canvas id="particles-bg-contact"></canvas>
+    </div>
+
+    <h2>Contactez-moi</h2>
+    <form action="https://formspree.io/f/xdkakvpe" method="POST">
+      <label for="name">Nom :</label>
+      <input type="text" id="name" name="name" required placeholder="Entrez votre nom">
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required placeholder="Entrez votre email">
+
+      <label for="message">Message :</label>
+      <textarea id="message" name="message" required placeholder="Entrez votre message"></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+
     <!-- Petite planète SOLEIL -->
- <div class="planet-container planet-right">
-  <div class="planet sun"></div>
-  <div class="ring"></div> 
-</div>
-</section>
+    <div class="planet-container planet-right">
+      <div class="planet sun"></div>
+      <div class="ring"></div>
+    </div>
+  </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // 🌟 Apparition des éléments au défilement
-  const elements = document.querySelectorAll('.fade-in, .project-card');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  });
-  elements.forEach(el => observer.observe(el));
+<!-- 🌙 FOOTER -->
+<footer id="footer">
+  <div class="footer-container">
+    <p class="footer-text">
+      © 2025 — Site créé par <span class="author-name">Gabriel Fremaux</span>
+    </p>
 
- // 🎤 Animation du titre principal
-const title = document.getElementById("animated-title");
-if (title) {
-  const text = title.innerText;
-  title.innerHTML = "";
+    <div class="footer-icons">
+      <a href="https://www.linkedin.com/in/gabriel-fremaux-a01aa0320/" target="_blank" title="LinkedIn">
+        <img src="icons/linkedin.png" alt="LinkedIn">
+      </a>
+      <a href="https://z000m.itch.io/" target="_blank" title="Itch.io">
+        <img src="icons/itch.png" alt="Itch.io">
+      </a>
+      <a href="CV_Gabriel_Fremaux.pdf" download="Gabriel_Fremaux_CV.pdf" title="Télécharger mon CV">
+      <img src="icons/cv.png" alt="CV">
+      </a>
+    </div>
+  </div>
+</footer>
 
-  function animateText() {
-    title.innerHTML = "";
-    text.split("").forEach((char, index) => {
-      const span = document.createElement("span");
-      span.innerText = char === " " ? "\u00A0" : char;
-      span.style.animation = `fadeInUp 0.15s forwards ${index * 0.05}s`;
-      title.appendChild(span);
-    });
-
-    setTimeout(() => {
-      title.querySelectorAll("span").forEach((span, index) => {
-        span.style.animation = `fadeOut 0.15s forwards ${index * 0.05}s`;
+  <!-- SCRIPT -->
+  <script>
+    /* ton JavaScript original intact */
+    document.addEventListener("DOMContentLoaded", () => {
+      // 🌟 Apparition des éléments au défilement
+      const elements = document.querySelectorAll('.fade-in, .project-card');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
       });
-    }, text.length * 50 + 1000);
+      elements.forEach(el => observer.observe(el));
 
-    // Ajouter une pause de 10 secondes avant de relancer l'animation
-    setTimeout(animateText, text.length * 100 + 1350 + 5000);
-  }
-  animateText();
-}
-
-
-  // 🌀 Particules animées pour chaque section
-  function createParticles(canvasId) {
-    const canvas = document.getElementById(canvasId);
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    let particles = [];
-
-    const colors = ["#001F3F", "#00509e", "#00bcd4", "#33ccff", "#6a0dad", "#9400d3", "#ff1493", "#ff69b4", "#ffffff", "#e0e0e0"];
-
-    class Particle {
-      constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.size = Math.random() * 3.5 + 1;
-        this.speedX = Math.random() * 3 - 1.5;
-        this.speedY = Math.random() * 3 - 1.5;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.size > 0.2) this.size -= 0.1;
-      }
-
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < 5; i++) {
-        particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
-      }
-
-      particles.forEach((particle, index) => {
-        particle.update();
-        particle.draw();
-        if (particle.size <= 0.2) {
-          particles.splice(index, 1);
-        }
-      });
-
-      requestAnimationFrame(animateParticles);
-    }
-
-    animateParticles();
-  }
-
-  // Initialiser les particules pour chaque section
-  createParticles("particles-bg");
-  createParticles("particles-bg-projects");
-  createParticles("particles-bg-skills");
-  createParticles("particles-bg-contact");
-
-// 🎯 Animation des barres de compétences
-const skillBars = document.querySelectorAll('.skill-bar span');
-
-function animateSkillBars() {
-  skillBars.forEach((bar, index) => {
-    setTimeout(() => {
-      const percent = bar.getAttribute('data-percent');
-      bar.style.width = percent; // Applique la largeur
-      bar.classList.add('animated'); // Ajoute la classe animée
-
-      // Affichage du pourcentage à la fin de la barre
-      bar.setAttribute('data-content', percent);
-
-      // Affichage du pourcentage au-dessus de la barre
-      const percentText = bar.nextElementSibling;
-      if (percentText && percentText.classList.contains('percent-text')) {
-        percentText.textContent = percent;
-        percentText.style.opacity = 1;
-        percentText.style.transform = "translateY(-50%) translateX(15px) scale(1.1)"; // Animation plus fluide
-      }
-    }, index * 400); // Ajouter un délai plus long pour l'animation entre les barres
-  });
-}
-
-// 📌 Observer les barres de progression
-const skillObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateSkillBars();
-      observer.disconnect(); // Stopper l'observation après l'animation
-    }
-  });
-}, { threshold: 0.5 });
-
-skillBars.forEach(bar => skillObserver.observe(bar)); // Observer chaque barre
-
-// 🌐 Animation de la section contact
-  const contactSection = document.getElementById('contact');
-  if (contactSection) {
-    const formElements = document.querySelectorAll('#contact form label, #contact form input, #contact form textarea, #contact form button');
-
-    const contactObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          contactSection.classList.add('visible');
-
-          formElements.forEach((el, index) => {
-            setTimeout(() => {
-              el.classList.add('visible');
-            }, index * 200);
+      // 🎤 Animation du titre principal
+      const title = document.getElementById("animated-title");
+      if (title) {
+        const text = title.innerText;
+        title.innerHTML = "";
+        function animateText() {
+          title.innerHTML = "";
+          text.split("").forEach((char, index) => {
+            const span = document.createElement("span");
+            span.innerText = char === " " ? "\u00A0" : char;
+            span.style.animation = `fadeInUp 0.15s forwards ${index * 0.05}s`;
+            title.appendChild(span);
           });
-
-          contactObserver.unobserve(contactSection);
+          setTimeout(() => {
+            title.querySelectorAll("span").forEach((span, index) => {
+              span.style.animation = `fadeOut 0.15s forwards ${index * 0.05}s`;
+            });
+          }, text.length * 50 + 1000);
+          setTimeout(animateText, text.length * 100 + 1350 + 5000);
         }
-      });
-    }, { threshold: 0.5 });
+        animateText();
+      }
 
-    contactObserver.observe(contactSection);
-  }
+      // 🌀 Particules animées pour chaque section
+      function createParticles(canvasId) {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particles = [];
+        const colors = ["#001F3F", "#00509e", "#00bcd4", "#33ccff", "#6a0dad", "#9400d3", "#ff1493", "#ff69b4", "#ffffff", "#e0e0e0"];
+        class Particle {
+          constructor(x, y) {
+            this.x = x; this.y = y;
+            this.size = Math.random() * 3.5 + 1;
+            this.speedX = Math.random() * 3 - 1.5;
+            this.speedY = Math.random() * 3 - 1.5;
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+          }
+          update() { this.x += this.speedX; this.y += this.speedY; if (this.size > 0.2) this.size -= 0.1; }
+          draw() { ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+        }
+        function animateParticles() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (let i = 0; i < 5; i++) particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+          particles.forEach((particle, index) => {
+            particle.update(); particle.draw();
+            if (particle.size <= 0.2) particles.splice(index, 1);
+          });
+          requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+      }
+      createParticles("particles-bg");
+      createParticles("particles-bg-projects");
+      createParticles("particles-bg-skills");
+      createParticles("particles-bg-contact");
 
-  // 📱 Menu burger responsive
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector("nav ul");
+      // 🎯 Animation barres de compétences
+      const skillBars = document.querySelectorAll('.skill-bar span');
+      function animateSkillBars() {
+        skillBars.forEach((bar, index) => {
+          setTimeout(() => {
+            const percent = bar.getAttribute('data-percent');
+            bar.style.width = percent;
+            bar.classList.add('animated');
+            bar.setAttribute('data-content', percent);
+            const percentText = bar.nextElementSibling;
+            if (percentText && percentText.classList.contains('percent-text')) {
+              percentText.textContent = percent;
+              percentText.style.opacity = 1;
+              percentText.style.transform = "translateY(-50%) translateX(15px) scale(1.1)";
+            }
+          }, index * 400);
+        });
+      }
+      const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateSkillBars();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+      skillBars.forEach(bar => skillObserver.observe(bar));
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", function () {
-      navLinks.classList.toggle("active");
-      menuToggle.classList.toggle("active");
+      // 🌐 Animation section contact
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        const formElements = document.querySelectorAll('#contact form label, #contact form input, #contact form textarea, #contact form button');
+        const contactObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              contactSection.classList.add('visible');
+              formElements.forEach((el, index) => {
+                setTimeout(() => el.classList.add('visible'), index * 200);
+              });
+              contactObserver.unobserve(contactSection);
+            }
+          });
+        }, { threshold: 0.5 });
+        contactObserver.observe(contactSection);
+      }
+
+      // 📱 Menu burger
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector("nav ul");
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+          menuToggle.classList.toggle("active");
+        });
+        document.querySelectorAll("nav ul li a").forEach(link => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            menuToggle.classList.remove("active");
+          });
+        });
+      }
     });
-
-    document.querySelectorAll("nav ul li a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        menuToggle.classList.remove("active");
-      });
-    });
-  }
-});
-</script>
+  </script>
 </body>
 </html>
