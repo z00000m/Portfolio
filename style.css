@@ -1442,6 +1442,7 @@ form button:active {
     background: rgba(0, 0, 0, 0.95);
     box-shadow: 0 2px 10px rgba(0,0,0,0.8);
     backdrop-filter: none;
+    z-index: 1000;
   }
 
   header h1 {
@@ -1653,4 +1654,31 @@ form button:active {
   }
 }
 
+/* =========================
+   🧩 FIX DÉFINITIF HEADER / INTRO MOBILE
+   ========================= */
+@media (max-width: 768px) {
 
+  /* Empêche le header ou le titre animé de recouvrir le contenu */
+  #animated-title {
+    margin-top: 80px !important;
+    height: auto !important;
+    font-size: 1.8rem !important;
+  }
+
+  /* Assure une marge claire entre le header et le début de la section */
+  #about {
+    margin-top: 120px !important;
+    padding-top: 40px !important;
+  }
+
+  /* Empêche tout débordement vertical */
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  section {
+    overflow: visible !important;
+  }
+}
