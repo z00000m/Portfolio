@@ -1566,3 +1566,91 @@ form button:active {
   }
 }
 
+/* =========================
+   🧭 FIX HEADER + À PROPOS MOBILE
+   ========================= */
+@media (max-width: 768px) {
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  #about {
+    padding-top: 140px; /* espace pour éviter que le header cache la photo */
+  }
+
+  .about-photo {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 25px;
+  }
+
+  .about-text {
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  #about h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+}
+
+/* =========================
+   🧠 SECTION COMPÉTENCES - MOBILE OPTIMISÉE
+   ========================= */
+@media (max-width: 768px) {
+  #skills {
+    padding: 80px 20px;
+  }
+
+  .skills-columns {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .skills-section {
+    width: 100%;
+    padding: 25px 20px;
+    border-radius: 18px;
+  }
+
+  .skills-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+
+  .skill-card {
+    padding: 15px 5px;
+    border-radius: 12px;
+  }
+
+  .skill-card img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .skill-card h4 {
+    font-size: 0.9rem;
+  }
+
+  .skill-card .level {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
+
+
