@@ -1416,7 +1416,7 @@ form button:active {
 }
 
 /* =========================================
-   📱 VERSION MOBILE LÉGÈRE ET LISIBLE
+   📱 VERSION MOBILE LÉGÈRE ET LISIBLE (OPTIMISÉE)
    ========================================= */
 @media (max-width: 768px) {
 
@@ -1459,35 +1459,53 @@ form button:active {
     letter-spacing: 1px;
   }
 
-  /* Menu compact */
+  /* Menu compact (désactivé sur mobile) */
   nav {
-    display: none; /* on supprime la nav pour alléger sur mobile */
+    display: none !important;
   }
 
-  /* 🧍 À propos */
+  /* ==============================
+     🧍 SECTION À PROPOS
+     ============================== */
   #about {
-    margin-top: 100px;
-    padding: 60px 20px;
+    margin-top: 90px;
+    padding: 40px 15px 60px;
+    overflow: hidden;
   }
 
   #about h2 {
     font-size: 2rem;
     margin-bottom: 30px;
+    text-align: center;
   }
 
   .about-photo {
-    max-width: 160px;
-    margin-bottom: 25px;
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 140px;
+    border-radius: 50%;
   }
 
   .about-text {
-    padding: 20px;
-    font-size: 1rem;
-    line-height: 1.7;
-    text-align: left;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 15px 18px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: justify;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
   }
 
-  /* 🎮 Projets */
+  /* 💫 Réduit la bordure bleue autour */
+  .about-text::before {
+    border-width: 1px !important;
+    filter: brightness(1.1);
+  }
+
+  /* ==============================
+     🎮 SECTION PROJETS
+     ============================== */
   #projects {
     padding: 80px 20px;
   }
@@ -1505,7 +1523,9 @@ form button:active {
     font-size: 1.3rem;
   }
 
-  /* 🧠 Compétences */
+  /* ==============================
+     🧠 SECTION COMPÉTENCES
+     ============================== */
   #skills {
     padding: 80px 20px;
   }
@@ -1549,7 +1569,9 @@ form button:active {
     font-size: 0.75rem;
   }
 
-  /* 💬 Contact */
+  /* ==============================
+     💬 SECTION CONTACT
+     ============================== */
   #contact {
     padding: 80px 20px;
   }
@@ -1565,7 +1587,9 @@ form button:active {
     width: 100%;
   }
 
-  /* ⚙️ Footer allégé */
+  /* ==============================
+     ⚙️ FOOTER
+     ============================== */
   #footer {
     padding: 40px 15px;
     font-size: 0.9rem;
@@ -1585,13 +1609,36 @@ form button:active {
     height: 85%;
   }
 
-  /* ✅ Empêche tout débordement ou écrasement */
+  /* ==============================
+     ✅ FIX DÉBORDEMENTS GLOBAUX
+     ============================== */
   html, body {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     overflow-y: auto;
   }
 
   section {
     overflow: visible !important;
+  }
+}
+
+/* ==============================
+   📱 EXTRA PETITS ÉCRANS
+   ============================== */
+@media (max-width: 480px) {
+  .about-text {
+    font-size: 0.9rem;
+    padding: 12px 15px;
+    line-height: 1.4;
+  }
+
+  .skill-card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-icons a {
+    width: 50px;
+    height: 50px;
   }
 }
