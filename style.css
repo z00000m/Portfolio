@@ -513,23 +513,24 @@ body.scrolled header {
   border-radius: 10px;
 }
 
-/* === GRILLE === */
+/* === GRILLE (Élargie pour combler les trous sur les côtés) === */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  max-width: 1300px;
+  grid-template-columns: 1fr; 
+  gap: 50px;
+  max-width: 1500px; /* <-- On passe de 1300 à 1500px pour prendre plus de largeur ! */
+  width: 95%; /* <-- Force à prendre 95% de l'écran disponible */
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
-.professional-project { grid-column: span 4; }
+.professional-project { grid-column: span 1; }
 
-/* === CARTE DE PROJET === */
+/* === CARTE DE PROJET (Ajustée pour la nouvelle largeur) === */
 .project-card {
   background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
   position: relative;
-  padding: 50px 40px 60px;
+  padding: 40px 60px; /* <-- Un peu plus d'espace sur les bords internes pour respirer */
   border-radius: 22px;
   border: 1.5px solid rgba(0, 140, 255, 0.25);
   box-shadow:
@@ -537,18 +538,24 @@ body.scrolled header {
     inset 0 0 25px rgba(0, 140, 255, 0.05),
     0 0 50px rgba(0, 0, 0, 0.8);
   color: #e5e5e5;
-  text-align: center;
   backdrop-filter: blur(6px) saturate(160%);
   -webkit-backdrop-filter: blur(6px) saturate(160%);
   transition: all 0.35s ease;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  
+  display: grid;
+  /* <-- On passe la colonne de gauche (image) à 400px au lieu de 350px pour équilibrer */
+  grid-template-columns: 35% 1fr;
+  grid-template-areas: 
+    "titre   texte"
+    "image   texte"
+    "bouton  texte";
+  gap: 25px 60px; /* <-- Plus d'espace (60px) entre l'image et le texte à droite */
   align-items: center;
+  text-align: left;
 }
 
-/* 💫 Effet lumineux discret au survol */
+/* 💫 Effet lumineux discret au survol (Ton code exact) */
 .project-card::before {
   content: "";
   position: absolute;
@@ -559,7 +566,6 @@ body.scrolled header {
   transition: all 0.5s ease;
   pointer-events: none;
 }
-
 .project-card:hover::before {
   border: 1.5px solid rgba(0, 150, 255, 0.5);
   box-shadow:
@@ -569,43 +575,53 @@ body.scrolled header {
 
 /* === TITRES === */
 .project-card h3 {
-  font-size: 1.8rem; /* 🔹 Augmenté pour plus de présence */
+  grid-area: titre;
+  font-size: 2rem; /* <-- Changé de 3rem à 2rem */
   color: #0094ff;
   text-shadow: 0 0 18px rgba(0,148,255,0.9), 0 0 35px rgba(0,148,255,0.4);
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   letter-spacing: 1.5px;
   font-weight: 700;
   font-family: 'Oswald', sans-serif;
   transition: color 0.3s, text-shadow 0.3s;
+  text-align: left;
 }
 
-.project-card:hover h3 {
-  color: #00aaff;
-  text-shadow: 0 0 25px rgba(0,170,255,1), 0 0 50px rgba(0,170,255,0.6);
+/* === IMAGE (Nouvel élément pour bloquer les déformations) === */
+.project-card .project-img {
+  grid-area: image;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Coupe proprement l'affiche Wraithvale en format paysage */
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 140, 255, 0.2);
 }
 
 /* === DESCRIPTION === */
 .project-card p {
-  font-size: 1rem;
+  grid-area: texte;
+  font-size: 1.15rem; /* <-- Changé de 1.5rem à 1.15rem (taille parfaite de lecture) */
   color: #dcdcdc;
-  line-height: 1.7;
-  margin-bottom: 35px;
-  flex-grow: 1;
-  max-width: 90%;
+  line-height: 1.7; /* <-- Interligne pour faire respirer le texte */
+  margin-bottom: 0;
+  max-width: 100%;
+  text-align: justify;
+  margin-top: 5px; 
 }
 
 /* === BOUTON ITCH.IO === */
 .itchio-button {
+  grid-area: bouton;
   display: inline-block;
   background: radial-gradient(circle at top, #111 0%, #000 100%);
   color: #fff;
   border: 2px solid rgba(0, 140, 255, 0.5);
   border-radius: 40px;
-  padding: 14px 36px;
+  padding: 16px 40px; /* <-- Bouton un peu plus "gras" (16px en haut/bas, 40px sur les côtés) */
   font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.6px;
+  font-size: 1.1rem; /* <-- Police du bouton très légèrement augmentée */
+  letter-spacing: 0.8px; /* <-- Lettres un poil plus espacées */
   text-decoration: none;
   text-align: center;
   position: relative;
@@ -615,11 +631,11 @@ body.scrolled header {
   box-shadow:
     0 0 10px rgba(0, 140, 255, 0.15),
     inset 0 0 8px rgba(255, 255, 255, 0.05);
-  align-self: center;
-  margin-top: auto;
+  margin-top: 10px; /* <-- Pousse légèrement le bouton vers le bas pour l'éloigner de l'image */
+  width: 100%; 
 }
 
-/* Reflet lumineux glissant */
+/* Reflet lumineux glissant (Ton code exact) */
 .itchio-button::before {
   content: "";
   position: absolute;
@@ -639,7 +655,7 @@ body.scrolled header {
   left: 120%;
 }
 
-/* Effet survol (seulement sur le bouton) */
+/* Effet survol bouton (Ton code exact) */
 .itchio-button:hover {
   border-color: #00a6ff;
   box-shadow:
@@ -648,7 +664,6 @@ body.scrolled header {
     inset 0 0 10px rgba(0, 170, 255, 0.2);
   transform: translateY(-3px);
 }
-
 .itchio-button:active {
   transform: translateY(0);
   box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
@@ -656,12 +671,17 @@ body.scrolled header {
 
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
-  .project-grid { grid-template-columns: repeat(2, 1fr); }
-  .professional-project { grid-column: span 2; }
+  .project-card {
+    grid-template-columns: 1fr; /* Repasse en vertical sur petits écrans */
+    grid-template-areas: 
+      "titre"
+      "image"
+      "texte"
+      "bouton";
+    padding: 30px;
+  }
 }
 @media (max-width: 600px) {
-  .project-grid { grid-template-columns: 1fr; }
-  .professional-project { grid-column: span 1; }
   .project-card { padding: 25px; }
   .project-card h3 { font-size: 1.5rem; }
   .itchio-button {
@@ -669,7 +689,45 @@ body.scrolled header {
     font-size: 0.95rem;
   }
 }
+/* === PROJET PROFESSIONNEL (Retour à l'ancienne version verticale) === */
+.professional-project {
+  display: flex !important; /* On annule la grille image/texte qu'on vient de créer */
+  flex-direction: column !important; /* On empile tout de haut en bas */
+  align-items: center; /* On centre tout horizontalement */
+  justify-content: center;
+  padding: 50px 60px; 
+}
 
+/* Le titre de la carte pro */
+.professional-project h3 {
+  text-align: center; /* On recentre le titre */
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* L'image de la carte pro (si tu en mets une) */
+.professional-project .project-img {
+  width: 80%; /* Elle ne prend pas toute la largeur pour être plus esthétique */
+  max-width: 800px;
+  margin-bottom: 30px;
+}
+
+/* Le grand texte de la carte pro */
+.professional-project p {
+  width: 100%;
+  max-width: 100%; /* Le texte prend toute la largeur de la carte */
+  text-align: justify;
+  margin-top: 0;
+  margin-bottom: 40px; /* On laisse de l'espace avant le bouton */
+  font-size: 1.2rem; /* Légèrement plus petit que 1.5rem pour que le gros pavé reste lisible */
+}
+
+/* Le bouton Moodboard */
+.professional-project .itchio-button {
+  width: auto; /* Le bouton redevient une "pilule" centrée et ne s'étire plus */
+  padding: 16px 45px;
+  margin-top: 0;
+}
 /* =========================================
    8) SECTION COMPÉTENCES
    ========================================= */
