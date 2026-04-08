@@ -1,14 +1,31 @@
-
 /* =========================================
-   1) RESET & POLICES
+   1) VARIABLES, RESET & POLICES
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap');
+
+:root {
+  /* Polices */
+  --font-main: 'Quicksand', sans-serif;
+  --font-title: 'Oswald', sans-serif;
+
+  /* Couleurs principales */
+  --text-main: #e0e0e0;
+  --text-muted: #ccc;
+  --accent-blue: #007bff;
+  --accent-cyan: #00bfff;
+  --accent-hover: #00a6ff;
+
+  /* Arrière-plans */
+  --bg-dark: #0d0d0d;
+  --bg-darker: #050505;
+  --bg-black: #000;
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--font-main);
 }
 
 html, body {
@@ -17,8 +34,8 @@ html, body {
 }
 
 body {
-  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
-  color: #e0e0e0;
+  background: radial-gradient(circle, var(--bg-dark) 30%, var(--bg-dark) 100%);
+  color: var(--text-main);
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
@@ -35,1591 +52,455 @@ section {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: radial-gradient(circle, #0d0d0d 30%, #0d0d0d 100%);
+  background: radial-gradient(circle, var(--bg-dark) 30%, var(--bg-dark) 100%);
   border-bottom: 1px solid white;
   transition: transform 0.3s ease-in-out;
-  position: relative; /* pour les canvases/planètes en absolu */
-  overflow: hidden;   /* évite débordements des animations */
+  position: relative;
+  overflow: hidden;
 }
 
-/* 3) HEADER GLOBAL */
+/* =========================================
+   3) HEADER GLOBAL & NAVIGATION
+   ========================================= */
 header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(to bottom, #0a0a0a 0%, #050505 100%);
+  top: 0; left: 0; width: 100%;
+  background: linear-gradient(to bottom, #0a0a0a 0%, var(--bg-darker) 100%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.6),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
   z-index: 1000;
   padding: 18px 0 12px;
   transition: all 0.4s ease;
   backdrop-filter: blur(6px);
 }
 
-/* Ligne lumineuse subtile sous le header */
 header::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
+  bottom: 0; left: 0; width: 100%; height: 1px;
   background: linear-gradient(90deg, transparent, rgba(0, 170, 255, 0.15), transparent);
   box-shadow: 0 0 8px rgba(0, 170, 255, 0.1);
 }
 
-/* === TITRE === */
 header h1 {
-  font-family: 'Oswald', sans-serif;
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #e6e6e6;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0;
-  text-shadow:
-    0 0 4px rgba(255, 255, 255, 0.15),
-    0 0 8px rgba(255, 255, 255, 0.08);
+  font-family: var(--font-title);
+  text-align: center; font-size: 2rem; font-weight: 700;
+  color: #e6e6e6; text-transform: uppercase; letter-spacing: 2px;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.15), 0 0 8px rgba(255, 255, 255, 0.08);
   transition: text-shadow 0.4s ease;
 }
 
 header h1:hover {
-  text-shadow:
-    0 0 10px rgba(0, 180, 255, 0.6),
-    0 0 25px rgba(0, 180, 255, 0.3);
+  text-shadow: 0 0 10px rgba(0, 180, 255, 0.6), 0 0 25px rgba(0, 180, 255, 0.3);
 }
 
-/* === NAVIGATION === */
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
+header .job-title {
+  color: #bfbfbf !important;
+  font-weight: 500 !important;
+  text-align: center; margin-top: -5px; font-size: 1.1rem !important;
+  letter-spacing: 1px; text-transform: none; text-shadow: none;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 28px;
-  padding: 0;
-  margin: 0;
-}
+nav { display: flex; justify-content: center; align-items: center; margin-top: 10px; }
+nav ul { list-style: none; display: flex; gap: 28px; }
 
-/* === LIENS === */
 nav a {
-  position: relative;
-  font-family: 'Quicksand', sans-serif;
-  font-size: 1.05rem;
-  color: #bfbfbf;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  padding: 5px 0;
-  transition: color 0.3s, text-shadow 0.3s;
+  position: relative; font-size: 1.05rem; color: #bfbfbf;
+  text-decoration: none; font-weight: 600; letter-spacing: 0.6px;
+  padding: 5px 0; transition: color 0.3s, text-shadow 0.3s;
 }
 
-/* Effet au survol : halo doux */
 nav a:hover {
   color: #ffffff;
-  text-shadow:
-    0 0 6px rgba(0, 170, 255, 0.7),
-    0 0 12px rgba(0, 170, 255, 0.4);
+  text-shadow: 0 0 6px rgba(0, 170, 255, 0.7), 0 0 12px rgba(0, 170, 255, 0.4);
 }
 
-/* Ligne discrète sous le lien */
 nav a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0;
-  height: 1px;
-  background: rgba(0, 170, 255, 0.5);
-  box-shadow: 0 0 8px rgba(0, 170, 255, 0.3);
+  content: ""; position: absolute; left: 50%; bottom: 0; width: 0; height: 1px;
+  background: rgba(0, 170, 255, 0.5); box-shadow: 0 0 8px rgba(0, 170, 255, 0.3);
   transition: width 0.3s ease, left 0.3s ease;
 }
+nav a:hover::after { width: 100%; left: 0; }
 
-nav a:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-/* === HEADER COMPACT LORS DU SCROLL === */
 body.scrolled header {
   background: rgba(0, 0, 0, 0.95);
-  box-shadow:
-    0 2px 15px rgba(0, 0, 0, 0.8),
-    inset 0 -1px 0 rgba(0, 170, 255, 0.05);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.8), inset 0 -1px 0 rgba(0, 170, 255, 0.05);
   padding: 10px 0 8px;
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    background: rgba(10, 10, 10, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 170, 255, 0.1);
-    padding: 20px;
-    position: absolute;
-    top: 70px;
-    right: 10px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.4s ease;
-  }
-
-  nav ul.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  nav a {
-    font-size: 1.2rem;
-    padding: 10px 0;
-  }
-}
-
-/* =========================================
-   4) MENU BURGER (mobile)
-   ========================================= */
+/* === MENU BURGER === */
 .menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 15px;
+  display: none; flex-direction: column; cursor: pointer;
+  position: absolute; right: 20px; top: 15px;
 }
-
 .menu-toggle div {
-  width: 30px;
-  height: 4px;
-  background-color: #fff;
-  margin: 5px 0;
+  width: 30px; height: 4px; background-color: #fff; margin: 5px 0;
   transition: transform 0.3s, opacity 0.3s;
 }
 
-/* --- Responsive nav --- */
+/* =========================================
+   4) TITRES COMMUNS & EFFETS NÉON
+   ========================================= */
+#about h2, .title-container h2, #skills .title, #contact h2 {
+  font-family: var(--font-title); font-size: 3rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 5px; color: var(--accent-blue);
+  text-shadow: 0 0 10px rgba(0,123,255,0.8); margin-bottom: 30px;
+  animation: complexEffect 3s ease-in-out infinite alternate;
+}
+
+#about h2::after, .title-container h2::after, #skills .title::after, #contact h2::after {
+  content: ''; display: block; width: 90px; height: 5px;
+  background: var(--accent-blue); margin: 12px auto; border-radius: 3px;
+  animation: lineEffect 3s ease-in-out infinite alternate;
+}
+
+#animated-title { display: flex; justify-content: center; align-items: center; height: 100px; }
+#animated-title span { opacity: 0; transform: translateY(10px); display: inline-block; animation: fadeInUp 0.05s forwards; }
+
+.neon-effect {
+  font-family: var(--font-title); font-weight: bold; font-size: 3rem; text-align: center;
+  text-transform: uppercase; letter-spacing: 1px; color: #fff;
+  text-shadow: 0 0 15px var(--accent-blue), 0 0 20px var(--accent-blue);
+  animation: neon-blink 1.5s infinite alternate;
+}
+
+/* =========================================
+   5) SECTION À PROPOS
+   ========================================= */
+#about {
+  background: radial-gradient(circle at center, var(--bg-darker) 0%, var(--bg-black) 100%);
+  color: #f5f5f5; padding: 180px 20px 120px; position: relative; z-index: 2;
+}
+
+#about h2 { color: #0084ff; text-shadow: 0 0 20px rgba(0,132,255,0.7), 0 0 40px rgba(0,132,255,0.4); margin-top: 80px; }
+#about h2::after { background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent); }
+
+.about-content {
+  display: flex; flex-direction: column; align-items: center; gap: 45px;
+  max-width: 1000px; margin: 0 auto; opacity: 0; transform: translateY(30px);
+  animation: fade-in-content 1.5s ease-out forwards 0.5s;
+}
+
+.about-photo {
+  max-width: 260px; border-radius: 50%; object-fit: cover;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6), 0 0 80px rgba(0, 123, 255, 0.15);
+  transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
+  animation: zoom-in 1.8s ease-out forwards 0.8s; opacity: 0; margin-bottom: 50px;
+}
+.about-photo:hover {
+  transform: scale(1.07); filter: brightness(1.1);
+  box-shadow: 0 0 40px rgba(0, 153, 255, 0.4), 0 0 90px rgba(0, 153, 255, 0.25);
+}
+
+.about-text {
+  position: relative; font-size: 1.15rem; line-height: 1.9; max-width: 750px; text-align: justify; z-index: 3;
+  animation: slide-up 1.2s ease-out forwards 1s; opacity: 0; color: #e5e5e5;
+  background: radial-gradient(circle at top, #111 0%, var(--bg-black) 100%);
+  padding: 40px 45px; border-radius: 25px; border: 2px solid rgba(0, 140, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 140, 255, 0.15), inset 0 0 10px rgba(255, 255, 255, 0.05);
+  overflow: hidden; height: auto; min-height: fit-content; transition: all 0.35s ease;
+}
+
+.about-text::before {
+  content: ""; position: absolute; top: 0; left: -120%; width: 100%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(0, 150, 255, 0.25), transparent);
+  transition: all 0.6s ease;
+}
+.about-text:hover::before { left: 120%; }
+.about-text:hover { border-color: var(--accent-hover); box-shadow: 0 0 25px rgba(0, 170, 255, 0.6), 0 0 45px rgba(0, 170, 255, 0.3), inset 0 0 10px rgba(0, 170, 255, 0.2); transform: translateY(-3px); }
+.about-text p { margin-bottom: 18px; color: #d8d8d8; }
+
+/* =========================================
+   6) SECTION PROJETS
+   ========================================= */
+#projects {
+  background: radial-gradient(circle at center, var(--bg-darker) 0%, var(--bg-black) 100%);
+  padding: 120px 30px; min-height: 100vh; font-size: 1.1rem;
+}
+
+.title-container h2 { color: #0084ff; text-shadow: 0 0 15px rgba(0,132,255,0.8), 0 0 30px rgba(0,132,255,0.5); }
+.title-container h2::after { background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent); }
+
+.project-grid {
+  display: grid; grid-template-columns: 1fr; gap: 50px;
+  max-width: 1500px; width: 95%; margin: 0 auto; position: relative; z-index: 2;
+}
+
+.project-card {
+  background: radial-gradient(circle at center, var(--bg-dark) 0%, var(--bg-black) 100%);
+  position: relative; padding: 40px 60px; border-radius: 22px;
+  border: 1.5px solid rgba(0, 140, 255, 0.25);
+  box-shadow: 0 0 15px rgba(0, 140, 255, 0.1), inset 0 0 25px rgba(0, 140, 255, 0.05), 0 0 50px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px) saturate(160%); -webkit-backdrop-filter: blur(6px) saturate(160%);
+  display: grid; grid-template-columns: 35% 1fr;
+  grid-template-areas: "titre texte" "image texte" "bouton texte";
+  gap: 25px 60px; align-items: center; text-align: left; transition: all 0.35s ease;
+}
+
+.project-card::before {
+  content: ""; position: absolute; inset: 0; border-radius: 22px;
+  border: 1px solid transparent; transition: all 0.5s ease; pointer-events: none;
+}
+.project-card:hover::before {
+  border: 1.5px solid rgba(0, 150, 255, 0.5);
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.4), 0 0 40px rgba(0, 150, 255, 0.2);
+}
+
+.project-card h3 { grid-area: titre; font-family: var(--font-title); font-size: 2rem; color: #0094ff; text-shadow: 0 0 18px rgba(0,148,255,0.9), 0 0 35px rgba(0,148,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; }
+.project-card .project-video { grid-area: image; width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 1px solid rgba(0, 140, 255, 0.2); }
+.project-card p { grid-area: texte; font-size: 1.15rem; color: #dcdcdc; line-height: 1.7; text-align: justify; }
+
+/* BOUTONS GLOBAUX (Itch.io & CV) */
+.itchio-button, .cv-download-btn {
+  display: inline-block; background: radial-gradient(circle at top, #111 0%, var(--bg-black) 100%);
+  color: #fff; border: 2px solid rgba(0, 140, 255, 0.5); border-radius: 40px;
+  padding: 16px 40px; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.8px;
+  text-decoration: none; text-align: center; position: relative; overflow: hidden;
+  transition: all 0.35s ease; box-shadow: 0 0 10px rgba(0, 140, 255, 0.15), inset 0 0 8px rgba(255, 255, 255, 0.05);
+}
+.itchio-button { grid-area: bouton; width: 100%; margin-top: 10px; }
+.cv-download-btn { margin: 35px; }
+
+.itchio-button::before, .cv-download-btn::before, form button::before {
+  content: ""; position: absolute; top: 0; left: -120%; width: 100%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(0, 150, 255, 0.25), transparent); transition: all 0.6s ease;
+}
+.itchio-button:hover::before, .cv-download-btn:hover::before, form button:hover::before { left: 120%; }
+.itchio-button:hover, .cv-download-btn:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba(0, 170, 255, 0.6), 0 0 35px rgba(0, 170, 255, 0.3), inset 0 0 10px rgba(0, 170, 255, 0.2); transform: translateY(-3px); }
+
+/* PROJET PRO */
+.professional-project { display: flex !important; flex-direction: column !important; justify-content: center; padding: 50px 60px; }
+.professional-project h3 { text-align: center; width: 100%; margin-bottom: 20px; }
+.professional-project p { width: 100%; text-align: justify; margin-bottom: 40px; font-size: 1.2rem; }
+.professional-project .itchio-button, .professional-project .cv-download-btn { width: auto; }
+
+/* =========================================
+   7) SECTION COMPÉTENCES
+   ========================================= */
+#skills {
+  background: radial-gradient(circle at center, var(--bg-darker) 0%, var(--bg-black) 100%);
+  padding: 120px 40px 150px; z-index: 5;
+}
+
+.skills-columns { display: flex; justify-content: center; gap: 80px; flex-wrap: wrap; z-index: 6; position: relative; }
+.skills-section {
+  background: radial-gradient(circle at center, var(--bg-dark) 0%, var(--bg-black) 100%);
+  border-radius: 25px; border: 1.5px solid rgba(0, 140, 255, 0.25);
+  box-shadow: 0 0 10px rgba(0, 140, 255, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.03);
+  padding: 60px 50px; width: 480px; transition: all 0.3s ease; overflow: hidden;
+}
+.skills-section:hover { border-color: var(--accent-hover); box-shadow: 0 0 15px rgba(0,170,255,0.4), inset 0 0 10px rgba(0,170,255,0.1); transform: translateY(-3px); }
+.skills-section h3 { font-family: var(--font-title); font-size: 2.2rem; color: #0084ff; text-shadow: 0 0 10px rgba(0,132,255,0.7); margin-bottom: 45px; text-transform: uppercase; letter-spacing: 3px; }
+
+.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.skill-card { background: radial-gradient(circle at top, #0b0b0b 0%, var(--bg-black) 100%); border: 2px solid rgba(0, 140, 255, 0.4); border-radius: 20px; padding: 25px 10px; transition: all 0.35s ease; position: relative; overflow: hidden; }
+.skill-card::before { content: ""; position: absolute; top: 0; left: -120%; width: 100%; height: 100%; background: linear-gradient(120deg, transparent, rgba(0,150,255,0.25), transparent); transition: all 0.6s ease; }
+.skill-card:hover::before { left: 120%; }
+.skill-card:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba(0,170,255,0.5), inset 0 0 10px rgba(0,170,255,0.15); transform: translateY(-3px); }
+.skill-card img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 12px; filter: drop-shadow(0 0 10px rgba(0,191,255,0.6)); transition: all 0.3s ease; }
+.skill-card:hover img { transform: scale(1.1); filter: drop-shadow(0 0 18px rgba(0,191,255,0.9)); }
+.skill-card h4 { font-size: 1.1rem; margin-bottom: 6px; }
+
+.skill-card .level { font-size: 0.9rem; opacity: 0.9; }
+.level.advanced { color: #00d4ff; } .level.intermediate { color: #00ffb3; } .level.beginner { color: #c77dff; }
+
+/* =========================================
+   8) SECTION CONTACT & FORMULAIRE
+   ========================================= */
+#contact {
+  background: radial-gradient(circle at center, var(--bg-darker) 0%, var(--bg-black) 100%);
+  padding: 120px 20px; border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+#contact h2 { color: var(--accent-cyan); text-shadow: 0 0 20px rgba(0,191,255,0.8), 0 0 35px rgba(0,191,255,0.5); margin-bottom: 60px; }
+#contact h2::after { background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent); }
+
+form {
+  background: radial-gradient(circle at top, #0a0a0a 0%, var(--bg-black) 100%);
+  display: flex; flex-direction: column; align-items: center; max-width: 480px; width: 100%; margin: 0 auto;
+  padding: 70px 40px; min-height: 580px; border-radius: 25px; border: 1.5px solid rgba(0,140,255,0.25);
+  box-shadow: 0 0 10px rgba(0, 140, 255, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.05); transition: all 0.3s ease; z-index: 2; position: relative;
+}
+form:hover { border-color: var(--accent-hover); box-shadow: 0 0 15px rgba(0,170,255,0.4), inset 0 0 10px rgba(0,170,255,0.15); transform: translateY(-3px); }
+
+form label { font-size: 1rem; color: #d0d0d0; margin-top: 15px; align-self: flex-start; text-shadow: 0 0 5px rgba(0,191,255,0.3); }
+form input, form textarea {
+  width: 100%; padding: 12px 14px; margin-top: 6px; border-radius: 12px;
+  border: 1px solid rgba(0,191,255,0.2); background-color: rgba(15,15,15,0.8); color: #fff;
+  transition: all 0.3s ease; resize: vertical; box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+}
+form textarea { min-height: 100px; max-height: 200px; }
+form input:hover, form textarea:hover { border-color: #0090ff; box-shadow: 0 0 10px rgba(0,191,255,0.3); }
+form input:focus, form textarea:focus { border-color: var(--accent-cyan); box-shadow: 0 0 20px rgba(0,191,255,0.6); outline: none; background: rgba(20,20,20,0.9); }
+
+form button {
+  background: radial-gradient(circle at top, #111 0%, var(--bg-black) 100%);
+  color: #fff; border: 2px solid rgba(0, 140, 255, 0.5); border-radius: 40px; padding: 16px 42px; margin-top: 60px;
+  font-weight: 600; font-size: 1.05rem; cursor: pointer; transition: all 0.35s ease; position: relative; overflow: hidden;
+}
+form button::after { content: "📩"; font-size: 1.3rem; margin-left: 10px; transition: all 0.3s ease; opacity: 0; transform: translateX(-8px); }
+form button:hover::after { opacity: 1; transform: translateX(0); }
+form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba(0,170,255,0.6); transform: translateY(-3px); }
+
+/* =========================================
+   9) FOOTER
+   ========================================= */
+#footer {
+  background: radial-gradient(circle at center, var(--bg-darker) 0%, var(--bg-black) 100%);
+  padding: 60px 20px; 
+  border-top: 1px solid rgba(0, 140, 255, 0.2); 
+  color: var(--text-muted);
+  text-align: center; 
+}
+
+.footer-container { 
+  max-width: 1000px; 
+  margin: 0 auto; 
+}
+
+.footer-text {
+  margin-bottom: 25px; 
+  letter-spacing: 0.5px;
+}
+
+.author-name { 
+  color: #00aaff; 
+  font-weight: 600; 
+  text-shadow: 0 0 10px rgba(0,170,255,0.7); 
+}
+
+.footer-icons { 
+  display: flex; 
+  justify-content: center; 
+  gap: 30px; 
+  margin-top: 25px; 
+}
+
+.footer-icons a {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 60px; 
+  height: 60px; 
+  border-radius: 50%;
+  background: radial-gradient(circle at center, var(--bg-dark) 0%, var(--bg-black) 100%);
+  border: 2px solid rgba(0, 191, 255, 0.35); 
+  transition: all 0.3s ease; 
+  box-shadow: inset 0 0 6px rgba(0, 191, 255, 0.1);
+}
+
+.footer-icons img { 
+  width: 50%; 
+  height: 50%; 
+  object-fit: contain; 
+  opacity: 0.6; 
+  transition: all 0.3s ease; 
+}
+
+.footer-icons a:hover { 
+  transform: translateY(-3px) scale(1.05); 
+  border-color: var(--accent-cyan); 
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+}
+
+.footer-icons a:hover img { 
+  transform: scale(1.15); 
+  opacity: 1; 
+}
+
+/* =========================================
+   10) EFFETS, ANIMATIONS ET DÉCORS (Planètes)
+   ========================================= */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.parallax-container { height: 100vh; overflow: hidden; position: relative; }
+.background-container, #particles-bg, #particles-bg-projects, #particles-bg-skills, #particles-bg-contact { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+
+.planet-container { position: absolute; top: 50%; transform: translateY(-50%); animation: float 6s ease-in-out infinite; z-index: 0; }
+.planet-left { left: 10%; } .planet-right { right: 10%; }
+.planet { width: 240px; height: 240px; border-radius: 50%; position: relative; overflow: hidden; background: radial-gradient(circle at 30% 30%, #ccc, #222 70%, #000 100%); box-shadow: inset -50px -50px 80px rgba(0,0,0,0.85), 0 0 80px rgba(0,191,255,0.3); animation: rotatePlanet 20s linear infinite; }
+.planet::before { content: ""; position: absolute; inset: -25px; border-radius: 50%; background: radial-gradient(circle, rgba(0,191,255,0.35), transparent 70%); filter: blur(25px); z-index: -1; }
+.planet::after { content: ""; position: absolute; bottom: -25px; left: 50%; width: 180px; height: 35px; background: radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent); transform: translateX(-50%); filter: blur(10px); }
+
+.moon { background: radial-gradient(circle at 35% 35%, #dcdcdc, #8a8a8a 70%, #3b3b3b 100%); box-shadow: inset -40px -40px 70px rgba(0,0,0,0.8), 0 0 80px rgba(200,200,255,0.3); }
+.sun { background: radial-gradient(circle at 40% 40%, #fff8a0, #ff9600 60%, #ff4500 100%); box-shadow: inset -50px -50px 70px rgba(0,0,0,0.6), 0 0 150px rgba(255,180,0,0.8); }
+.mars { background: radial-gradient(circle at 40% 40%, #ff6b4a, #a12b0e 60%, #3c0d04 100%); box-shadow: inset -40px -40px 80px rgba(0,0,0,0.8), 0 0 90px rgba(255,90,0,0.4); }
+.neptune { background: radial-gradient(circle at 40% 40%, #66b3ff, #1a3dab 70%, #001a4d 100%); box-shadow: inset -40px -40px 90px rgba(0,0,0,0.9), 0 0 100px rgba(0,150,255,0.4); }
+
+.ring { position: absolute; top: 50%; left: 50%; width: 380px; height: 110px; border-radius: 50%; border: 2px solid rgba(0,191,255,0.25); transform: translate(-50%, -50%) rotateX(75deg); animation: spinRing 18s linear infinite; pointer-events: none; }
+.sun + .ring { border-color: rgba(255, 190, 0, 0.3); box-shadow: 0 0 30px rgba(255, 200, 0, 0.4); }
+.mars + .ring { border-color: rgba(255, 80, 0, 0.4); box-shadow: 0 0 30px rgba(255, 100, 50, 0.3); }
+.neptune + .ring { border-color: rgba(0, 180, 255, 0.4); box-shadow: 0 0 40px rgba(0, 180, 255, 0.3); }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-10px); } }
+@keyframes fade-in-content { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes zoom-in { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+@keyframes slide-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes neon-blink { 0%, 100% { text-shadow: 0 0 5px rgba(0,123,255,0.7), 0 0 15px rgba(0,123,255,0.5); } }
+@keyframes complexEffect { 0% { transform: scale(1) rotate(0deg); color: #007bff; } 50% { transform: scale(1.05) rotate(1deg); color: #00ccff; } 100% { transform: scale(1.02) rotate(-1deg); color: #007bff; } }
+@keyframes lineEffect { 0%, 100% { background: #007bff; } 50% { background: #00ccff; } }
+@keyframes float { 0%, 100% { transform: translateY(-50%) translateX(0); } 50% { transform: translateY(-55%) translateX(5px); } }
+@keyframes spinRing { to { transform: translate(-50%, -50%) rotateX(75deg) rotate(360deg); } }
+@keyframes rotatePlanet { to { background-position: 300% 0; } }
+
+/* =========================================
+   11) MEDIA QUERIES (Responsive Centralisé)
+   ========================================= */
+@media (max-width: 1024px) {
+  .project-card { grid-template-columns: 1fr; grid-template-areas: "titre" "image" "texte" "bouton"; padding: 30px; }
+}
+
+@media (max-width: 900px) {
+  .skills-columns { flex-direction: column; align-items: center; }
+  .skills-section { width: 90%; }
+}
+
 @media (max-width: 768px) {
-  header { padding: 10px 0; }
-  header h1 { font-size: 1.8rem; }
-
+  /* Masquer animations lourdes sur mobile */
+  #particles-bg, #particles-bg-projects, #particles-bg-skills, #particles-bg-contact, .planet-container, #animated-title { display: none !important; }
+  
+  header { position: fixed; background: rgba(0, 0, 0, 0.95); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  header h1 { font-size: 1.3rem; text-shadow: none; color: var(--accent-cyan); letter-spacing: 1px; }
+  
+  nav { display: none !important; }
   .menu-toggle { display: flex; }
+  
+  section { min-height: auto !important; padding: 80px 20px; }
+  
+  #about { overflow: visible !important; padding-bottom: 50px !important; }
+  #about h2 { font-size: 1.6rem !important; margin: 0 0 14px !important; }
+  .about-content { gap: 16px !important; }
+  .about-inner { display: block !important; width: 100%; }
+  .about-photo { width: 120px !important; height: 120px !important; margin: 0 auto 14px !important; box-shadow: none !important; }
+  .about-text { width: 95%; max-width: 380px; padding: 18px 20px !important; font-size: 0.95rem !important; line-height: 1.6 !important; border-radius: 16px !important; }
+  .about-text::before { display: none !important; }
 
-  nav ul {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #222;
-    width: 100%;
-    flex-direction: column;
-    text-align: center;
-    padding: 20px 0;
-    opacity: 0;
-    transform: translateY(-20px);
-    visibility: hidden;
-    transition: opacity 0.4s, transform 0.4s, visibility 0.4s;
-  }
+  .project-grid { grid-template-columns: 1fr; gap: 25px; }
+  .project-card { padding: 25px; }
+  .project-card h3 { font-size: 1.3rem; }
 
-  nav ul.active {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
-  }
+  .skills-columns { gap: 30px; }
+  .skills-section { width: 100%; padding: 25px 15px; }
+  .skills-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; }
+  .skill-card { padding: 12px 5px; border-radius: 10px; }
+  .skill-card img { width: 45px; height: 45px; }
 
-  nav li { margin: 10px 0; }
+  form { padding: 25px 20px; border-radius: 15px; }
+  form button { width: 100%; margin-top: 30px; }
 
-  /* animation burger -> croix */
-  .menu-toggle.active div:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-  .menu-toggle.active div:nth-child(2) { opacity: 0; }
-  .menu-toggle.active div:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+  .footer-icons { gap: 20px; }
+  .footer-icons a { width: 55px; height: 55px; }
+}
+
+@media (max-width: 600px) {
+  .itchio-button { padding: 12px 28px; font-size: 0.95rem; }
 }
 
 @media (max-width: 480px) {
   header { padding: 8px 0; }
   header h1 { font-size: 1.5rem; }
   .menu-toggle { right: 10px; top: 10px; }
-  nav ul { top: 50px; }
-}
-/* =========================================
-   5) TITRES DE SECTIONS (style commun)
-   ========================================= */
-#about h2,
-.title-container h2,
-#skills .title,
-#contact h2 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  color: #007bff;
-  position: relative;
-  text-shadow: 0 0 10px rgba(0,123,255,0.8);
-  margin-bottom: 30px;
-  animation: complexEffect 3s ease-in-out infinite alternate;
-}
-
-/* Ligne animée sous les titres */
-#about h2::after,
-.title-container h2::after,
-#skills .title::after,
-#contact h2::after {
-  content: '';
-  display: block;
-  width: 90px;
-  height: 5px;
-  background: #007bff;
-  margin: 12px auto;
-  border-radius: 3px;
-  animation: lineEffect 3s ease-in-out infinite alternate;
-}
-
-/* Titre animé par JS (id utilisé par ton script actuel) */
-#animated-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.5rem;
-  text-align: center;
-  height: 100px;
-}
-
-#animated-title span {
-  opacity: 0;
-  transform: translateY(10px);
-  display: inline-block;
-  animation: fadeInUp 0.05s forwards;
-}
-
-/* Effet néon réutilisable */
-.neon-effect {
-  font-family: 'Oswald', sans-serif;
-  font-weight: bold;
-  font-size: 3rem;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #fff;
-  text-shadow: 0 0 15px #007bff, 0 0 20px #007bff;
-  animation: neon-blink 1.5s infinite alternate;
-}
-
-/* === SECTION À PROPOS === */
-
-#about {
-  background: radial-gradient(circle at center, #050505 0%, #000 100%);
-  color: #f5f5f5;
-  padding: 180px 20px 120px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  z-index: 2;
-}
-
-/* 🌟 Titre avec halo doux */
-#about h2 {
-  font-size: 2.8rem;
-  color: #0084ff;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-shadow: 0 0 20px rgba(0,132,255,0.7), 0 0 40px rgba(0,132,255,0.4);
-  margin-bottom: 45px;
-  position: relative;
-  margin-top: 80px;
-}
-
-#about h2::after {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #00bfff, transparent);
-  margin: 18px auto 0;
-  border-radius: 10px;
-}
-
-/* 🌌 Mise en page du contenu */
-.about-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 45px;
-  max-width: 1000px;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fade-in-content 1.5s ease-out forwards 0.5s;
-}
-
-/* === PHOTO DE PROFIL === */
-.about-photo {
-  max-width: 260px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: none;
-  box-shadow:
-    0 0 25px rgba(0, 0, 0, 0.6),
-    0 0 80px rgba(0, 123, 255, 0.15);
-  transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
-  animation: zoom-in 1.8s ease-out forwards 0.8s;
-  opacity: 0;
-
-  /* 🧭 Espacement supplémentaire avec le bloc texte */
-  margin-bottom: 50px;
-}
-
-.about-photo:hover {
-  transform: scale(1.07);
-  box-shadow:
-    0 0 40px rgba(0, 153, 255, 0.4),
-    0 0 90px rgba(0, 153, 255, 0.25);
-  filter: brightness(1.1);
-}
-
-/* === TEXTE DE PRÉSENTATION === */
-.about-text {
-  position: relative;
-  font-size: 1.15rem;
-  line-height: 1.9;
-  max-width: 750px;
-  text-align: justify;
-  z-index: 3;
-  animation: slide-up 1.2s ease-out forwards 1s;
-  opacity: 0;
-  color: #e5e5e5;
-
-  /* 💎 Bloc effet */
-  background: radial-gradient(circle at top, #111 0%, #000 100%);
-  padding: 40px 45px;
-  border-radius: 25px;
-  border: 2px solid rgba(0, 140, 255, 0.4);
-  box-shadow:
-    0 0 15px rgba(0, 140, 255, 0.15),
-    inset 0 0 10px rgba(255, 255, 255, 0.05);
-  overflow: hidden;
-  cursor: default;
-  transition: all 0.35s ease;
-}
-
-/* 💫 Reflet glissant */
-.about-text::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(0, 150, 255, 0.25),
-    transparent
-  );
-  transition: all 0.6s ease;
-}
-
-.about-text:hover::before {
-  left: 120%;
-}
-
-/* 🩵 Survol : halo et surbrillance plus forte */
-.about-text:hover {
-  border-color: #00a6ff;
-  box-shadow:
-    0 0 25px rgba(0, 170, 255, 0.6),
-    0 0 45px rgba(0, 170, 255, 0.3),
-    inset 0 0 10px rgba(0, 170, 255, 0.2);
-  transform: translateY(-3px);
-}
-
-.about-text:active {
-  transform: translateY(0);
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
-}
-
-/* Texte interne */
-.about-text p {
-  margin-bottom: 18px;
-  color: #d8d8d8;
-}
-
-/* === ANIMATIONS === */
-@keyframes fade-in-content {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes zoom-in {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  #about h2 { font-size: 2.2rem; }
-  .about-photo { max-width: 200px; }
-  .about-text {
-    padding: 25px 25px;
-    border-radius: 18px;
-  }
-}
-
-/* =========================================
-   7) SECTION PROJETS
-   ========================================= */
-#projects {
-  background: radial-gradient(circle at center, #050505 0%, #000 100%);
-  color: #fff;
-  padding: 120px 30px;
-  position: relative;
-  min-height: 100vh;
-  font-size: 1.1rem;
-  text-align: center;
-}
-
-/* === TITRE PRINCIPAL === */
-.title-container {
-  margin: 60px 0;
-}
-.title-container h2 {
-  font-size: 2.8rem;
-  color: #0084ff;
-  text-shadow: 0 0 15px rgba(0,132,255,0.8), 0 0 30px rgba(0,132,255,0.5);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  position: relative;
-}
-.title-container h2::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #00bfff, transparent);
-  margin: 15px auto 0;
-  border-radius: 10px;
-}
-
-/* === GRILLE (Élargie pour combler les trous sur les côtés) === */
-.project-grid {
-  display: grid;
-  grid-template-columns: 1fr; 
-  gap: 50px;
-  max-width: 1500px; /* <-- On passe de 1300 à 1500px pour prendre plus de largeur ! */
-  width: 95%; /* <-- Force à prendre 95% de l'écran disponible */
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-.professional-project { grid-column: span 1; }
-
-/* === CARTE DE PROJET (Ajustée pour la nouvelle largeur) === */
-.project-card {
-  background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
-  position: relative;
-  padding: 40px 60px; /* <-- Un peu plus d'espace sur les bords internes pour respirer */
-  border-radius: 22px;
-  border: 1.5px solid rgba(0, 140, 255, 0.25);
-  box-shadow:
-    0 0 15px rgba(0, 140, 255, 0.1),
-    inset 0 0 25px rgba(0, 140, 255, 0.05),
-    0 0 50px rgba(0, 0, 0, 0.8);
-  color: #e5e5e5;
-  backdrop-filter: blur(6px) saturate(160%);
-  -webkit-backdrop-filter: blur(6px) saturate(160%);
-  transition: all 0.35s ease;
-  overflow: hidden;
   
-  display: grid;
-  /* <-- On passe la colonne de gauche (image) à 400px au lieu de 350px pour équilibrer */
-  grid-template-columns: 35% 1fr;
-  grid-template-areas: 
-    "titre   texte"
-    "image   texte"
-    "bouton  texte";
-  gap: 25px 60px; /* <-- Plus d'espace (60px) entre l'image et le texte à droite */
-  align-items: center;
-  text-align: left;
+  .about-photo { width: 100px !important; height: 100px !important; }
+  .about-text { max-width: 360px; font-size: 0.9rem !important; padding: 14px 18px !important; }
 }
-
-/* 💫 Effet lumineux discret au survol (Ton code exact) */
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 22px;
-  border: 1px solid rgba(0, 150, 255, 0);
-  box-shadow: 0 0 0 rgba(0,150,255,0);
-  transition: all 0.5s ease;
-  pointer-events: none;
-}
-.project-card:hover::before {
-  border: 1.5px solid rgba(0, 150, 255, 0.5);
-  box-shadow:
-    0 0 20px rgba(0, 150, 255, 0.4),
-    0 0 40px rgba(0, 150, 255, 0.2);
-}
-
-/* === TITRES === */
-.project-card h3 {
-  grid-area: titre;
-  font-size: 2rem; /* <-- Changé de 3rem à 2rem */
-  color: #0094ff;
-  text-shadow: 0 0 18px rgba(0,148,255,0.9), 0 0 35px rgba(0,148,255,0.4);
-  text-transform: uppercase;
-  margin-bottom: 0;
-  letter-spacing: 1.5px;
-  font-weight: 700;
-  font-family: 'Oswald', sans-serif;
-  transition: color 0.3s, text-shadow 0.3s;
-  text-align: left;
-}
-
-/* === IMAGE (Nouvel élément pour bloquer les déformations) === */
-.project-card .project-img {
-  grid-area: image;
-  width: 100%;
-  aspect-ratio: 16 / 9; /* Coupe proprement l'affiche Wraithvale en format paysage */
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 140, 255, 0.2);
-}
-
-/* === DESCRIPTION === */
-.project-card p {
-  grid-area: texte;
-  font-size: 1.15rem; /* <-- Changé de 1.5rem à 1.15rem (taille parfaite de lecture) */
-  color: #dcdcdc;
-  line-height: 1.7; /* <-- Interligne pour faire respirer le texte */
-  margin-bottom: 0;
-  max-width: 100%;
-  text-align: justify;
-  margin-top: 5px; 
-}
-
-/* === BOUTON ITCH.IO === */
-.itchio-button {
-  grid-area: bouton;
-  display: inline-block;
-  background: radial-gradient(circle at top, #111 0%, #000 100%);
-  color: #fff;
-  border: 2px solid rgba(0, 140, 255, 0.5);
-  border-radius: 40px;
-  padding: 16px 40px; /* <-- Bouton un peu plus "gras" (16px en haut/bas, 40px sur les côtés) */
-  font-weight: 600;
-  font-size: 1.1rem; /* <-- Police du bouton très légèrement augmentée */
-  letter-spacing: 0.8px; /* <-- Lettres un poil plus espacées */
-  text-decoration: none;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.35s ease;
-  box-shadow:
-    0 0 10px rgba(0, 140, 255, 0.15),
-    inset 0 0 8px rgba(255, 255, 255, 0.05);
-  margin-top: 10px; /* <-- Pousse légèrement le bouton vers le bas pour l'éloigner de l'image */
-  width: 100%; 
-}
-
-/* Reflet lumineux glissant (Ton code exact) */
-.itchio-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(0, 150, 255, 0.25),
-    transparent
-  );
-  transition: all 0.6s ease;
-}
-.itchio-button:hover::before {
-  left: 120%;
-}
-
-/* Effet survol bouton (Ton code exact) */
-.itchio-button:hover {
-  border-color: #00a6ff;
-  box-shadow:
-    0 0 20px rgba(0, 170, 255, 0.6),
-    0 0 35px rgba(0, 170, 255, 0.3),
-    inset 0 0 10px rgba(0, 170, 255, 0.2);
-  transform: translateY(-3px);
-}
-.itchio-button:active {
-  transform: translateY(0);
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 1024px) {
-  .project-card {
-    grid-template-columns: 1fr; /* Repasse en vertical sur petits écrans */
-    grid-template-areas: 
-      "titre"
-      "image"
-      "texte"
-      "bouton";
-    padding: 30px;
-  }
-}
-@media (max-width: 600px) {
-  .project-card { padding: 25px; }
-  .project-card h3 { font-size: 1.5rem; }
-  .itchio-button {
-    padding: 12px 28px;
-    font-size: 0.95rem;
-  }
-}
-/* === PROJET PROFESSIONNEL (Retour à l'ancienne version verticale) === */
-.professional-project {
-  display: flex !important; /* On annule la grille image/texte qu'on vient de créer */
-  flex-direction: column !important; /* On empile tout de haut en bas */
-  align-items: center; /* On centre tout horizontalement */
-  justify-content: center;
-  padding: 50px 60px; 
-}
-
-/* Le titre de la carte pro */
-.professional-project h3 {
-  text-align: center; /* On recentre le titre */
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-/* L'image de la carte pro (si tu en mets une) */
-.professional-project .project-img {
-  width: 80%; /* Elle ne prend pas toute la largeur pour être plus esthétique */
-  max-width: 800px;
-  margin-bottom: 30px;
-}
-
-/* Le grand texte de la carte pro */
-.professional-project p {
-  width: 100%;
-  max-width: 100%; /* Le texte prend toute la largeur de la carte */
-  text-align: justify;
-  margin-top: 0;
-  margin-bottom: 40px; /* On laisse de l'espace avant le bouton */
-  font-size: 1.2rem; /* Légèrement plus petit que 1.5rem pour que le gros pavé reste lisible */
-}
-
-/* Le bouton Moodboard */
-.professional-project .itchio-button {
-  width: auto; /* Le bouton redevient une "pilule" centrée et ne s'étire plus */
-  padding: 16px 45px;
-  margin-top: 0;
-}
-/* =========================================
-   8) SECTION COMPÉTENCES
-   ========================================= */
-
-#skills {
-  position: relative;
-  background: radial-gradient(circle at center, #050505 0%, #000 100%);
-  color: #fff;
-  padding: 120px 40px 150px;
-  text-align: center;
-  overflow: hidden;
-  z-index: 5;
-}
-
-/* === Titre principal === */
-#skills h2 {
-  font-size: 3rem;
-  color: #0084ff;
-  text-shadow: 0 0 15px rgba(0,132,255,0.8), 0 0 30px rgba(0,132,255,0.5);
-  margin-bottom: 70px;
-  letter-spacing: 3px;
-  position: relative;
-  z-index: 6;
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
-}
-
-#skills h2::after {
-  content: "";
-  display: block;
-  width: 100px;
-  height: 3px;
-  margin: 12px auto;
-  border-radius: 10px;
-  background: linear-gradient(90deg, transparent, #00bfff, transparent);
-  animation: lineEffect 3s ease-in-out infinite alternate;
-}
-
-@keyframes lineEffect {
-  from { opacity: 0.6; transform: scaleX(0.8); }
-  to { opacity: 1; transform: scaleX(1.2); }
-}
-
-/* === Colonnes === */
-.skills-columns {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 6;
-}
-
-/* === Bloc principal (plus de halo lumineux) === */
-.skills-section {
-  background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
-  border-radius: 25px;
-  border: 1.5px solid rgba(0, 140, 255, 0.25);
-  box-shadow:
-    0 0 10px rgba(0, 140, 255, 0.1),
-    inset 0 0 10px rgba(255, 255, 255, 0.03);
-  padding: 60px 50px;
-  width: 480px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-/* ✨ Survol sobre */
-.skills-section:hover {
-  border-color: #00a6ff;
-  box-shadow:
-    0 0 15px rgba(0,170,255,0.4),
-    inset 0 0 10px rgba(0,170,255,0.1);
-  transform: translateY(-3px);
-}
-
-/* === Titres sous-sections === */
-.skills-section h3 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 2.2rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #0084ff;
-  text-shadow: 0 0 10px rgba(0,132,255,0.7), 0 0 20px rgba(0,132,255,0.4);
-  margin-bottom: 45px;
-}
-
-/* === Grille === */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-}
-
-/* === Cartes === */
-.skill-card {
-  background: radial-gradient(circle at top, #0b0b0b 0%, #000 100%);
-  border: 2px solid rgba(0, 140, 255, 0.4);
-  border-radius: 20px;
-  padding: 25px 10px;
-  transition: all 0.35s ease;
-  box-shadow:
-    0 0 5px rgba(0, 140, 255, 0.05),
-    inset 0 0 8px rgba(255, 255, 255, 0.03);
-  position: relative;
-  overflow: hidden;
-}
-
-/* 💫 Bande lumineuse glissante */
-.skill-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(0,150,255,0.25), transparent);
-  transition: all 0.6s ease;
-}
-.skill-card:hover::before {
-  left: 120%;
-}
-
-/* 🩵 Effet survol léger */
-.skill-card:hover {
-  border-color: #00a6ff;
-  box-shadow:
-    0 0 20px rgba(0,170,255,0.5),
-    inset 0 0 10px rgba(0,170,255,0.15);
-  transform: translateY(-3px);
-}
-
-/* === Icônes === */
-.skill-card img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  margin-bottom: 12px;
-  filter: drop-shadow(0 0 10px rgba(0,191,255,0.6));
-  transition: all 0.3s ease;
-}
-.skill-card:hover img {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 18px rgba(0,191,255,0.9));
-}
-
-/* === Texte === */
-.skill-card h4 {
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-  color: #fff;
-}
-.skill-card .level {
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
-
-/* Couleurs par niveau */
-.skill-card .level.advanced {
-  color: #00d4ff;
-}
-.skill-card .level.intermediate {
-  color: #00ffb3;
-}
-.skill-card .level.beginner {
-  color: #c77dff;
-}
-
-/* === Responsive === */
-@media (max-width: 900px) {
-  .skills-columns {
-    flex-direction: column;
-    align-items: center;
-  }
-  .skills-section {
-    width: 90%;
-  }
-}
-
-
-/* =========================================
-   9) SECTION CONTACT
-   ========================================= */
-
-#contact {
- background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
-  padding: 120px 30px;
-  color: #fff;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  border-top: 1px solid rgba(255, 255, 255, 0.2); /* légère séparation haute */
-}
-
-#contact.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* === SECTION CONTACT === */
-/* === SECTION CONTACT SANS HALO === */
-#contact {
-  background: radial-gradient(circle at center, #050505 0%, #000 100%);
-  padding: 120px 20px;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-/* === TITRE === */
-#contact h2 {
-  font-size: 2.8rem;
-  color: #00bfff;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-shadow: 0 0 20px rgba(0,191,255,0.8), 0 0 35px rgba(0,191,255,0.5);
-  margin-bottom: 60px;
-}
-
-#contact h2::after {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #00bfff, transparent);
-  margin: 15px auto 0;
-  border-radius: 10px;
-}
-
-/* === FORMULAIRE === */
-form {
-  background: radial-gradient(circle at top, #0a0a0a 0%, #000 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 480px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 70px 40px;
-  z-index : 2;
-  min-height: 580px;
-  border-radius: 25px;
-  border: 1.5px solid rgba(0,140,255,0.25);
-  box-shadow:
-    0 0 10px rgba(0, 140, 255, 0.15),
-    inset 0 0 15px rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
-}
-
-/* petit effet au survol du bloc */
-form:hover {
-  border-color: #00a6ff;
-  box-shadow:
-    0 0 15px rgba(0,170,255,0.4),
-    inset 0 0 10px rgba(0,170,255,0.15);
-  transform: translateY(-3px);
-}
-
-/* === LABELS === */
-form label {
-  font-size: 1rem;
-  color: #d0d0d0;
-  margin-top: 15px;
-  align-self: flex-start;
-  text-shadow: 0 0 5px rgba(0,191,255,0.3);
-}
-
-/* === INPUTS & TEXTAREA === */
-form input,
-form textarea {
-  width: 100%;
-  padding: 12px 14px;
-  margin-top: 6px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,191,255,0.2);
-  background-color: rgba(15,15,15,0.8);
-  color: #fff;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  resize: vertical;
-  max-height: 200px;
-  min-height: 100px;
-  box-shadow:
-    inset 0 0 10px rgba(0,0,0,0.4),
-    0 0 10px rgba(0,191,255,0.05);
-}
-
-form input:hover,
-form textarea:hover {
-  border-color: #0090ff;
-  box-shadow:
-    0 0 10px rgba(0,191,255,0.3),
-    inset 0 0 5px rgba(0,191,255,0.1);
-}
-
-form input:focus,
-form textarea:focus {
-  border-color: #00bfff;
-  box-shadow:
-    0 0 20px rgba(0,191,255,0.6),
-    inset 0 0 10px rgba(0,191,255,0.2);
-  outline: none;
-  background: rgba(20,20,20,0.9);
-}
-
-/* === BOUTON ENVOYER === */
-form button {
-  display: inline-block;
-  background: radial-gradient(circle at top, #111 0%, #000 100%);
-  color: #fff;
-  border: 2px solid rgba(0, 140, 255, 0.5);
-  border-radius: 40px;
-  padding: 16px 42px;
-  margin-top: 60px; /* <-- espacement augmenté */
-  font-weight: 600;
-  font-size: 1.05rem;
-  letter-spacing: 0.6px;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.35s ease;
-  box-shadow:
-    0 0 10px rgba(0, 140, 255, 0.15),
-    inset 0 0 8px rgba(255, 255, 255, 0.05);
-}
-
-/* 💫 effet de reflet léger */
-form button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(0, 150, 255, 0.25),
-    transparent
-  );
-  transition: all 0.6s ease;
-}
-
-form button:hover::before {
-  left: 120%;
-}
-
-/* ✨ icône d’envoi animée */
-form button::after {
-  content: "📩";
-  font-size: 1.3rem;
-  margin-left: 10px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
-  transform: translateX(-8px);
-}
-
-form button:hover::after {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* 🩵 survol */
-form button:hover {
-  border-color: #00a6ff;
-  box-shadow:
-    0 0 20px rgba(0,170,255,0.6),
-    0 0 35px rgba(0,170,255,0.3),
-    inset 0 0 10px rgba(0,170,255,0.2);
-  transform: translateY(-3px);
-}
-
-form button:active {
-  transform: translateY(0);
-  box-shadow: 0 0 15px rgba(0,123,255,0.4);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 600px) {
-  form {
-    padding: 30px 25px;
-  }
-  form button {
-    width: 100%;
-  }
-}
-
-
-/* =========================================
-   10) EFFETS GLOBAUX (fade-in / parallax)
-   ========================================= */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.scroll-effect {
-  position: relative;
-  will-change: transform;
-  transition: transform 0.1s ease-out;
-}
-
-.parallax-container {
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-
-/* =========================================
-   11) CANVAS ARRIÈRE-PLAN (particules)
-   ========================================= */
-.background-container {
-  position: absolute;
-  inset: 0;      /* top:0; right:0; bottom:0; left:0 */
-  z-index: 0;
-  pointer-events: none;
-}
-
-#particles-bg-projects,
-#particles-bg,
-#particles-bg-skills,
-#particles-bg-contact {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0; 
-}
-
-/* =========================================
-   🌌 PLANÈTES & ANNEAUX (version améliorée)
-   ========================================= */
-.planet-container {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  animation: float 6s ease-in-out infinite;
-  z-index: 0;
-}
-
-.planet-left { left: 10%; }
-.planet-right { right: 10%; }
-
-/* === Base des planètes === */
-.planet {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
-  background: radial-gradient(circle at 30% 30%, #ccc, #222 70%, #000 100%);
-  box-shadow:
-    inset -50px -50px 80px rgba(0,0,0,0.85),
-    0 0 80px rgba(0,191,255,0.3);
-  animation: rotatePlanet 20s linear infinite;
-}
-
-/* 🌠 Halo externe */
-.planet::before {
-  content: "";
-  position: absolute;
-  inset: -25px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,191,255,0.35), transparent 70%);
-  filter: blur(25px);
-  z-index: -1;
-}
-
-/* 🌑 Ombre flottante sous la planète */
-.planet::after {
-  content: "";
-  position: absolute;
-  bottom: -25px;
-  left: 50%;
-  width: 180px;
-  height: 35px;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent);
-  transform: translateX(-50%);
-  filter: blur(10px);
-}
-
-/* === Variantes de planètes === */
-.moon {
-  background: radial-gradient(circle at 35% 35%, #dcdcdc, #8a8a8a 70%, #3b3b3b 100%);
-  box-shadow:
-    inset -40px -40px 70px rgba(0,0,0,0.8),
-    0 0 80px rgba(200,200,255,0.3);
-}
-
-.sun {
-  background: radial-gradient(circle at 40% 40%, #fff8a0, #ff9600 60%, #ff4500 100%);
-  box-shadow:
-    inset -50px -50px 70px rgba(0,0,0,0.6),
-    0 0 150px rgba(255,180,0,0.8);
-}
-
-.mars {
-  background: radial-gradient(circle at 40% 40%, #ff6b4a, #a12b0e 60%, #3c0d04 100%);
-  box-shadow:
-    inset -40px -40px 80px rgba(0,0,0,0.8),
-    0 0 90px rgba(255,90,0,0.4);
-}
-
-.neptune {
-  background: radial-gradient(circle at 40% 40%, #66b3ff, #1a3dab 70%, #001a4d 100%);
-  box-shadow:
-    inset -40px -40px 90px rgba(0,0,0,0.9),
-    0 0 100px rgba(0,150,255,0.4);
-}
-
-/* === Anneaux === */
-.ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 380px;
-  height: 110px;
-  border-radius: 50%;
-  border: 2px solid rgba(0,191,255,0.25);
-  transform: translate(-50%, -50%) rotateX(75deg);
-  animation: spinRing 18s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* 🌈 Anneaux colorés selon la planète */
-.sun + .ring {
-  border-color: rgba(255, 190, 0, 0.3);
-  box-shadow: 0 0 30px rgba(255, 200, 0, 0.4);
-}
-.mars + .ring {
-  border-color: rgba(255, 80, 0, 0.4);
-  box-shadow: 0 0 30px rgba(255, 100, 50, 0.3);
-}
-.neptune + .ring {
-  border-color: rgba(0, 180, 255, 0.4);
-  box-shadow: 0 0 40px rgba(0, 180, 255, 0.3);
-}
-
-/* === Animations === */
-@keyframes float {
-  0%, 100% { transform: translateY(-50%) translateX(0); }
-  50% { transform: translateY(-55%) translateX(5px); }
-}
-
-@keyframes spinRing {
-  from { transform: translate(-50%, -50%) rotateX(75deg) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotateX(75deg) rotate(360deg); }
-}
-
-@keyframes rotatePlanet {
-  from { background-position: 0 0; }
-  to { background-position: 300% 0; }
-}
-
-/* === Responsive === */
-@media (max-width: 768px) {
-  .planet { width: 130px; height: 130px; }
-  .ring { width: 200px; height: 60px; }
-  .planet-left { left: 5%; }
-  .planet-right { right: 5%; }
-}
-@media (max-width: 480px) {
-  .planet-left { left: 10%; }
-  .planet-right { right: 10%; }
-}
-
-
-/* =========================================
-   13) ANIMATIONS (keyframes, centralisées)
-   ========================================= */
-/* Titre qui apparaît & glisse */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Disparition (utilisé par ton JS de titre) */
-@keyframes fadeOut {
-  from { opacity: 1; transform: translateY(0); }
-  to   { opacity: 0; transform: translateY(-10px); }
-}
-
-/* Apparitions de contenu */
-@keyframes fade-in-content {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Zoom d’entrée photo */
-@keyframes zoom-in {
-  from { opacity: 0; transform: scale(0.8); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-/* Slide-up texte */
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Effet néon qui scintille */
-@keyframes neon-blink {
-  0%   { text-shadow: 0 0 5px rgba(0,123,255,0.7), 0 0 10px rgba(0,123,255,0.6), 0 0 15px rgba(0,123,255,0.5); }
-  100% { text-shadow: 0 0 5px rgba(0,123,255,0.7), 0 0 10px rgba(0,123,255,0.6), 0 0 15px rgba(0,123,255,0.5); }
-}
-
-/* Changement fluide couleurs titre */
-@keyframes complexEffect {
-  0%   { transform: scale(1) rotate(0deg);   text-shadow: 0 0 10px rgba(0,123,255,0.8); color: #007bff; }
-  50%  { transform: scale(1.2) rotate(3deg); text-shadow: 0 0 20px rgba(0,204,255,1);  color: #00ccff; }
-  100% { transform: scale(1.1) rotate(-3deg);text-shadow: 0 0 15px rgba(0,123,255,0.9); color: #007bff; }
-}
-
-/* Ligne bleue animée */
-@keyframes lineEffect {
-  0%   { background: #007bff; }
-  50%  { background: #00ccff; }
-  100% { background: #007bff; }
-}
-
-/* Formulaire */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scaleX(0); }
-  to   { opacity: 1; transform: scaleX(1); }
-}
-
-/* Bouton clic */
-@keyframes buttonPress {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(0.95); }
-  100% { transform: scale(1); }
-}
-
-/* Flottement planètes */
-@keyframes float {
-  0%   { transform: translateY(-12px); }
-  50%  { transform: translateY(12px); }
-  100% { transform: translateY(-12px); }
-}
-
-/* Pulsation planètes */
-@keyframes pulse {
-  0%   { transform: scale(1); filter: brightness(1); }
-  50%  { transform: scale(1.07); filter: brightness(1.3); }
-  100% { transform: scale(1); filter: brightness(1); }
-}
-
-/* =========================================
-   14) FOOTER
-   ========================================= */
-
-#footer {
-  background: radial-gradient(circle at center, #050505 0%, #000 100%);
-  padding: 60px 20px;
-  text-align: center;
-  border-top: 1px solid rgba(0, 140, 255, 0.2);
-  color: #ccc;
-  font-size: 1rem;
-  position: relative;
-}
-
-.footer-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.footer-text {
-  margin-bottom: 25px;
-  letter-spacing: 0.5px;
-}
-
-.author-name {
-  color: #00aaff;
-  text-shadow: 0 0 10px rgba(0,170,255,0.7);
-  font-weight: 600;
-}
-
-.footer-icons {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-  margin-top: 25px;
-}
-
-.footer-icons a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 75px;
-  height: 75px;
-  border-radius: 50%; /* ⭕ cercle parfait */
-  background: radial-gradient(circle at center, #0d0d0d 0%, #000 100%);
-  border: 2px solid rgba(0, 191, 255, 0.35);
-  transition: all 0.3s ease;
-  overflow: hidden;
-  box-shadow: inset 0 0 6px rgba(0, 191, 255, 0.1);
-}
-
-.footer-icons img {
-  width: 120%; 
-  height: 85%;
-  border-radius: 50%;
-  object-fit: contain;
-  transition: transform 0.25s ease, filter 0.3s ease;
-  filter: brightness(0.95) contrast(1.1);
-}
-
-/* 🩵 Survol — effet simple et propre */
-.footer-icons a:hover {
-  transform: translateY(-3px) scale(1.05);
-  border-color: #00bfff;
-  background: radial-gradient(circle at center, #0f0f0f 0%, #000 100%);
-}
-
-.footer-icons a:hover img {
-  transform: scale(1.1);
-  filter: brightness(1.2) contrast(1.15);
-}
-
-/* === Responsive === */
-@media (max-width: 600px) {
-  .footer-icons {
-    gap: 25px;
-  }
-  .footer-icons a {
-    width: 55px;
-    height: 55px;
-  }
-  .footer-icons img {
-    width: 80%;
-    height: 80%;
-  }
-}
-
-/* =========================================
-   📱 VERSION MOBILE LÉGÈRE ET LISIBLE (OPTIMISÉE)
-   ========================================= */
-@media (max-width: 768px) {
-
-  /* 💨 Désactive les canvases d’arrière-plan */
-  #particles-bg,
-  #particles-bg-projects,
-  #particles-bg-skills,
-  #particles-bg-contact { display: none !important; }
-
-  /* 🌑 Cache les planètes décoratives */
-  .planet-container { display: none !important; }
-
-  /* 🚫 Supprime le header animé / titre animé */
-  #animated-title { display: none !important; }
-
-  /* ✨ Header simple et fixe */
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.8);
-    padding: 12px 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  header h1 {
-    font-size: 1.3rem;
-    text-shadow: none;
-    color: #00bfff;
-    letter-spacing: 1px;
-  }
-  nav { display: none !important; }
-
-  /* Sections moins hautes */
-  section { min-height: auto !important; }
-
-  /* ================================
-     🧍 SECTION "À PROPOS"
-     ================================ */
-  #about {
-    padding: 80px 0 50px !important;
-    overflow: visible !important;
-    text-align: center;
-  }
-  #about h2 {
-    font-size: 1.6rem !important;
-    margin: 0 0 14px !important;
-    letter-spacing: .5px;
-  }
-  .about-content {
-    max-width: 560px;
-    margin: 0 auto;
-    gap: 16px !important;
-    padding: 0 12px;
-  }
-  .about-inner {
-    display: block !important; /* Empile photo + texte */
-    width: 100%;
-  }
-  .about-photo {
-    display: block;
-    width: 120px !important;
-    height: 120px !important;
-    max-width: none !important;
-    margin: 0 auto 14px !important;
-    box-shadow: none !important;
-  }
-  .about-text {
-  width: 95%;                /* un peu plus large, s’adapte à l’écran */
-  max-width: 380px;          /* permet plus de hauteur, évite le carré tassé */
-  margin: 0 auto !important;
-  padding: 18px 20px !important;
-  font-size: 0.95rem !important;
-  line-height: 1.6 !important;  /* plus aéré = lecture fluide */
-  text-align: justify !important;
-  border-radius: 16px !important;
-  border: 1px solid rgba(0, 140, 255, 0.25);
-  box-shadow: 0 0 8px rgba(0, 140, 255, 0.1);
-  background: radial-gradient(circle at top, #111 0%, #000 100%);
-  overflow-wrap: break-word;
-}
-  .about-text::before { display: none !important; }
-  #about .background-container,
-  #about .planet-container { display: none !important; }
-
-  /* ================================
-     🎮 PROJETS
-     ================================ */
-  #projects { padding: 80px 20px; }
-  .project-grid { grid-template-columns: 1fr; gap: 25px; }
-  .project-card { padding: 25px; }
-  .project-card h3 { font-size: 1.3rem; }
-
-  /* ================================
-     🧠 COMPÉTENCES
-     ================================ */
-  #skills { padding: 80px 20px; }
-  .skills-columns { flex-direction: column; align-items: center; gap: 30px; }
-  .skills-section { width: 100%; padding: 25px 15px; }
-  .skills-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; }
-  .skill-card { padding: 12px 5px; border-radius: 10px; }
-  .skill-card img { width: 45px; height: 45px; }
-  .skill-card h4 { font-size: 0.9rem; }
-  .skill-card .level { font-size: 0.75rem; }
-
-  /* ================================
-     💬 CONTACT
-     ================================ */
-  #contact { padding: 80px 20px; }
-  form { padding: 25px 20px; box-shadow: none; border-radius: 15px; }
-  form button { margin-top: 30px; width: 100%; }
-
-  /* ================================
-     ⚙️ FOOTER
-     ================================ */
-  #footer { padding: 40px 15px; font-size: 0.9rem; }
-  .footer-icons { gap: 20px; }
-  .footer-icons a { width: 55px; height: 55px; }
-  .footer-icons img { width: 85%; height: 85%; }
-
-  /* ✅ Anti-débordements */
-  html, body { overflow-x: hidden !important; overflow-y: auto; }
-  section { overflow: visible !important; }
-}
-
-/* =========================================
-   📱 EXTRA PETITS ÉCRANS (≤480px)
-   ========================================= */
-@media (max-width: 480px) {
-  .about-photo {
-    width: 100px;
-    height: 100px;
-  }
-
-  .about-text {
-    width: 92%;
-    max-width: 360px;          /* un peu plus haut et fluide */
-    font-size: 0.9rem;
-    line-height: 1.55;
-    padding: 14px 18px;
-  }
-
-  #about h2 {
-    font-size: 1.5rem;
-  }
-}
-

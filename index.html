@@ -5,30 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Gabriel Fremaux</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Polices -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    .nocturne-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .gallery-img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 140, 255, 0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      object-fit: cover;
+    }
+    .gallery-img:hover {
+      transform: scale(1.03);
+      border-color: #00bfff;
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
+      z-index: 10;
+    }
+    @media (max-width: 900px) {
+      .nocturne-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- HEADER -->
   <header>
-    <h1 id="animated-title" class="neon-effect">Portfolio de Gabriel Fremaux</h1>
+    <h1 id="animated-title" class="neon-effect">Gabriel Fremaux</h1>
+    <h2 class="job-title" style="color: white; font-family: 'Oswald', sans-serif; font-weight: 300; text-align: center; margin-top: -10px; font-size: 1.5rem;">Technical Game Designer / Gameplay Programmer</h2>
     <nav>
       <ul>
         <li><a href="#about">À propos</a></li>
         <li><a href="#projects">Projets</a></li>
         <li><a href="#skills">Compétences</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Contact & CV</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- SECTION À PROPOS -->
   <section id="about" class="fade-in scroll-effect parallax-container">
     <div class="background-container">
       <canvas id="particles-bg"></canvas>
@@ -41,16 +68,15 @@
         <img src="photo.png" alt="Ma photo" class="about-photo">
         <div class="about-text">
           <p>
-            Issu d'une formation technique (BTS Systèmes Numériques) et actuellement en Licence Game & Level Design, je me positionne à l'intersection de la programmation et de la création.
-            Mon objectif ? Transformer des concepts en expériences jouables. Grâce à ma maîtrise des Blueprints ainsi que mes notions de C# et C++, je conçois et j'implémente des mécaniques de gameplay en gardant toujours l'expérience utilisateur et le Game Feel au centre de mon travail.
-            Habitué à Unity et Unreal Engine, je suis aussi à l'aise pour structurer du code propre et utiliser Git que pour itérer sur des boucles de jeu intuitives. 
-            Curieux et polyvalent, j'aime résoudre les défis techniques qui permettent de donner vie à une vision créative.
+            Issu d'un BTS Systèmes Numériques et actuellement en Licence Game & Level Design, mon profil hybride se situe à l'intersection du code et de la création. 
+            Habitué à Unity et Unreal Engine (C#, Blueprints), je conçois et j'implémente des mécaniques de gameplay fonctionnelles et intuitives. 
+            Je suis aussi à l'aise pour structurer du code propre et utiliser Git que pour itérer sur des boucles de jeu. 
+            Curieux et polyvalent, mon objectif est simple : résoudre les défis techniques pour transformer une vision créative en une expérience jouable.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Planète décorative -->
     <div class="planet-container planet-left">
       <div class="planet mars"></div>
       <div class="ring"></div>
@@ -67,50 +93,106 @@
     </div>
 
     <div class="project-grid">
-      <div class="project-card fade-in">
-        <h3 class="neon-effect">Wraithvale</h3>
-        <img src="icons/Wraithvale.png" alt="Wraithvale" class="project-img">
-        <p>
-          Le joueur incarne un mercenaire solitaire de retour dans son village natal, pour y découvrir un paysage de désolation où tout a tragiquement changé. 
-          L'atmosphère est lourde, oppressante, et la certitude qu'une présence invisible nous observe ne nous quitte plus. 
-          Dans cette expérience mêlant horreur et exploration, l'objectif sera de fouiller chaque recoin pour dénicher huit clés dissimulées. C'est en rassemblant et en lisant les notes dispersées, laissées derrière les habitants que l'on pourra reconstituerer le puzzle de ce drame. 
-          Mais l'exploration n'est pas sans risque : de redoutables esprits vengeurs rôdent désormais sans relâche.
-        </p>
-        <a href="https://z000m.itch.io/night-catch" class="itchio-button" target="_blank">Téléchargez sur Itch.io</a>
-      </div>
 
       <div class="project-card fade-in">
-        <h3 class="neon-effect">The Fourth Mark</h3>
-        <img src="icons/TFM4.png" alt="The Fourth Mark" class="project-img">
-        <p>
-          Projet de level design universitaire, ici le joueur incarne un éclaireur envoyé en mission au village de Ironmouth.
-          Son objectif est de renouer contact avec la base stratégique du village se trouvant au plus profond des égouts... 
-          Résolvez les puzzles, faites attention aux obstacles sur votre route et découvrez la vérité.
-        </p>
-        <a href="https://z000m.itch.io/the-fourth-mark" class="itchio-button" target="_blank">Téléchargez sur Itch.io</a>
-      </div>
+        <h3 class="neon-effect">OMG C LA FIN DU MONDE ????!!! </h3>
+        <video src="OMGCLAFINDUMONDE.mp4" autoplay loop muted playsinline class="project-video" style="width: 100%; border-radius: 8px;"></video>
+        
+        <ul style="list-style-type: none; padding: 0; margin-bottom: 15px; color: #ccc; font-size: 0.9rem;">
+            <li><strong>Rôle :</strong> Programmeur Gameplay</li>
+            <li><strong>Équipe :</strong> Equipe de 6</li>
+            <li><strong>Durée :</strong> 3 mois</li>
+            <li><strong>Tâches clés :</strong> Architecture C#, Intégration Game Feel.</li>
+        </ul>
 
-      <div class="project-card fade-in">
-        <h3 class="neon-effect">Phantom Pulse</h3>
-        <img src="icons/PP2.png" alt="Phantom Pulse" class="project-img">
         <p>
-         Né d'un défi universitaire, Phantom Pulse est un rogue-lite minimaliste qui fait le pari de l'intensité pure sans graphismes. 
-         Le principe est aussi simple que redoutable : plongés dans l'obscurité, les ennemis clignotent un court instant pour révéler leur position, deviennent totalement invisibles, puis vous foncent dessus. 
-         Notre mémoire visuelle se transforme alors en véritable mécanique de combat pour anticiper leurs trajectoires et survivre aux vagues qui s'enchaînent. 
-         Mémorisez, Tuez, Survivez !
+         Mon Projet de Fin d'Études. 
+         Un Visual Novel narratif et stratégique où le joueur incarne la plus grande influenceuse du monde. 
+         Contactée par un robot venu d'un futur détruit par la 3ème Guerre mondiale, elle doit utiliser sa notoriété colossale pour déjouer l'apocalypse. 
+         Le gameplay repose sur l'effet papillon : il faut subtilement orienter le contenu de ses posts et gérer l'engagement de sa communauté pour changer le cours de l'Histoire, sachant que chaque action entraîne des conséquences inattendues. 
+        </p>
+        <a href="https://z000m.itch.io/omg-c-la-fin-du-monde" class="itchio-button" target="_blank">Jouez sur Itch.io</a>
+      </div>
+        
+      <div class="project-card fade-in">
+        <h3 class="neon-effect">Phantom Pulse </h3>
+        <video src="phantom_pulse.mp4" autoplay loop muted playsinline class="project-video" style="width: 100%; border-radius: 8px;"></video>
+        
+        <ul style="list-style-type: none; padding: 0; margin-bottom: 15px; color: #ccc; font-size: 0.9rem;">
+            <li><strong>Rôle :</strong> Programmeur Gameplay</li>
+            <li><strong>Équipe :</strong> Solo</li>
+            <li><strong>Durée :</strong> 1 mois</li>
+            <li><strong>Tâches clés :</strong> Architecture C#, IA procédurale, intégration Game Feel.</li>
+        </ul>
+
+        <p>
+        <strong>Un clignement d'œil, et vous êtes mort.</strong> <em>Phantom Pulse</em> est un rogue-lite shooter minimaliste qui se joue dans l'obscurité totale. Vos ennemis n'apparaissent qu'une fraction de seconde avant de devenir complètement invisibles. Mémorisez leur dernière position, anticipez leurs mouvements, et fiez-vous à votre instinct pour tirer dans le vide.<br><br>
+          
         </p>
         <a href="https://z000m.itch.io/phantom-pulse" class="itchio-button" target="_blank">Jouez sur Itch.io</a>
       </div>
 
-      <div class="project-card professional-project fade-in">
-        <h3 class="neon-effect">Projet Personnel - Nocturne: Whisper of Shadows</h3>
+      <div class="project-card fade-in">
+        <h3 class="neon-effect">The Fourth Mark</h3>
+        <video src="the_fourth_mark.mp4" autoplay loop muted playsinline class="project-video" style="width: 100%; border-radius: 8px;"></video>
+
+        <div style="color: #ccc; font-size: 0.9rem; margin-bottom: 20px; text-align: left;">
+          <strong>Rôle :</strong> Level & Narrative Designer<br>
+          <strong>Équipe :</strong> Solo<br>
+          <strong>Durée :</strong> 1 mois<br>
+          <strong>Tâches clés :</strong>  Level Design / Greyblocking, Intégration de Puzzle & Lore.
+        </div>
+
         <p>
-        Nocturne: Whispers of Shadows est un Action-RPG narratif conçu comme un cauchemar éveillé, fusionnant l'exploration systémique d'un Zelda à l'atmosphère cryptique d'un Souls-like. 
-        Sous l'éclat d'une lune dévorante et guidé par une Ombre intérieure au discours ambigu, le joueur incarne un métamorphe amnésique dont le corps est l'unique moteur de progression. 
-        En remplaçant l'équipement traditionnel par des métamorphoses organiques transformant physiquement le héros, le gameplay évolue au rythme d'un monde semi-ouvert aux physiques en constants changements. 
-        Dans cette quête de rédemption, chaque souvenir retrouvé et chaque mutation rapprochent le joueur d'une vérité enfouie, l'obligeant à reconstruire son passé tout en échappant à un mystérieux traqueur qui semble le connaître mieux que lui-même.
-        </p> <a href="https://www.canva.com/design/DAG_LV72hHw/JTlxrvARyfi6bP4aSZZbTg/edit?utm_content=DAG_LV72hHw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" class="itchio-button" target="_blank">Moodboard de mes idées</a>
+          Conçu dans le cadre d'un projet universitaire centré sur le Level Design, <em>The Fourth Mark</em>  place le joueur dans la peau d'un éclaireur envoyé en mission dans le village isolé d'Ironmouth. L'objectif est crucial : renouer le contact avec une base stratégique secrète, dissimulée au plus profond des égouts de la ville. 
+          <br><br>
+          La progression propose une véritable descente vers l'inconnu, de la surface du village jusqu'aux égouts. Pour atteindre l'objectif, le joueur naviguera à travers plusieurs environnements, résoudre des énigmes et surmonter divers obstacles dressés sur sa route.
+        </p>
+
+        <a href="https://z000m.itch.io/the-fourth-mark" class="itchio-button" target="_blank">Téléchargez sur Itch.io</a>
       </div>
+
+    <div class="project-card fade-in">
+        <h3 class="neon-effect">Wraithvale</h3>
+        <video src="videos/wraithvale.mp4" autoplay loop muted playsinline class="project-video" style="width: 100%; border-radius: 8px;"></video>
+
+        <div style="color: #ccc; font-size: 0.9rem; margin-bottom: 20px; text-align: left;">
+          <strong>Rôle :</strong> Programmeur Gameplay<br>
+          <strong>Équipe :</strong> Solo<br>
+          <strong>Durée :</strong> 3 mois<br>
+          <strong>Tâches clés :</strong> Architecture Blueprints, Game & Level Design, Intégration de puzzle et de lore.
+        </div>
+
+        <p>
+          <strong>Wraithvale</strong> est une expérience horrifique courte et intense qui prend place dans un village western oublié. Dans la peau d'un mercenaire de retour d'une longue mission, vous découvrez que votre foyer a été englouti par la mort et les ténèbres. Les rues sont silencieuses, les bâtiments tombent en ruine... et vous sentez rapidement que quelque chose vous observe dans l'ombre.<br><br>
+
+          Pour espérer vous échapper, vous devrez explorer cet environnement oppressant afin de dénicher huit clés dissimulées. L'histoire se dévoile à travers la collecte de notes éparpillées, permettant de reconstituer le puzzle de cette malédiction. Mais l'exploration n'est pas sans risque, car des esprits vengeurs rôdent sur ces terres. Toute la tension du jeu repose sur une mécanique de gestion de ressources : vous devez fouiller les environs pour trouver des piles et garder votre lampe torche allumée. Car si la lumière vient à s'éteindre, vous comprendrez bien vite que vous n'êtes pas seul dans l'obscurité.
+        </p>
+
+        <a href="https://z000m.itch.io/night-catch" class="itchio-button" target="_blank">Téléchargez sur itch.io</a>
+      </div>
+
+      <div class="project-card fade-in" style="grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px;">
+        <h3 class="neon-effect" style="margin-bottom: 20px;">Nocturne: Whisper of Shadows</h3>
+        
+        <div style="color: #ccc; font-size: 0.9rem; margin-bottom: 25px;">
+            <strong>Rôle : Créateur du concept </strong>
+        </div>
+        
+        <p style="text-align: justify; max-width: 1000px; margin-bottom: 40px; font-size: 1.15rem; line-height: 1.7; color: #dcdcdc;">
+          Conçu comme un cauchemar éveillé, <em>Nocturne: Whispers of Shadows</em> est un projet d'Action-RPG narratif à la croisée entre l'exploration systémique d'un <em>Zelda</em> et l'atmosphère exigeante d'un <em>Souls-like</em>. Le joueur y incarne un ancien commandant déchu et amnésique, condamné à errer dans les ruines de l'empire qu'il a lui-même détruit. Hanté par une Ombre intérieure au discours trompeur, votre seul moteur de progression est votre propre chair.
+          <br><br>
+          Le cœur du jeu repose sur l'abandon de l'équipement classique au profit d'un système de métamorphoses organiques. Chaque nouveau pouvoir acquis mute physiquement le héros et redéfinit totalement son approche du monde et des combats. À travers un monde semi-ouvert sombre et interconnecté, il faudra maîtriser ces transformations pour survivre, reconstituer une mémoire fragmentée, et faire face à un univers qui réagit à votre propre culpabilité.
+        </p>
+
+        <div class="nocturne-gallery">
+          <img src="Thème.png" alt="Thème Nocturne" class="gallery-img">
+          <img src="Environnement.png" alt="Environnements Nocturne" class="gallery-img">
+          <img src="Transformations.png" alt="Transformations Nocturne" class="gallery-img">
+          <img src="Prototype de map faites sur Inkarnate.png" alt="Carte Nocturne" class="gallery-img">
+        </div>
+      </div>
+
     </div>
 
     <div class="planet-container planet-right">
@@ -119,7 +201,6 @@
     </div>
   </section>
 
-  <!-- SECTION COMPÉTENCES -->
   <section id="skills">
     <div class="background-container">
       <canvas id="particles-bg-skills"></canvas>
@@ -128,7 +209,6 @@
     <h2 class="title">Mes Compétences</h2>
 
     <div class="skills-columns">
-      <!-- Bloc Logiciels -->
       <div class="skills-section">
         <h3>Logiciels</h3>
         <div class="skills-grid">
@@ -140,7 +220,6 @@
         </div>
       </div>
 
-      <!-- Bloc Codages -->
       <div class="skills-section">
         <h3>Codages</h3>
         <div class="skills-grid">
@@ -154,20 +233,19 @@
       </div>
     </div>
 
-    <!-- Petite planète décorative -->
     <div class="planet-container planet-left">
       <div class="planet moon"></div>
       <div class="ring"></div>
     </div>
   </section>
 
-  <!-- SECTION CONTACT -->
   <section id="contact" class="fade-in">
     <div class="background-container">
       <canvas id="particles-bg-contact"></canvas>
     </div>
 
     <h2>Contactez-moi</h2>
+
     <form action="https://formspree.io/f/xdkakvpe" method="POST">
       <label for="name">Nom :</label>
       <input type="text" id="name" name="name" required placeholder="Entrez votre nom">
@@ -181,14 +259,16 @@
       <button type="submit">Envoyer</button>
     </form>
 
-    <!-- Petite planète SOLEIL -->
+    <div style="text-align: center; margin-bottom: 40px;">
+    <a href="CV-Stage.pdf" download="CV-Stage.pdf" class="cv-download-btn">Télécharger mon CV</a>
+    </div>
+
     <div class="planet-container planet-right">
       <div class="planet sun"></div>
       <div class="ring"></div>
     </div>
   </section>
 
-<!-- 🌙 FOOTER -->
 <footer id="footer">
   <div class="footer-container">
     <p class="footer-text">
@@ -202,18 +282,13 @@
       <a href="https://z000m.itch.io/" target="_blank" title="Itch.io">
         <img src="icons/itch.png" alt="Itch.io">
       </a>
-      <a href="CV-Stage.pdf" download="CV-Stage.pdf" title="Télécharger mon CV">
-      <img src="icons/cv.png" alt="CV">
-      </a>
     </div>
   </div>
 </footer>
 
-  <!-- SCRIPT -->
   <script>
-    /* ton JavaScript original intact */
+    /* Ton JavaScript original ici (identique à ton code source) */
     document.addEventListener("DOMContentLoaded", () => {
-      // 🌟 Apparition des éléments au défilement
       const elements = document.querySelectorAll('.fade-in, .project-card');
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -224,7 +299,6 @@
       });
       elements.forEach(el => observer.observe(el));
 
-      // 🎤 Animation du titre principal
       const title = document.getElementById("animated-title");
       if (title) {
         const text = title.innerText;
@@ -247,7 +321,6 @@
         animateText();
       }
 
-      // 🌀 Particules animées pour chaque section
       function createParticles(canvasId) {
         const canvas = document.getElementById(canvasId);
         if (!canvas) return;
@@ -283,7 +356,6 @@
       createParticles("particles-bg-skills");
       createParticles("particles-bg-contact");
 
-      // 🎯 Animation barres de compétences
       const skillBars = document.querySelectorAll('.skill-bar span');
       function animateSkillBars() {
         skillBars.forEach((bar, index) => {
@@ -311,7 +383,6 @@
       }, { threshold: 0.5 });
       skillBars.forEach(bar => skillObserver.observe(bar));
 
-      // 🌐 Animation section contact
       const contactSection = document.getElementById('contact');
       if (contactSection) {
         const formElements = document.querySelectorAll('#contact form label, #contact form input, #contact form textarea, #contact form button');
@@ -329,7 +400,6 @@
         contactObserver.observe(contactSection);
       }
 
-      // 📱 Menu burger
       const menuToggle = document.querySelector(".menu-toggle");
       const navLinks = document.querySelector("nav ul");
       if (menuToggle && navLinks) {
@@ -348,4 +418,3 @@
   </script>
 </body>
 </html>
-
