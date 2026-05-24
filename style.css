@@ -1,5 +1,5 @@
 /* =========================================
-   1) VARIABLES, RESET & POLICES
+  VARIABLES, RESET & POLICES
    ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap');
 
@@ -8,14 +8,12 @@
   --font-main: 'Quicksand', sans-serif;
   --font-title: 'Oswald', sans-serif;
 
-  /* Couleurs principales */
   --text-main: #e0e0e0;
   --text-muted: #ccc;
   --accent-blue: #007bff;
   --accent-cyan: #00bfff;
   --accent-hover: #00a6ff;
 
-  /* Arrière-plans */
   --bg-dark: #0d0d0d;
   --bg-darker: #050505;
   --bg-black: #000;
@@ -43,7 +41,7 @@ body {
 }
 
 /* =========================================
-   2) SECTIONS (pleine hauteur, centrées)
+   SECTIONS (pleine hauteur, centrées)
    ========================================= */
 section {
   min-height: 100vh;
@@ -61,7 +59,7 @@ section {
 }
 
 /* =========================================
-   3) HEADER GLOBAL & NAVIGATION
+  HEADER GLOBAL & NAVIGATION
    ========================================= */
 header {
   position: fixed;
@@ -129,7 +127,6 @@ body.scrolled header {
   padding: 10px 0 8px;
 }
 
-/* === MENU BURGER === */
 .menu-toggle {
   display: none; flex-direction: column; cursor: pointer;
   position: absolute; right: 20px; top: 15px;
@@ -140,7 +137,7 @@ body.scrolled header {
 }
 
 /* =========================================
-   4) TITRES COMMUNS & EFFETS NÉON
+   TITRES COMMUNS & EFFETS NÉON
    ========================================= */
 #about h2, .title-container h2, #skills .title, #contact h2 {
   font-family: var(--font-title); font-size: 3rem; font-weight: 700;
@@ -166,7 +163,7 @@ body.scrolled header {
 }
 
 /* =========================================
-   5) SECTION À PROPOS
+   SECTION À PROPOS
    ========================================= */
 #about {
   background: radial-gradient(circle at center, var(--bg-darker) 0%, var(--bg-black) 100%);
@@ -212,7 +209,7 @@ body.scrolled header {
 .about-text p { margin-bottom: 18px; color: #d8d8d8; }
 
 /* =========================================
-   6) SECTION PROJETS
+    PROJETS
    ========================================= */
 #projects {
   background: radial-gradient(circle at center, var(--bg-darker) 0%, var(--bg-black) 100%);
@@ -251,7 +248,6 @@ body.scrolled header {
 .project-card .project-video { grid-area: image; width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; border: 1px solid rgba(0, 140, 255, 0.2); }
 .project-card p { grid-area: texte; font-size: 1.15rem; color: #dcdcdc; line-height: 1.7; text-align: justify; }
 
-/* BOUTONS GLOBAUX (Itch.io & CV) */
 .itchio-button, .cv-download-btn {
   display: inline-block; background: radial-gradient(circle at top, #111 0%, var(--bg-black) 100%);
   color: #fff; border: 2px solid rgba(0, 140, 255, 0.5); border-radius: 40px;
@@ -269,14 +265,13 @@ body.scrolled header {
 .itchio-button:hover::before, .cv-download-btn:hover::before, form button:hover::before { left: 120%; }
 .itchio-button:hover, .cv-download-btn:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba(0, 170, 255, 0.6), 0 0 35px rgba(0, 170, 255, 0.3), inset 0 0 10px rgba(0, 170, 255, 0.2); transform: translateY(-3px); }
 
-/* PROJET PRO */
 .professional-project { display: flex !important; flex-direction: column !important; justify-content: center; padding: 50px 60px; }
 .professional-project h3 { text-align: center; width: 100%; margin-bottom: 20px; }
 .professional-project p { width: 100%; text-align: justify; margin-bottom: 40px; font-size: 1.2rem; }
 .professional-project .itchio-button, .professional-project .cv-download-btn { width: auto; }
 
 /* =========================================
-   7) SECTION COMPÉTENCES 
+  COMPÉTENCES 
    ========================================= */
 
 #skills {
@@ -420,7 +415,7 @@ body.scrolled header {
 }
 
 /* =========================================
-   8) SECTION CONTACT & FORMULAIRE
+   CONTACT
    ========================================= */
 #contact {
   background: radial-gradient(circle at center, var(--bg-darker) 0%, var(--bg-black) 100%);
@@ -457,7 +452,7 @@ form button:hover::after { opacity: 1; transform: translateX(0); }
 form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba(0,170,255,0.6); transform: translateY(-3px); }
 
 /* =========================================
-   9) FOOTER
+   FOOTER
    ========================================= */
 #footer {
   background: radial-gradient(circle at center, var(--bg-darker) 0%, var(--bg-black) 100%);
@@ -523,7 +518,7 @@ form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba
 }
 
 /* =========================================
-   10) EFFETS, ANIMATIONS ET DÉCORS (Planètes)
+   EFFETS, ANIMATIONS ET DÉCORS 
    ========================================= */
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.3s ease, transform 0.3s ease; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
@@ -559,7 +554,7 @@ form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba
 @keyframes rotatePlanet { to { background-position: 300% 0; } }
 
 /* =========================================
-   11) MEDIA QUERIES (Responsive Centralisé)
+  MEDIA QUERIES 
    ========================================= */
 @media (max-width: 1024px) {
   .project-card { grid-template-columns: 1fr; grid-template-areas: "titre" "image" "texte" "bouton"; padding: 30px; }
@@ -571,7 +566,6 @@ form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba
 }
 
 @media (max-width: 768px) {
-  /* Masquer animations lourdes sur mobile */
   #particles-bg, #particles-bg-projects, #particles-bg-skills, #particles-bg-contact, .planet-container, #animated-title { display: none !important; }
   
   header { position: fixed; background: rgba(0, 0, 0, 0.95); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
