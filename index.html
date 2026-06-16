@@ -4,44 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Gabriel Fremaux</title>
-
   <link rel="stylesheet" href="style.css" />
-
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   <style>
-    .nocturne-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      width: 100%;
-      margin-top: 20px;
-    }
-    .gallery-img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      border: 1px solid rgba(0, 140, 255, 0.2);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      object-fit: cover;
-    }
-    .gallery-img:hover {
-      transform: scale(1.03);
-      border-color: #00bfff;
-      box-shadow: 0 0 25px rgba(0, 191, 255, 0.4);
-      z-index: 10;
-    }
-    @media (max-width: 900px) {
-      .nocturne-gallery {
-        grid-template-columns: 1fr;
-      }
-    }
+    .nocturne-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; margin-top: 20px; }
+    .gallery-img { width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(0, 140, 255, 0.2); box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; object-fit: cover; }
+    .gallery-img:hover { transform: scale(1.03); border-color: #00bfff; box-shadow: 0 0 25px rgba(0, 191, 255, 0.4); z-index: 10; }
+    @media (max-width: 900px) { .nocturne-gallery { grid-template-columns: 1fr; } }
   </style>
 </head>
-
 <body>
   <header>
     <h1 id="animated-title" class="neon-effect">Gabriel Fremaux</h1>
@@ -57,175 +30,166 @@
   </header>
 
   <section id="about" class="fade-in scroll-effect parallax-container">
-    <div class="background-container">
-      <canvas id="particles-bg"></canvas>
-    </div>
-
-    <div class="about-content">
-      <h2 style="color: #007BFF;">À propos de moi</h2>
-
-      <div class="about-inner">
-        <img src="photo.png" alt="Ma photo" class="about-photo">
-        <div class="about-text">
-          <p>
-            Issu d'un BTS Systèmes Numériques et actuellement en Licence Game & Level Design, mon profil hybride se situe à l'intersection du code et de la création. 
-            Habitué à Unity et Unreal Engine (C#, Blueprints), je conçois et j'implémente des mécaniques de gameplay fonctionnelles et intuitives. 
-            Je suis aussi à l'aise pour structurer du code propre et utiliser Git que pour itérer sur des boucles de jeu. 
-            Curieux et polyvalent, mon objectif est simple : résoudre les défis techniques pour transformer une vision créative en une expérience jouable.
-          </p>
+    <div class="background-container"><canvas id="particles-bg"></canvas></div>
+    <div class="about-global-wrapper">
+      <div class="about-title-zone">
+        <h2>À propos de moi</h2>
+      </div>
+      <div class="about-diagonal-layout">
+        <div class="about-photo-container">
+          <img src="GABRIEL_PHOTO-PRO-removebg.png" alt="Ma photo" class="about-photo">
+          <div class="thought-bubbles-track">
+            <div class="t-bubble b-1"></div>
+            <div class="t-bubble b-2"></div>
+            <div class="t-bubble b-3"></div>
+            <div class="t-bubble b-4"></div>
+          </div>
+        </div>
+        <div class="about-text-bubble">
+          <p>Issu d'un BTS Systèmes Numériques et actuellement en Licence Game & Level Design, mon profil hybride se situe à l'intersection du code et de la création. Habitué à Unity et Unreal Engine (C#, Blueprints), je conçois et j'implémente des mécaniques de gameplay fonctionnelles et intuitives. Je suis aussi à l'aise pour structurer du code propre et utiliser Git que pour itérer sur des boucles de jeu. Curieux et polyvalent, mon objectif est simple : résoudre les défis techniques pour transformer une vision créative en une expérience jouable.</p>
         </div>
       </div>
     </div>
-
-    <div class="planet-container planet-left">
+    <div class="planet-container planet-right">
       <div class="planet mars"></div>
       <div class="ring"></div>
     </div>
   </section>
 
   <section id="projects" class="page-content">
-    <div class="background-container">
-      <canvas id="particles-bg-projects"></canvas>
-    </div>
-
-    <div class="title-container">
-      <h2>Mes Projets de Jeux Vidéo</h2>
-    </div>
-
+    <div class="background-container"><canvas id="particles-bg-projects"></canvas></div>
+    <div class="title-container"><h2>Mes Projets de Jeux Vidéo</h2></div>
     <div class="project-grid">
-
       <div class="project-card fade-in">
-        <h3 class="neon-effect">OMG C LA FIN DU MONDE ????!!! </h3>
-       <video src="./OMGCLAFINDUMONDE.mp4" autoplay loop muted playsinline class="project-video" style="width: 100%; border-radius: 8px; background-color: #111;"></video>
-        
-        <ul style="list-style-type: none; padding: 0; margin-bottom: 15px; color: #ccc; font-size: 0.9rem;">
-            <li><strong>Rôle :</strong> Programmeur Gameplay</li>
-            <li><strong>Équipe :</strong> Equipe de 6</li>
-            <li><strong>Durée :</strong> 3 mois</li>
-            <li><strong>Tâches clés :</strong> Architecture C#, Intégration Game Feel.</li>
-        </ul>
-
-        <p>
-         Mon Projet de Fin d'Études. 
-         Un Visual Novel narratif et stratégique où le joueur incarne la plus grande influenceuse du monde. 
-         Contactée par un robot venu d'un futur détruit par la 3ème Guerre mondiale, elle doit utiliser sa notoriété colossale pour déjouer l'apocalypse. 
-         Le gameplay repose sur l'effet papillon : il faut subtilement orienter le contenu de ses posts et gérer l'engagement de sa communauté pour changer le cours de l'Histoire, sachant que chaque action entraîne des conséquences inattendues. 
-        </p>
-        <a href="https://z000m.itch.io/omg-c-la-fin-du-monde" class="itchio-button" target="_blank">Jouez sur Itch.io</a>
-      </div>
-        
-      <div class="project-card fade-in">
-        <h3 class="neon-effect">Phantom Pulse </h3>
-        <video src="./phantom_pulse.mp4" autoplay loop muted playsinline class="project-video" style="width: 100%; border-radius: 8px; background-color: #111;"></video>
-        
-        <ul style="list-style-type: none; padding: 0; margin-bottom: 15px; color: #ccc; font-size: 0.9rem;">
-            <li><strong>Rôle :</strong> Programmeur Gameplay</li>
-            <li><strong>Équipe :</strong> Solo</li>
-            <li><strong>Durée :</strong> 1 mois</li>
-            <li><strong>Tâches clés :</strong> Architecture C#, Equilibrage, intégration Game Feel.</li>
-        </ul>
-
-        <p>
-        <strong>Un clignement d'œil, et vous êtes mort.</strong> <em>Phantom Pulse</em> est un rogue-lite shooter minimaliste qui se joue dans l'obscurité totale. Les ennemis n'apparaissent qu'une fraction de seconde avant de devenir complètement invisibles. Mémorisez leur dernière position, anticipez leurs mouvements, et fiez-vous à votre instinct pour tirer dans le vide.<br><br>
-          
-        </p>
-        <a href="https://z000m.itch.io/phantom-pulse" class="itchio-button" target="_blank">Jouez sur Itch.io</a>
-      </div>
-
-      <div class="project-card fade-in">
-        <h3 class="neon-effect">The Fourth Mark</h3>
-        <video src="./the_fourth_mark.mp4" autoplay loop muted playsinline class="project-video" style="width: 100%; border-radius: 8px; background-color: #111;"></video>
-
-        <div style="color: #ccc; font-size: 0.9rem; margin-bottom: 20px; text-align: left;">
-          <strong>Rôle :</strong> Level & Narrative Designer<br>
-          <strong>Équipe :</strong> Solo<br>
-          <strong>Durée :</strong> 1 mois<br>
-          <strong>Tâches clés :</strong>  Level Design / Greyblocking, Intégration de Puzzle & Lore.
-        </div>
-
-        <p>
-          <em>The Fourth Mark</em>  place le joueur dans la peau d'un éclaireur envoyé en mission dans le village isolé d'Ironmouth. L'objectif est crucial : renouer le contact avec une base stratégique secrète, dissimulée au plus profond des égouts de la ville. 
-          <br><br>
-          La progression propose une véritable descente vers l'inconnu, de la surface du village jusqu'aux égouts. Pour atteindre l'objectif, le joueur naviguera à travers plusieurs environnements, résoudra des énigmes et devra surmonter divers obstacles dressés sur sa route.
-        </p>
-
-        <a href="https://z000m.itch.io/the-fourth-mark" class="itchio-button" target="_blank">Téléchargez sur Itch.io</a>
-      </div>
-
-      <div class="project-card fade-in">
-        <h3 class="neon-effect">Acknowledged</h3>
-        <img src="Acknowledged.png" alt="Prototype du jeu de société" class="project-video" style="width: 100%; height: auto; border-radius: 8px; background-color: #111; aspect-ratio: 16/9; object-fit: cover;">
-
-        <div style="color: #ccc; font-size: 0.9rem; margin-bottom: 20px; text-align: left;">
-          <strong>Rôle :</strong> Game Designer<br>
-          <strong>Équipe :</strong> 3 <br>
-          <strong>Durée :</strong> 1 semaine <br>
-          <strong>Tâches clés :</strong> Réalisations et équilibrages des questions 
-        </div>
-
-        <p>
-          Développé lors d'une Game Jam universitaire, ce jeu de société est un quiz abordant le thème de l'égalité des sexes. Les joueurs y incarnent des femmes savantes du XIXème siècle luttant pour faire reconnaître leurs découvertes scientifiques.
-          <br><br>
-          L'objectif est de prouver son intelligence en répondant à des séries de questions plus ou moins compliquées pour accumuler du savoir et imposer ses travaux face au sexisme de l'époque.
-        </p>
-      </div>
-
-    <div class="project-card fade-in">
-        <h3 class="neon-effect">Wraithvale</h3>
-       <video src="./wraithvale.mp4" autoplay loop muted playsinline class="project-video" style="width: 100%; border-radius: 8px; background-color: #111;"></video>
-
-        <div style="color: #ccc; font-size: 0.9rem; margin-bottom: 20px; text-align: left;">
+        <video src="./OMGCLAFINDUMONDE.mp4" autoplay loop muted playsinline class="project-video" style="background-color: #111;"></video>
+        <h3 class="neon-effect">OMG C LA FIN DU MONDE ??!!</h3>
+        <div class="project-infos">
           <strong>Rôle :</strong> Programmeur Gameplay <br>
-          <strong>Équipe :</strong> Solo <br>
-          <strong>Durée :</strong> 3 mois (Premier jeu personnel)<br>
-          <strong>Tâches clés :</strong> Architecture Blueprints, Game & Level Design, Intégration de puzzle et de lore.
+          <strong>Équipe :</strong> 6 pers. | <strong>Durée :</strong> 3 mois <br>
+          <strong>Tâches clés :</strong> Architecture C#, Intégration Game Feel.
         </div>
-
-        <p>
-          <strong>Wraithvale</strong> est une expérience horrifique courte et intense qui prend place dans un village western oublié. Dans la peau d'un mercenaire de retour d'une longue mission, vous découvrez que votre foyer a été englouti par la mort et les ténèbres. Les rues sont silencieuses, les bâtiments tombent en ruine... et vous sentez rapidement que quelque chose vous observe dans l'ombre.<br><br>
-
-          Pour espérer vous échapper, vous devrez explorer cet environnement oppressant afin de dénicher huit clés dissimulées. L'histoire se dévoile à travers la collecte de notes éparpillées, permettant de reconstituer le puzzle de cette malédiction. Mais l'exploration n'est pas sans risque, car des esprits vengeurs rôdent sur ces terres. Toute la tension du jeu repose sur une mécanique de gestion de ressources : vous devez fouiller les environs pour trouver des piles et garder votre lampe torche allumée. Car si la lumière vient à s'éteindre, vous comprendrez bien vite que vous n'êtes pas seul dans l'obscurité.
-        </p>
-
-        <a href="https://z000m.itch.io/night-catch" class="itchio-button" target="_blank">Téléchargez sur itch.io</a>
+        <div class="desc-short">Un Visual Novel où le joueur incarne la plus grande influenceuse du monde pour déjouer l'apocalypse via les réseaux sociaux.</div>
+        <div class="desc-full">
+          <p>Mon Projet de Fin d'Études. Un Visual Novel narratif et stratégique où le joueur incarne la plus grande influenceuse du monde. Contactée par un robot venu d'un futur détruit par la 3ème Guerre mondiale, elle doit utiliser sa notoriété colossale pour déjouer l'apocalypse.</p>
+          <p>Le gameplay repose sur l'effet papillon : il faut subtilement orienter le contenu de ses posts et gérer l'engagement de sa communauté pour changer le cours de l'Histoire, sachant que chaque action entraîne des conséquences inattendues.</p>
+        </div>
+        <div class="card-buttons">
+          <a href="https://z000m.itch.io/omg-c-la-fin-du-monde" class="itchio-button" target="_blank">Télécharger</a>
+          <button class="btn-more">En savoir plus</button>
+        </div>
+      </div>
+        
+      <div class="project-card fade-in">
+        <video src="./phantom_pulse.mp4" autoplay loop muted playsinline class="project-video" style="background-color: #111;"></video>
+        <h3 class="neon-effect">Phantom Pulse</h3>
+        <div class="project-infos">
+          <strong>Rôle :</strong> Programmeur Gameplay <br>
+          <strong>Équipe :</strong> Solo | <strong>Durée :</strong> 1 mois <br>
+          <strong>Tâches clés :</strong> Architecture C#, Équilibrage, Game Feel.
+        </div>
+        <div class="desc-short">Un clignement d'œil, et vous êtes mort. Fiez-vous à votre instinct pour survivre car votre mémoire est votre seule alliée.</div>
+        <div class="desc-full">
+          <p><strong>Un clignement d'œil, et vous êtes mort.</strong> <em>Phantom Pulse</em> est un rogue-lite shooter minimaliste qui se joue dans l'obscurité totale.</p>
+          <p>Les ennemis n'apparaissent qu'une fraction de seconde avant de devenir complètement invisibles. Mémorisez leur dernière position, anticipez leurs mouvements, et fiez-vous à votre instinct pour tirer dans le vide. Un véritable test de mémoire spatiale et de réflexes.</p>
+        </div>
+        <div class="card-buttons">
+          <a href="https://z000m.itch.io/phantom-pulse" class="itchio-button" target="_blank">Jouer</a>
+          <button class="btn-more">En savoir plus</button>
+        </div>
       </div>
 
-      <div class="project-card fade-in" style="grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px;">
+      <div class="project-card fade-in">
+        <video src="./the_fourth_mark.mp4" autoplay loop muted playsinline class="project-video" style="background-color: #111;"></video>
+        <h3 class="neon-effect">The Fourth Mark</h3>
+        <div class="project-infos">
+          <strong>Rôle :</strong> Level & Narrative Designer <br>
+          <strong>Équipe :</strong> Solo | <strong>Durée :</strong> 1 mois <br>
+          <strong>Tâches clés :</strong> Level Design, Greyblocking, Puzzles & Lore.
+        </div>
+        <div class="desc-short">Incarnez un éclaireur en mission dans le village isolé d'Ironmouth. Une descente vers l'inconnu...</div>
+        <div class="desc-full">
+          <p><em>The Fourth Mark</em> place le joueur dans la peau d'un éclaireur envoyé en mission dans le village isolé d'Ironmouth. L'objectif est crucial : renouer le contact avec une base stratégique secrète, dissimulée au plus profond des égouts de la ville.</p>
+          <p>La progression propose une véritable descente vers l'inconnu, de la surface du village jusqu'aux égouts. Pour atteindre l'objectif, le joueur naviguera à travers plusieurs environnements, résoudra des énigmes et devra surmonter divers obstacles dressés sur sa route.</p>
+        </div>
+        <div class="card-buttons">
+          <a href="https://z000m.itch.io/the-fourth-mark" class="itchio-button" target="_blank">Télécharger</a>
+          <button class="btn-more">En savoir plus</button>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <video src="./wraithvale.mp4" autoplay loop muted playsinline class="project-video" style="background-color: #111;"></video>
+        <h3 class="neon-effect">Wraithvale</h3>
+        <div class="project-infos">
+          <strong>Rôle :</strong> Programmeur Gameplay <br>
+          <strong>Équipe :</strong> Solo | <strong>Durée :</strong> 3 mois <br>
+          <strong>Tâches clés :</strong> Blueprints, Game & Level Design, Puzzle & Lore.
+        </div>
+        <div class="desc-short">Un mercenaire de retour de mission, un village plongé dans les ténébres.. saurez-vous vous échapper ?</div>
+        <div class="desc-full">
+          <p><strong>Wraithvale</strong> est une expérience horrifique courte et intense qui prend place dans un village western oublié. Dans la peau d'un mercenaire de retour d'une longue mission, vous découvrez que votre foyer a été englouti par la mort et les ténèbres. Les rues sont silencieuses, les bâtiments tombent en ruine... et vous sentez rapidement que quelque chose vous observe dans l'ombre.</p>
+          <p>Pour espérer vous échapper, vous devrez explorer cet environnement oppressant afin de dénicher huit clés dissimulées. L'histoire se dévoile à travers la collecte de notes éparpillées. Toute la tension du jeu repose sur une mécanique de gestion de ressources : vous devez fouiller les environs pour trouver des piles et garder votre lampe torche allumée. Car si la lumière vient à s'éteindre, vous comprendrez bien vite que vous n'êtes pas seul dans l'obscurité.</p>
+        </div>
+        <div class="card-buttons">
+          <a href="https://z000m.itch.io/night-catch" class="itchio-button" target="_blank">Télécharger</a>
+          <button class="btn-more">En savoir plus</button>
+        </div>
+      </div>
+
+      <div class="project-card fade-in">
+        <img src="Acknowledged.png" alt="Prototype du jeu de société" class="project-video" style="background-color: #111;">
+        <h3 class="neon-effect">Acknowledged</h3>
+        <div class="project-infos">
+          <strong>Rôle :</strong> Game Designer <br>
+          <strong>Équipe :</strong> 3 pers. | <strong>Durée :</strong> 1 semaine <br>
+          <strong>Tâches clés :</strong> Réalisations et équilibrages des questions.
+        </div>
+        <div class="desc-short">Développé lors d'une Game Jam, ce jeu de société est un quiz où les joueurs incarnent des femmes savantes du XIXème siècle.</div>
+        <div class="desc-full">
+          <p>Développé lors d'une Game Jam universitaire, ce jeu de société est un quiz abordant le thème de l'égalité des sexes. Les joueurs y incarnent des femmes savantes du XIXème siècle luttant pour faire reconnaître leurs découvertes scientifiques.</p>
+          <p>L'objectif est de prouver son intelligence en répondant à des séries de questions plus ou moins compliquées pour accumuler du savoir et imposer ses travaux face au sexisme de l'époque.</p>
+        </div>
+        <div class="card-buttons">
+          <button class="btn-more" style="flex: 100%;">En savoir plus</button>
+        </div>
+      </div>
+
+      <div class="project-card fade-in professional-project">
         <h3 class="neon-effect" style="margin-bottom: 20px;">Nocturne: Whisper of Shadows</h3>
-        
-        <div style="color: #ccc; font-size: 0.9rem; margin-bottom: 25px;">
-            <strong>Rôle : Créateur du concept </strong>
+        <div style="color: #ccc; font-size: 1rem; margin-bottom: 25px;">
+          <strong>Rôle : Créateur du concept </strong>
         </div>
-        
-        <p style="text-align: justify; max-width: 1000px; margin-bottom: 40px; font-size: 1.15rem; line-height: 1.7; color: #dcdcdc;">
-          Conçu comme un cauchemar éveillé, <em>Nocturne: Whispers of Shadows</em> est un projet d'Action-RPG narratif à la croisée entre l'exploration systémique d'un <em>Zelda</em> et l'atmosphère exigeante d'un <em>Souls-like</em>. Le joueur y incarne un ancien commandant déchu et amnésique, condamné à errer dans les ruines de l'empire qu'il a lui-même détruit. Hanté par une Ombre intérieure au discours trompeur, votre seul moteur de progression est votre propre chair.
-          <br><br>
-          Le cœur du jeu repose sur l'abandon de l'équipement classique au profit d'un système de métamorphoses organiques. Chaque nouveau pouvoir acquis mute physiquement le héros et redéfinit totalement son approche du monde et des combats. À travers un monde semi-ouvert sombre et interconnecté, il faudra maîtriser ces transformations pour survivre, reconstituer une mémoire fragmentée, et faire face à un univers qui réagit à votre propre culpabilité.
-        </p>
-
-        <div class="nocturne-gallery">
-          <img src="Thème.png" alt="Thème Nocturne" class="gallery-img">
-          <img src="Environnement.png" alt="Environnements Nocturne" class="gallery-img">
-          <img src="Transformations.png" alt="Transformations Nocturne" class="gallery-img">
-          <img src="Prototype de map faites sur Inkarnate.png" alt="Carte Nocturne" class="gallery-img">
+        <div style="max-width: 1000px; margin: 0 auto;">
+          <p style="text-align: justify; margin-bottom: 30px; font-size: 1.15rem; line-height: 1.7; color: #dcdcdc;">
+            Conçu comme un cauchemar éveillé, <em>Nocturne: Whispers of Shadows</em> est un projet d'Action-RPG narratif à la croisée entre l'exploration systémique d'un <em>Zelda</em> et l'atmosphère exigeante d'un <em>Souls-like</em>. Le joueur y incarne un ancien commandant déchu et amnésique, condamné à errer dans les ruines de l'empire qu'il a lui-même détruit. Hanté par une Ombre intérieure au discours trompeur, votre seul moteur de progression est votre propre chair.
+            <br><br>
+            Le cœur du jeu repose sur l'abandon de l'équipement classique au profit d'un système de métamorphoses organiques. Chaque nouveau pouvoir acquis mute physiquement le héros et redéfinit totalement son approche du monde et des combats. À travers un monde semi-ouvert sombre et interconnecté, il faudra maîtriser ces transformations pour survivre, reconstituer une mémoire fragmentée, et faire face à un univers qui réagit à votre propre culpabilité.
+          </p>
+          <div class="nocturne-gallery">
+            <img src="Thème.png" alt="Thème Nocturne" class="gallery-img">
+            <img src="Environnement.png" alt="Environnements Nocturne" class="gallery-img">
+            <img src="Transformations.png" alt="Transformations Nocturne" class="gallery-img">
+            <img src="Prototype de map faites sur Inkarnate.png" alt="Carte Nocturne" class="gallery-img">
+          </div>
         </div>
       </div>
-
     </div>
-
-    <div class="planet-container planet-right">
+    <div class="planet-container planet-left">
       <div class="planet neptune"></div>
       <div class="ring"></div>
     </div>
   </section>
 
-  <section id="skills">
-    <div class="background-container">
-      <canvas id="particles-bg-skills"></canvas>
+  <div id="project-modal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div id="modal-body"></div>
     </div>
+  </div>
 
+  <section id="skills">
+    <div class="background-container"><canvas id="particles-bg-skills"></canvas></div>
     <h2 class="title">Mes Compétences</h2>
-
     <div class="skills-columns">
       <div class="skills-section">
         <h3>Logiciels</h3>
@@ -237,7 +201,6 @@
           <div class="skill-card"><img src="icons/blender.png" alt="Blender"><h4>Blender</h4><span class="level beginner">Débutant</span></div>
         </div>
       </div>
-
       <div class="skills-section">
         <h3>Codages</h3>
         <div class="skills-grid">
@@ -250,76 +213,56 @@
         </div>
       </div>
     </div>
-
-    <div class="planet-container planet-left">
+    <div class="planet-container planet-right">
       <div class="planet moon"></div>
       <div class="ring"></div>
     </div>
   </section>
 
   <section id="contact" class="fade-in">
-    <div class="background-container">
-      <canvas id="particles-bg-contact"></canvas>
-    </div>
-
+    <div class="background-container"><canvas id="particles-bg-contact"></canvas></div>
     <h2>Contactez-moi</h2>
-
     <form action="https://formspree.io/f/xdkakvpe" method="POST">
       <label for="name">Nom :</label>
       <input type="text" id="name" name="name" required placeholder="Entrez votre nom">
-
       <label for="email">Email :</label>
       <input type="email" id="email" name="email" required placeholder="Entrez votre email">
-
       <label for="message">Message :</label>
       <textarea id="message" name="message" required placeholder="Entrez votre message"></textarea>
-
       <button type="submit">Envoyer</button>
     </form>
-
     <div style="text-align: center; margin-bottom: 40px;">
-    <a href="CV-Stage.pdf" download="CV-Stage.pdf" class="cv-download-btn">Télécharger mon CV</a>
+      <a href="CV-Stage.pdf" download="CV-Stage.pdf" class="cv-download-btn">Télécharger mon CV</a>
     </div>
-
-    <div class="planet-container planet-right">
+    <div class="planet-container planet-left">
       <div class="planet sun"></div>
       <div class="ring"></div>
     </div>
   </section>
 
-<footer id="footer">
-  <div class="footer-container">
-    <p class="footer-text">
-      © 2025 — Site créé par <span class="author-name">Gabriel Fremaux</span>
-    </p>
-
-    <div class="footer-icons">
-      <a href="https://www.linkedin.com/in/gabriel-fremaux-a01aa0320/" target="_blank" title="LinkedIn">
-        <img src="icons/linkedin.png" alt="LinkedIn">
-      </a>
-      <a href="https://z000m.itch.io/" target="_blank" title="Itch.io">
-        <img src="icons/itch.png" alt="Itch.io">
-      </a>
+  <footer id="footer">
+    <div class="footer-container">
+      <p class="footer-text">© 2025 — Site créé par <span class="author-name">Gabriel Fremaux</span></p>
+      <div class="footer-icons">
+        <a href="https://www.linkedin.com/in/gabriel-fremaux-a01aa0320/" target="_blank" title="LinkedIn"><img src="icons/linkedin.png" alt="LinkedIn"></a>
+        <a href="https://z000m.itch.io/" target="_blank" title="Itch.io"><img src="icons/itch.png" alt="Itch.io"></a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const elements = document.querySelectorAll('.fade-in, .project-card');
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); }
         });
       });
       elements.forEach(el => observer.observe(el));
 
       const title = document.getElementById("animated-title");
       if (title) {
-        const text = title.innerText;
-        title.innerHTML = "";
+        const text = title.innerText; title.innerHTML = "";
         function animateText() {
           title.innerHTML = "";
           text.split("").forEach((char, index) => {
@@ -339,19 +282,15 @@
       }
 
       function createParticles(canvasId) {
-        const canvas = document.getElementById(canvasId);
-        if (!canvas) return;
+        const canvas = document.getElementById(canvasId); if (!canvas) return;
         const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
         let particles = [];
         const colors = ["#001F3F", "#00509e", "#00bcd4", "#33ccff", "#6a0dad", "#9400d3", "#ff1493", "#ff69b4", "#ffffff", "#e0e0e0"];
         class Particle {
           constructor(x, y) {
-            this.x = x; this.y = y;
-            this.size = Math.random() * 3.5 + 1;
-            this.speedX = Math.random() * 3 - 1.5;
-            this.speedY = Math.random() * 3 - 1.5;
+            this.x = x; this.y = y; this.size = Math.random() * 3.5 + 1;
+            this.speedX = Math.random() * 3 - 1.5; this.speedY = Math.random() * 3 - 1.5;
             this.color = colors[Math.floor(Math.random() * colors.length)];
           }
           update() { this.x += this.speedX; this.y += this.speedY; if (this.size > 0.2) this.size -= 0.1; }
@@ -368,37 +307,8 @@
         }
         animateParticles();
       }
-      createParticles("particles-bg");
-      createParticles("particles-bg-projects");
-      createParticles("particles-bg-skills");
-      createParticles("particles-bg-contact");
-
-      const skillBars = document.querySelectorAll('.skill-bar span');
-      function animateSkillBars() {
-        skillBars.forEach((bar, index) => {
-          setTimeout(() => {
-            const percent = bar.getAttribute('data-percent');
-            bar.style.width = percent;
-            bar.classList.add('animated');
-            bar.setAttribute('data-content', percent);
-            const percentText = bar.nextElementSibling;
-            if (percentText && percentText.classList.contains('percent-text')) {
-              percentText.textContent = percent;
-              percentText.style.opacity = 1;
-              percentText.style.transform = "translateY(-50%) translateX(15px) scale(1.1)";
-            }
-          }, index * 400);
-        });
-      }
-      const skillObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateSkillBars();
-            observer.disconnect();
-          }
-        });
-      }, { threshold: 0.5 });
-      skillBars.forEach(bar => skillObserver.observe(bar));
+      createParticles("particles-bg"); createParticles("particles-bg-projects");
+      createParticles("particles-bg-skills"); createParticles("particles-bg-contact");
 
       const contactSection = document.getElementById('contact');
       if (contactSection) {
@@ -407,9 +317,7 @@
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               contactSection.classList.add('visible');
-              formElements.forEach((el, index) => {
-                setTimeout(() => el.classList.add('visible'), index * 200);
-              });
+              formElements.forEach((el, index) => { setTimeout(() => el.classList.add('visible'), index * 200); });
               contactObserver.unobserve(contactSection);
             }
           });
@@ -421,16 +329,54 @@
       const navLinks = document.querySelector("nav ul");
       if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", function () {
-          navLinks.classList.toggle("active");
-          menuToggle.classList.toggle("active");
+          navLinks.classList.toggle("active"); menuToggle.classList.toggle("active");
         });
         document.querySelectorAll("nav ul li a").forEach(link => {
-          link.addEventListener("click", () => {
-            navLinks.classList.remove("active");
-            menuToggle.classList.remove("active");
-          });
+          link.addEventListener("click", () => { navLinks.classList.remove("active"); menuToggle.classList.remove("active"); });
         });
       }
+
+      const modal = document.getElementById('project-modal');
+      const modalBody = document.getElementById('modal-body');
+      const closeBtn = document.querySelector('.close-modal');
+      const btnMoreList = document.querySelectorAll('.btn-more');
+
+      btnMoreList.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const card = e.target.closest('.project-card'); 
+          
+          const titleHtml = card.querySelector('h3').outerHTML;
+          const videoHtml = card.querySelector('.project-video').outerHTML;
+          const infosHtml = card.querySelector('.project-infos').outerHTML;
+          const fullDescHtml = card.querySelector('.desc-full').innerHTML;
+          
+          const itchBtn = card.querySelector('.itchio-button');
+          const itchHtml = itchBtn ? `<div style="text-align: center; margin-top: 30px;">${itchBtn.outerHTML}</div>` : '';
+
+          modalBody.innerHTML = `
+            ${videoHtml}
+            ${titleHtml}
+            ${infosHtml}
+            <div class="desc-full">${fullDescHtml}</div>
+            ${itchHtml}
+          `;
+
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden'; 
+        });
+      });
+
+      const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto'; 
+        setTimeout(() => { modalBody.innerHTML = ''; }, 400);
+      };
+
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+      window.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
     });
   </script>
 </body>
