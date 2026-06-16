@@ -600,7 +600,7 @@ body.scrolled header {
 }
 
 /* =========================================
-  SECTION COMPÉTENCES 
+   SECTION COMPÉTENCES 
    ========================================= */
 
 #skills {
@@ -621,7 +621,7 @@ body.scrolled header {
   font-family: var(--font-title); 
   font-size: 2.2rem; 
   color: #0084ff; 
-  text-shadow: 0 0 10px rgba(0,132,255,0.7); 
+  text-shadow: 0 0 15px rgba(0,132,255,0.8), 0 0 30px rgba(0,132,255,0.5); 
   margin-bottom: 45px; 
   text-transform: uppercase; 
   letter-spacing: 3px; 
@@ -667,6 +667,7 @@ body.scrolled header {
   z-index: 2;
 }
 
+/* Couleurs des bordures de la carte au survol selon le niveau */
 .skill-card:has(.advanced):hover {
   border-color: #00d4ff; 
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), inset 0 0 10px rgba(0, 212, 255, 0.15); 
@@ -682,26 +683,18 @@ body.scrolled header {
   box-shadow: 0 0 20px rgba(199, 125, 255, 0.5), inset 0 0 10px rgba(199, 125, 255, 0.15); 
 }
 
+/* L'icône pure sans le néon */
 .skill-card img { 
   width: 60px; 
   height: 60px; 
   object-fit: contain; 
   margin-bottom: 12px; 
-  filter: drop-shadow(0 0 5px rgba(0, 191, 255, 0.3));
-  transition: all 0.3s ease; 
+  transition: transform 0.3s ease; 
 }
 
-.skill-card:has(.advanced):hover img { 
+/* Juste un petit zoom de l'icône au survol, c'est plus sobre */
+.skill-card:hover img { 
   transform: scale(1.1); 
-  filter: drop-shadow(0 0 18px rgba(0, 212, 255, 0.9)); 
-}
-.skill-card:has(.intermediate):hover img { 
-  transform: scale(1.1); 
-  filter: drop-shadow(0 0 18px rgba(0, 255, 179, 0.9)); 
-}
-.skill-card:has(.beginner):hover img { 
-  transform: scale(1.1); 
-  filter: drop-shadow(0 0 18px rgba(199, 125, 255, 0.9)); 
 }
 
 .skill-card h4 { 
@@ -905,15 +898,13 @@ form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba
 @keyframes rotatePlanet { to { background-position: 300% 0; } }
 
 /* =========================================
-   TITRES DE SECTIONS & EFFETS NÉON (Style Laser Corrigé)
+   TITRES DE SECTIONS
    ========================================= */
 
-/* Centrage du conteneur À propos */
 .about-title-zone { 
   text-align: center; 
 }
 
-/* 1. GRANDS TITRES DE SECTIONS (Correction du sélecteur compétences) */
 #about h2, #projects .title-container h2, #skills h2, #skills .title, #contact h2 {
   font-family: var(--font-title);
   font-weight: 700;
@@ -924,13 +915,10 @@ form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba
   display: inline-block;
   margin: 0 auto 50px auto;
   text-align: center;
-  
-  /* Blanc doux pour les yeux */
   color: #e2e8f0; 
   animation: neon-text-glow 3s infinite alternate ease-in-out;
 }
 
-/* Le trait en dessous (Retour de l'effet laser estompé + Animation) */
 #about h2::after, #projects .title-container h2::after, #skills h2::after, #skills .title::after, #contact h2::after {
   content: '';
   position: absolute;
@@ -940,14 +928,12 @@ form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba
   height: 4px;
   border-radius: 4px;
   
-  /* On remet le dégradé super cool qui s'efface sur les côtés */
   background: linear-gradient(90deg, transparent, currentColor, transparent);
   
-  /* L'animation gère la taille et la couleur magique via currentColor */
+ 
   animation: line-laser-pulse 4s infinite alternate ease-in-out;
 }
 
-/* 2. TITRE PRINCIPAL DU HEADER */
 #animated-title { 
   display: flex; justify-content: center; align-items: center; height: 100px; 
 }
@@ -955,7 +941,6 @@ form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba
   opacity: 0; transform: translateY(10px); display: inline-block; animation: fadeInUp 0.05s forwards; 
 }
 
-/* 3. TITRES DES CARTES DE PROJETS */
 .neon-effect {
   font-family: var(--font-title); 
   font-weight: bold; 
@@ -968,10 +953,9 @@ form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba
 }
 
 /* =========================================
-   ANIMATIONS CLÉS DES TITRES
+   ANIMATIONS DES TITRES
    ========================================= */
 
-/* Lueur de l'hologramme sur le texte */
 @keyframes neon-text-glow {
   0% {
     text-shadow: 0 0 10px rgba(0, 132, 255, 0.4), 0 0 20px rgba(0, 132, 255, 0.2);
@@ -981,21 +965,20 @@ form button:hover { border-color: var(--accent-hover); box-shadow: 0 0 20px rgba
   }
 }
 
-/* L'effet Laser : Respiration de la taille + Transition des 3 Bleus */
 @keyframes line-laser-pulse {
   0% { 
     width: 100px; 
-    color: #0084ff; /* Le centre du dégradé devient Bleu de base */
+    color: #0084ff; 
     box-shadow: 0 0 10px rgba(0, 132, 255, 0.5); 
   }
   50% { 
-    width: 220px; /* La ligne s'étire */
-    color: #00d4ff; /* Le centre du dégradé devient Cyan givré */
+    width: 220px;
+    color: #00d4ff; 
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.8); 
   }
   100% { 
     width: 150px; 
-    color: #0044ff; /* Le centre du dégradé devient Bleu électrique */
+    color: #0044ff; 
     box-shadow: 0 0 15px rgba(0, 68, 255, 0.6); 
   }
 }
