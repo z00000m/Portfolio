@@ -19,6 +19,12 @@
   <header>
     <h1 id="animated-title" class="neon-effect">Gabriel Fremaux</h1>
     <h2 class="job-title" style="color: white; font-family: 'Oswald', sans-serif; font-weight: 300; text-align: center; margin-top: -10px; font-size: 1.5rem;">Technical Game Designer / Gameplay Programmer</h2>
+    
+    <!-- AJOUT DU BOUTON MENU MOBILE -->
+    <div class="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
+
     <nav>
       <ul>
         <li><a href="#about">À propos</a></li>
@@ -37,7 +43,8 @@
       </div>
       <div class="about-diagonal-layout">
         <div class="about-photo-container">
-          <img src="GABRIEL_PHOTO-PRO-removebg.png" alt="Ma photo" class="about-photo">
+          <!-- CORRECTION LIEN IMAGE (Ajout du ./) -->
+          <img src="./GABRIEL_PHOTO-PRO-removebg.png" alt="Ma photo" class="about-photo">
           <div class="thought-bubbles-track">
             <div class="t-bubble b-1"></div>
             <div class="t-bubble b-2"></div>
@@ -60,7 +67,6 @@
     <div class="background-container"><canvas id="particles-bg-projects"></canvas></div>
     <div class="title-container"><h2>Mes Projets de Jeux Vidéo</h2></div>
     
-    <!-- Barre de navigation des projets -->
     <div class="project-tabs">
         <button class="project-tab active" data-index="0">OMG C LA FIN DU MONDE ??!!</button>
         <button class="project-tab" data-index="1">Phantom Pulse</button>
@@ -70,7 +76,6 @@
         <button class="project-tab" data-index="5">Nocturne : WoS</button>
     </div>
 
-    <!-- Conteneur principal d'affichage -->
     <div class="project-display">
       
       <!-- OMG -->
@@ -164,7 +169,8 @@
       <!-- Acknowledged -->
       <div class="project-pane">
         <div class="pane-media">
-          <img src="Acknowledged.png" alt="Prototype du jeu de société" class="project-video" style="background-color: #111;">
+          <!-- CORRECTION LIEN IMAGE (Ajout du ./) -->
+          <img src="./Acknowledged.png" alt="Prototype du jeu de société" class="project-video" style="background-color: #111;">
         </div>
         <div class="pane-content">
           <h3 class="neon-effect">Acknowledged</h3>
@@ -194,10 +200,11 @@
               Le cœur du jeu repose sur l'abandon de l'équipement classique au profit d'un système de métamorphoses organiques. Chaque nouveau pouvoir acquis mute physiquement le héros et redéfinit totalement son approche du monde et des combats. À travers un monde semi-ouvert sombre et interconnecté, il faudra maîtriser ces transformations pour survivre, reconstituer une mémoire fragmentée, et faire face à un univers qui réagit à votre propre culpabilité.
             </p>
             <div class="nocturne-gallery">
-              <img src="Thème.png" alt="Thème Nocturne" class="gallery-img">
-              <img src="Environnement.png" alt="Environnements Nocturne" class="gallery-img">
-              <img src="Transformations.png" alt="Transformations Nocturne" class="gallery-img">
-              <img src="Prototype de map faites sur Inkarnate.png" alt="Carte Nocturne" class="gallery-img">
+              <!-- CORRECTION LIENS IMAGES (Ajout du ./) -->
+              <img src="./Thème.png" alt="Thème Nocturne" class="gallery-img">
+              <img src="./Environnement.png" alt="Environnements Nocturne" class="gallery-img">
+              <img src="./Transformations.png" alt="Transformations Nocturne" class="gallery-img">
+              <img src="./map-prototype.png" alt="Carte Nocturne" class="gallery-img">
             </div>
           </div>
         </div>
@@ -218,22 +225,22 @@
       <div class="skills-section">
         <h3>Logiciels</h3>
         <div class="skills-grid">
-          <div class="skill-card"><img src="icons/github.png" alt="GitHub"><h4>GitHub</h4><span class="level advanced">Avancé</span></div>
-          <div class="skill-card"><img src="icons/vscode.png" alt="VS Code"><h4>Visual Studio Code</h4><span class="level intermediate">Intermédiaire</span></div>
-          <div class="skill-card"><img src="icons/unreal.png" alt="Unreal Engine"><h4>Unreal Engine</h4><span class="level intermediate">Intermédiaire</span></div>
-          <div class="skill-card"><img src="icons/unity.png" alt="Unity"><h4>Unity</h4><span class="level intermediate">Intermédiaire</span></div>
-          <div class="skill-card"><img src="icons/blender.png" alt="Blender"><h4>Blender</h4><span class="level beginner">Débutant</span></div>
+          <div class="skill-card"><img src="./icons/github.png" alt="GitHub"><h4>GitHub</h4><span class="level advanced">Avancé</span></div>
+          <div class="skill-card"><img src="./icons/vscode.png" alt="VS Code"><h4>Visual Studio Code</h4><span class="level intermediate">Intermédiaire</span></div>
+          <div class="skill-card"><img src="./icons/unreal.png" alt="Unreal Engine"><h4>Unreal Engine</h4><span class="level intermediate">Intermédiaire</span></div>
+          <div class="skill-card"><img src="./icons/unity.png" alt="Unity"><h4>Unity</h4><span class="level intermediate">Intermédiaire</span></div>
+          <div class="skill-card"><img src="./icons/blender.png" alt="Blender"><h4>Blender</h4><span class="level beginner">Débutant</span></div>
         </div>
       </div>
       <div class="skills-section">
         <h3>Codages</h3>
         <div class="skills-grid">
-          <div class="skill-card"><img src="icons/css.png" alt="CSS"><h4>CSS</h4><span class="level advanced">Avancé</span></div>
-          <div class="skill-card"><img src="icons/html.png" alt="HTML"><h4>HTML</h4><span class="level advanced">Avancé</span></div>
-          <div class="skill-card"><img src="icons/c.png" alt="C"><h4>C</h4><span class="level intermediate">Intermédiaire</span></div>
-          <div class="skill-card"><img src="icons/cpp.png" alt="C++"><h4>C++</h4><span class="level intermediate">Intermédiaire</span></div>
-          <div class="skill-card"><img src="icons/csharp.png" alt="C#"><h4>C#</h4><span class="level intermediate">Intérmédiaire</span></div>
-          <div class="skill-card"><img src="icons/js.png" alt="JavaScript"><h4>JavaScript</h4><span class="level beginner">Débutant</span></div>
+          <div class="skill-card"><img src="./icons/css.png" alt="CSS"><h4>CSS</h4><span class="level advanced">Avancé</span></div>
+          <div class="skill-card"><img src="./icons/html.png" alt="HTML"><h4>HTML</h4><span class="level advanced">Avancé</span></div>
+          <div class="skill-card"><img src="./icons/c.png" alt="C"><h4>C</h4><span class="level intermediate">Intermédiaire</span></div>
+          <div class="skill-card"><img src="./icons/cpp.png" alt="C++"><h4>C++</h4><span class="level intermediate">Intermédiaire</span></div>
+          <div class="skill-card"><img src="./icons/csharp.png" alt="C#"><h4>C#</h4><span class="level intermediate">Intérmédiaire</span></div>
+          <div class="skill-card"><img src="./icons/js.png" alt="JavaScript"><h4>JavaScript</h4><span class="level beginner">Débutant</span></div>
         </div>
       </div>
     </div>
@@ -268,21 +275,21 @@
     <div class="footer-container">
       <p class="footer-text">© 2025 — Site créé par <span class="author-name">Gabriel Fremaux</span></p>
       <div class="footer-icons">
-        <a href="https://www.linkedin.com/in/gabriel-fremaux-a01aa0320/" target="_blank" title="LinkedIn"><img src="icons/linkedin.png" alt="LinkedIn"></a>
-        <a href="https://z000m.itch.io/" target="_blank" title="Itch.io"><img src="icons/itch.png" alt="Itch.io"></a>
+        <a href="https://www.linkedin.com/in/gabriel-fremaux-a01aa0320/" target="_blank" title="LinkedIn"><img src="./icons/linkedin.png" alt="LinkedIn"></a>
+        <a href="https://z000m.itch.io/" target="_blank" title="Itch.io"><img src="./icons/itch.png" alt="Itch.io"></a>
       </div>
     </div>
   </footer>
 
   <!-- Modal pour zoomer les images (Lightbox) -->
-<div id="image-lightbox" class="lightbox-overlay">
-  <span class="close-lightbox">&times;</span>
-  <img id="lightbox-img" src="" alt="Zoom">
-</div>
+  <div id="image-lightbox" class="lightbox-overlay">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="Zoom">
+  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Fade-in Observer
+      
       const elements = document.querySelectorAll('.fade-in');
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -291,7 +298,6 @@
       });
       elements.forEach(el => observer.observe(el));
 
-      // 2. Animated Title
       const title = document.getElementById("animated-title");
       if (title) {
         const text = title.innerText; title.innerHTML = "";
@@ -313,7 +319,6 @@
         animateText();
       }
 
-      // 3. Particles
       function createParticles(canvasId) {
         if (window.innerWidth <= 900) return; 
         const canvas = document.getElementById(canvasId); if (!canvas) return;
@@ -344,7 +349,6 @@
       createParticles("particles-bg"); createParticles("particles-bg-projects");
       createParticles("particles-bg-skills"); createParticles("particles-bg-contact");
 
-      // 4. Contact Observer
       const contactSection = document.getElementById('contact');
       if (contactSection) {
         const formElements = document.querySelectorAll('#contact form label, #contact form input, #contact form textarea, #contact form button');
@@ -360,7 +364,6 @@
         contactObserver.observe(contactSection);
       }
 
-      // 5. Mobile Menu Toggle
       const menuToggle = document.querySelector(".menu-toggle");
       const navLinks = document.querySelector("nav ul");
       if (menuToggle && navLinks) {
@@ -412,8 +415,7 @@
       if (tabs.length > 0) {
         startAutoPlay();
       }
-    });
-    // 7. Lightbox pour les images de la galerie 
+
       const lightbox = document.getElementById("image-lightbox");
       const lightboxImg = document.getElementById("lightbox-img");
       const closeLightbox = document.querySelector(".close-lightbox");
@@ -428,7 +430,6 @@
           });
         });
 
-        // Fermer la lightbox
         const closeLightboxFunction = () => {
           lightbox.classList.remove("active");
           document.body.style.overflow = "auto"; 
@@ -442,6 +443,8 @@
           }
         });
       }
+
+    }); 
   </script>
 </body>
 </html>
