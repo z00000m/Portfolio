@@ -29,7 +29,8 @@
 html, body {
   height: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 90;
+  scroll-padding-top: 90; 
+  overflow-y: auto;
 }
 
 body {
@@ -71,6 +72,7 @@ header {
   padding: 18px 0 12px;
   transition: all 0.4s ease;
   backdrop-filter: blur(6px);
+  padding-right: calc(100vw - 100%);
 }
 
 header::after {
